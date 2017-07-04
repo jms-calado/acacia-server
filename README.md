@@ -1,6 +1,6 @@
 # ACACIA ontology
 
-Microservice that generates customized ontology programmes according to user interests or job/role. Receives user-input via REST, queries an OWL ontology with SPARQL and outputs data as JSON.
+Microservice for the general usage of the ACACIA Ontology. Receives user-input via REST, queries an OWL ontology with SPARQL and outputs data as JSON.
 
 Built with [Dropwizard framework](www.dropwizard.io/) and [Apache Jena](https://jena.apache.org/).
 

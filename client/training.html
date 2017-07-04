@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8"/>
+		<title>Customised Training Service | Aquasmart</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css">
+		<link rel="stylesheet" href="css/autocomplete.css">
+		<link rel="stylesheet" href="css/tree.css">
+		<link rel="stylesheet" href="css/training.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#topics" aria-controls="topics" role="tab" data-toggle="tab">Topics</a></li>
+				<li role="presentation"><a href="#audience" aria-controls="audience" role="tab" data-toggle="tab">Target Audience</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="topics">
+					<fieldset>
+						<legend>Granularity:</legend>
+						<div class="switch-toggle well">
+							<input id="courses" name="granularity" type="radio" checked value="courses">
+							<label for="courses" onclick="initAutocomplete('courses');">Courses</label>
+							<input id="modules" name="granularity" type="radio" value="modules">
+							<label for="modules" onclick="initAutocomplete('modules');">Modules</label>
+							<a class="btn btn-primary"></a>
+						</div>
+					</fieldset>
+					<p>Enter keywords for the topics or skills you would like to learn:</p>
+					<div class="input-group">
+						<input id="keywords-input" type="text" class="form-control" data-role="tagsinput"/>
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button" disabled="disabled"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Generate</button>
+						</span>
+					</div>
+					<div class="tree"></div>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="audience">
+					<fieldset>
+						<legend>Level of expertise in aquaculture domain:</legend>
+						<div class="switch-toggle well">
+							<input id="basic" name="expertise" type="radio" checked value="basic">
+							<label for="basic">Basic</label>
+							<input id="expert" name="expertise" type="radio" value="expert">
+							<label for="expert">Expert</label>
+							<a class="btn btn-primary"></a>
+						</div>
+					</fieldset>
+					<div class="input-group">
+						<select class="selectpicker" title="Select your job/role">
+							<option>Business Owner</option>
+							<option>Data Analyst</option>
+							<option>Farm Manager</option>
+							<option>IT Manager</option>
+							<option>Production Manager</option>
+						</select>
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button" disabled="disabled"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Generate</button>
+						</span>
+					</div>
+					<div class="tree"></div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.0.0/json2html.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.json2html/1.0.0/jquery.json2html.min.js"></script>
+		<script src="js/bootstrap-tagsinput.min.js"></script>
+		<script src="js/autocomplete.js"></script>
+		<script src="js/tree.js"></script>
+	</body>
+</html>

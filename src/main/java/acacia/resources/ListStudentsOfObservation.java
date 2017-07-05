@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.Pattern;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,23 +16,25 @@ import org.hibernate.validator.constraints.NotEmpty;
 import acacia.dataobjects.ConstantURIs;
 import acacia.services.QueryExecutor;
 
-@Path("/find/{user}/{name}")
+@Path("/list_students_of_observation/{observation}")
 @Produces(MediaType.APPLICATION_JSON)
-public class FindUser extends Resource {
+public class ListStudentsOfObservation extends Resource {
 	
-	public FindUser(QueryExecutor qe) {
+	public ListStudentsOfObservation(QueryExecutor qe) {
 		super(qe);
 	}
 
 	@GET
-	public List<Map<String, String>> search(@PathParam("user") @Pattern(regexp = "Student|Teacher") @NotEmpty String user, @PathParam("name") @NotEmpty String name) throws FileNotFoundException {
+	public List<Map<String, String>> search(@PathParam("observation") @NotEmpty String observation) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 
-				"SELECT ?" + user + " "
-                + "WHERE {"
-                + "?" + user + " rdf:type acacia:" + user + " ."
-                + "?" + user + " acacia:Name ?name .\n"
-                + "FILTER regex(?name,'" + name + "$','i') ."
-                + "}";
+		        "SELECT ?Individual ?Name "
+		        + "WHERE {"
+		        + "?y rdfs:subClassOf* acacia:Observation ."
+		        + "?x rdf:type ?y ."
+		        + "FILTER regex(str(?x),'" + observation + "$','i') ."
+		        + "?x acacia:Has_Student ?Individual ."
+		        + "?Individual acacia:Name ?Name ."
+		        + "}";
 		System.out.println(query);
 		ResultSet rs = executeQuery(query);	
 		return buildResult(rs);

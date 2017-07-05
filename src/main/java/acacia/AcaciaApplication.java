@@ -15,6 +15,10 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 import acacia.health.SearchHealthCheck;
 import acacia.resources.FindUser;
 import acacia.resources.ListClasses;
+import acacia.resources.ListIndividualProperties;
+import acacia.resources.ListObservationsOfSession;
+import acacia.resources.ListStudentsOfObservation;
+import acacia.resources.ListStudentsOfSession;
 import acacia.services.QueryExecutor;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -52,6 +56,10 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
 		QueryExecutor qe = configuration.getQueryExecutorFactory().build();
+		environment.jersey().register(new ListStudentsOfSession(qe));
+		environment.jersey().register(new ListStudentsOfObservation(qe));
+		environment.jersey().register(new ListObservationsOfSession(qe));
+		environment.jersey().register(new ListIndividualProperties(qe));
 		environment.jersey().register(new ListClasses(qe));
 		environment.jersey().register(new FindUser(qe));
 		environment.healthChecks().register("search", new SearchHealthCheck());

@@ -37,12 +37,13 @@ public abstract class Resource {
 			for (String str: sl) {
 				Object obj = null;
 				if (qs.get(str).isLiteral()) {
-					obj = qs.get(str).asLiteral().getValue();//.getResource(str); //getLiteral(str).getValue();
+					obj = qs.get(str).asLiteral().getValue();
 				}
 				if (qs.get(str).isResource()) {
-					obj = qs.get(str).asResource().getLocalName();//.getResource(str); //getLiteral(str).getValue();
+					obj = qs.get(str).asResource().getLocalName();
 				}
-				item.put(str, (String) obj);
+				//item.put(str, (String) obj);
+				item.put(str, String.valueOf(obj));
 			}
 			list.add(item);
 		}		

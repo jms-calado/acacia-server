@@ -36,15 +36,15 @@ public class ListClasses extends Resource {
 			query = ConstantURIs.prefixes + 
 			" SELECT ?Name "
 			+ "WHERE { "
-			+ "?" + class_type + " rdf:type onto:" + class_type + " . "
-			+ "?" + class_type + " onto:Name ?Name . "
+			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
+			+ "?" + class_type + " acacia:Name ?Name . "
 			+ "} ORDER BY ?" + class_type + "";
             break;
 		case "Observation" :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
-			+ "?y rdfs:subClassOf* onto:Observation ."
+			+ "?y rdfs:subClassOf* acacia:Observation ."
 			+ "?" + class_type + " rdf:type ?y "
 			+ "} ORDER BY ?" + class_type + "";
             break;
@@ -52,7 +52,7 @@ public class ListClasses extends Resource {
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
-			+ "?" + class_type + " rdf:type onto:" + class_type + " . "
+			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
 			+ "} ORDER BY ?" + class_type + "";
             break;
 		}

@@ -14,12 +14,13 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import acacia.health.SearchHealthCheck;
 import acacia.resources.FindUser;
+import acacia.resources.InsertUser;
 import acacia.resources.ListClasses;
 import acacia.resources.ListIndividualProperties;
 import acacia.resources.ListObservationsOfSession;
 import acacia.resources.ListStudentsOfObservation;
 import acacia.resources.ListStudentsOfSession;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -55,13 +56,14 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		filter.setInitParameter(ALLOW_CREDENTIALS_PARAM, "true");
 		filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
-		QueryExecutor qe = configuration.getQueryExecutorFactory().build();
+		SparqlExecutor qe = configuration.getQueryExecutorFactory().buildQE();
 		environment.jersey().register(new ListStudentsOfSession(qe));
 		environment.jersey().register(new ListStudentsOfObservation(qe));
 		environment.jersey().register(new ListObservationsOfSession(qe));
 		environment.jersey().register(new ListIndividualProperties(qe));
 		environment.jersey().register(new ListClasses(qe));
 		environment.jersey().register(new FindUser(qe));
+		environment.jersey().register(new InsertUser(qe));
 		environment.healthChecks().register("search", new SearchHealthCheck());
 	}
 

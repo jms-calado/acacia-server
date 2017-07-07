@@ -14,13 +14,13 @@ import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
-@Path("/list_observations_of_session/{session}")
+@Path("/list/observations_of_session/{session}")
 @Produces(MediaType.APPLICATION_JSON)
 public class ListObservationsOfSession extends Resource {
 	
-	public ListObservationsOfSession(QueryExecutor qe) {
+	public ListObservationsOfSession(SparqlExecutor qe) {
 		super(qe);
 	}
 
@@ -29,10 +29,10 @@ public class ListObservationsOfSession extends Resource {
 		String query = ConstantURIs.prefixes + 
 		        "SELECT ?Individual "
 		        + "WHERE {"
-		        + "?y rdfs:subClassOf* acacia:Session ."
+		        + "?y rdfs:subClassOf* acacia:Observation ."
 		        + "?x rdf:type ?y ."
-		        + "FILTER regex(str(?x),'" + session + "$','i') ."
-		        + "?x acacia:Has_Observations ?Individual ."
+		        + "?x acacia:Belongs_to_Session ?z ."
+		        + "FILTER regex(str(?z),'" + session + "$','i') ."
 		        + "}";
 		System.out.println(query);
 		ResultSet rs = executeQuery(query);	

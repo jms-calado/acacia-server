@@ -14,13 +14,13 @@ import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
-@Path("/list_students_of_session/{session}")
+@Path("/list/students_of_session/{session}")
 @Produces(MediaType.APPLICATION_JSON)
 public class ListStudentsOfSession extends Resource {
 	
-	public ListStudentsOfSession(QueryExecutor qe) {
+	public ListStudentsOfSession(SparqlExecutor qe) {
 		super(qe);
 	}
 

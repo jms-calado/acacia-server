@@ -15,13 +15,13 @@ import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
-@Path("/find/{user}/{name}")
+@Path("/find/{user_type}/{name}")
 @Produces(MediaType.APPLICATION_JSON)
 public class FindUser extends Resource {
 	
-	public FindUser(QueryExecutor qe) {
+	public FindUser(SparqlExecutor qe) {
 		super(qe);
 	}
 

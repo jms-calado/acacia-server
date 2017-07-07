@@ -14,13 +14,13 @@ import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
-@Path("/list_individual_properties/{individual}")
+@Path("/list/individual_properties/{individual}")
 @Produces(MediaType.APPLICATION_JSON)
 public class ListIndividualProperties extends Resource {
 	
-	public ListIndividualProperties(QueryExecutor qe) {
+	public ListIndividualProperties(SparqlExecutor qe) {
 		super(qe);
 	}
 

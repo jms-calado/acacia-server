@@ -10,17 +10,17 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
 public abstract class Resource {
 
-	protected static ConstantURIs curs = new ConstantURIs();
-	private QueryExecutor qe;
+	protected static ConstantURIs c_uris = new ConstantURIs();
+	private SparqlExecutor qe;
 
-	public Resource(QueryExecutor qe) {
+	public Resource(SparqlExecutor qe) {
 		this.qe = qe;
 	}
-
+	
 	protected ResultSet executeQuery(String query) throws FileNotFoundException {
 		return qe.executeQuery(query);
 	}
@@ -42,12 +42,15 @@ public abstract class Resource {
 				if (qs.get(str).isResource()) {
 					obj = qs.get(str).asResource().getLocalName();
 				}
-				//item.put(str, (String) obj);
 				item.put(str, String.valueOf(obj));
 			}
 			list.add(item);
 		}		
 		return list;
+	}
+	
+	protected void executeUpdate(String update) throws FileNotFoundException {
+		qe.executeUpdate(update);
 	}
 	
 }

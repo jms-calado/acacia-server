@@ -11,15 +11,15 @@ public class AcaciaConfiguration extends Configuration {
 	
 	@Valid
 	@NotNull
-	private QueryExecutorFactory queryExecutorFactory = new QueryExecutorFactory();
+	private SparqlExecutorFactory queryExecutorFactory = new SparqlExecutorFactory();
 
 	@JsonProperty("ontology")
-	public QueryExecutorFactory getQueryExecutorFactory() {
+	public SparqlExecutorFactory getQueryExecutorFactory() {
 		return queryExecutorFactory;
 	}
 
 	@JsonProperty("ontology")
-	public void setQueryExecutorFactory(QueryExecutorFactory queryExecutorFactory) {
+	public void setQueryExecutorFactory(SparqlExecutorFactory queryExecutorFactory) {
 		this.queryExecutorFactory = queryExecutorFactory;
 	}
 	

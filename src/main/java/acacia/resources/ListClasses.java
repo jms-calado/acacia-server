@@ -15,13 +15,13 @@ import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import acacia.dataobjects.ConstantURIs;
-import acacia.services.QueryExecutor;
+import acacia.services.SparqlExecutor;
 
 @Path("/list/{class_type}")
 @Produces(MediaType.APPLICATION_JSON)
 public class ListClasses extends Resource {
 	
-	public ListClasses(QueryExecutor qe) {
+	public ListClasses(SparqlExecutor qe) {
 		super(qe);
 	}
 

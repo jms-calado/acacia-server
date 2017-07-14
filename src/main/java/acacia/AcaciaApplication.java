@@ -14,6 +14,8 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import acacia.health.SearchHealthCheck;
 import acacia.resources.FindUser;
+import acacia.resources.InsertObservation;
+import acacia.resources.InsertSession;
 import acacia.resources.InsertUser;
 import acacia.resources.ListClasses;
 import acacia.resources.ListIndividualProperties;
@@ -64,6 +66,8 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new ListClasses(qe));
 		environment.jersey().register(new FindUser(qe));
 		environment.jersey().register(new InsertUser(qe));
+		environment.jersey().register(new InsertSession(qe));
+		environment.jersey().register(new InsertObservation(qe));
 		environment.healthChecks().register("search", new SearchHealthCheck());
 	}
 

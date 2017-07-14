@@ -1,20 +1,22 @@
 package acacia.resources;
 
 import java.io.FileNotFoundException;
-import java.util.List;
+import java.io.IOException;
 
-import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import acacia.dataobjects.ConstantURIs;
+import acacia.dataobjects.SessionObject;
 import acacia.services.SparqlExecutor;
 
-@Path("/insert/{session}")
-@Produces(MediaType.APPLICATION_JSON)
+@Path("/insert/session")
 @Consumes(MediaType.APPLICATION_JSON)
 public class InsertSession extends Resource {
 	
@@ -23,21 +25,29 @@ public class InsertSession extends Resource {
 	}
 
 	@POST
-	public void search(@Size(min = 7, max = 7) List<String> keywords) throws FileNotFoundException {
-		String update = ConstantURIs.prefixes + 
-				"INSERT DATA {"
-				+ "acacia:Session_" + keywords.get(0) + " rdf:type acacia:Session . "
-				+ "acacia:Session_" + keywords.get(0) + " acacia:Date_Time \"" + keywords.get(0) + "\"^^xsd:dateTime . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Duration \"" + keywords.get(1) + "\"^^xsd:time . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Observation_Sample_Rate \"" + keywords.get(2) + "\"^^xsd:float . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Has_Student acacia:" + keywords.get(3) + " . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Has_Teacher acacia:" + keywords.get(4) + " . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Has_Sensory_Component acacia:" + keywords.get(5) + " . "
-                + "acacia:Session_" + keywords.get(0) + " acacia:Belongs_to_Scenario acacia:" + keywords.get(6) + " . "
-                //+ "acacia:Session_" + keywords.get(0) + " acacia:Has_Observations acacia:" + keywords.get(7) + " . "                
-                + "}";
-		System.out.println(update);
-		executeUpdate(update);
+	public void insert(String jsonbody) throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
+		ObjectMapper mapper = new ObjectMapper();
+		SessionObject session = new SessionObject();
+		try {
+			session = mapper.readValue(jsonbody, SessionObject.class);
+
+			String update = ConstantURIs.prefixes + 
+					"INSERT DATA {"
+					+ "acacia:Session_" + session.getDate_Time() + " rdf:type acacia:Session . "
+					+ "acacia:Session_" + session.getDate_Time() + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
+	                + "acacia:Session_" + session.getDate_Time() + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
+	                + "acacia:Session_" + session.getDate_Time() + " acacia:Observation_Sample_Rate \"" + session.getObservation_Sample_Rate() + "\"^^xsd:float . "
+	                //+ "acacia:Session_" + session.getDate_Time() + " acacia:Has_Student acacia:" + session.getStudent() + " . "
+	                + "acacia:Session_" + session.getDate_Time() + " acacia:Has_Teacher acacia:" + session.getTeacher() + " . "
+	                + "acacia:Session_" + session.getDate_Time() + " acacia:Has_Sensory_Component acacia:" + session.getSensory_Component() + " . "
+	                + "acacia:Session_" + session.getDate_Time() + " acacia:Belongs_to_Scenario acacia:" + session.getScenario() + " . "             
+	                + "}";
+			System.out.println(update);
+			executeUpdate(update);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

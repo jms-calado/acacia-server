@@ -42,6 +42,9 @@ public abstract class Resource {
 				if (qs.get(str).isResource()) {
 					obj = qs.get(str).asResource().getLocalName();
 				}
+				/*if (qs.get(str).isURIResource()) {
+					obj = qs.get(str).asLiteral().getValue();
+				}*/
 				item.put(str, String.valueOf(obj));
 			}
 			list.add(item);

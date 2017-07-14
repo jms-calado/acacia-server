@@ -4,9 +4,10 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
-import javax.ws.rs.GET;
+import javax.validation.constraints.Size;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -16,20 +17,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 import acacia.dataobjects.ConstantURIs;
 import acacia.services.SparqlExecutor;
 
-@Path("/list/individual_properties/{individual}")
+@Path("/list/individual_properties")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ListIndividualProperties extends Resource {
 	
 	public ListIndividualProperties(SparqlExecutor qe) {
 		super(qe);
 	}
 
-	@GET
-	public List<Map<String, String>> search(@PathParam("individual") @NotEmpty String individual) throws FileNotFoundException {
+	@POST
+	public List<Map<String, String>> search(@Size(min = 1, max = 1)@NotEmpty List<String> individual) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 
 		        "SELECT ?Property ?Value "
 		        + "WHERE {"
-		        + "acacia:" + individual + " ?Property ?Value ."
+		        + "acacia:" + individual.get(0) + " ?Property ?Value ."
 		        + "{?Property a owl:DatatypeProperty }"
 		        + "UNION {?Property a owl:ObjectProperty } ."
 		        + "}";

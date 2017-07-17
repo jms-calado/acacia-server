@@ -1,15 +1,45 @@
 package acacia.dataobjects;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SessionObject {
+	@NotEmpty
 	private String Observation_Sample_Rate;
+	@NotEmpty
 	private String Duration;
+	@NotEmpty
 	private String Date_Time;
+	//@NotNull
 	private String Student;
+	@NotEmpty
 	private String Scenario;
+	@NotEmpty
 	private String Teacher;
+	//@NotEmpty
 	private String Sensory_Component;
+	
+	@JsonCreator
+	public SessionObject(@JsonProperty(value = "Date_Time", required = true) String Date_Time, 
+							@JsonProperty(value = "Duration", required = true) String Duration, 
+							@JsonProperty(value = "Observation_Sample_Rate", required = true) String Observation_Sample_Rate, 
+							@JsonProperty(value = "Scenario", required = true) String Scenario, 
+							@JsonProperty(value = "Sensory_Component", required = false) String Sensory_Component, 
+							@JsonProperty(value = "Teacher", required = true) String Teacher, 
+							@JsonProperty(value = "Student", required = true) String Student)
+	{
+		this.Date_Time = Date_Time;
+		this.Duration = Duration;
+		this.Observation_Sample_Rate = Observation_Sample_Rate;
+		this.Scenario = Scenario;
+		this.Sensory_Component = Sensory_Component;
+		this.Teacher = Teacher;
+		this.Student = Student;
+	}
 	
 	public SessionObject(){		
 	}

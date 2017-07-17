@@ -31,10 +31,17 @@ public class InsertObservation extends Resource {
 
 	public InsertObservation(SparqlExecutor qe) {
 		super(qe);
+		setUpValidator();
 	}
 	
-	private static Validator validator;
-    public static void setUpValidator() {
+	private Validator validator;	
+/*	public Validator getValidator() {
+		if (validator == null)
+			setUpValidator();
+		
+		return validator;
+	}*/
+    public void setUpValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
@@ -42,15 +49,15 @@ public class InsertObservation extends Resource {
 	@POST
 	public Response insert(@PathParam("observation_type") @Pattern(regexp = "Human|Digital") @NotEmpty String observation_type, String jsonbody)
 			throws JsonParseException, JsonMappingException, IOException {
-		//String msg = null;
+		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		ObservationObject observation = new ObservationObject();
 		try {
 			observation = mapper.readValue(jsonbody, ObservationObject.class);
 
-			//Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
+			Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
 				
-			//if(constraintViolations.size() == 0){
+			if(constraintViolations.size() == 0){
 			
 				String update = ConstantURIs.prefixes + 
 						"INSERT DATA {" + 
@@ -62,11 +69,11 @@ public class InsertObservation extends Resource {
 						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
 						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
 						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
-				if(observation_type.equals("Human")){
+				if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){
 					update = update + 
 						"acacia:Human_Observation_" + observation.getObservation_ID() + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
 				}
-				if(observation_type == "Digital"){
+				if(observation_type == "Digital" && !observation.getSensory_Component().isEmpty()){
 					update = update + 
 						"acacia:Digital_Observation_" + observation.getObservation_ID() + " acacia:Has_Sensory_Component acacia:" + observation.getSensory_Component() + " . ";
 				}
@@ -75,16 +82,16 @@ public class InsertObservation extends Resource {
 				System.out.println(update);
 				executeUpdate(update);
 				
-			/*}else{
+			}else{
 				for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
-					msg = cv.getMessage();
+					msg = cv.getPropertyPath() + " : " + cv.getMessage();
 					System.out.println("Validator Error: " + msg);
-					return Response.status(422).entity(msg).build();
 				}
-			}*/
+				return Response.status(422).entity(msg).build();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			//return Response.status(422).entity("Cause: " + msg).build();
+			//return Response.status(422).entity(msg).build();
 			return Response.status(422).build();
 		}
 		return Response.status(201).build();

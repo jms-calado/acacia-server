@@ -26,7 +26,7 @@ public class ListClasses extends Resource {
 	}
 
 	@GET
-	public List<Map<String, String>> search(@PathParam("class_type") @Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behavior|Affect|Sensory_Component") @NotEmpty String class_type) throws FileNotFoundException {
+	public List<Map<String, String>> search(@PathParam("class_type") @Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component") @NotEmpty String class_type) throws FileNotFoundException {
 		String query=null;
 		switch (class_type){
 		case "Student" : 

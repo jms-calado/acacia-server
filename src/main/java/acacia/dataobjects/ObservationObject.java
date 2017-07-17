@@ -1,5 +1,7 @@
 package acacia.dataobjects;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -18,9 +20,9 @@ public class ObservationObject {
 	private String Scenario;
 	@NotEmpty
 	private String Session;
-	@NotEmpty
+	//@NotEmpty
 	private String Teacher;
-	@NotEmpty
+	//@NotEmpty
 	private String Sensory_Component;
 	
 	@JsonCreator
@@ -28,13 +30,19 @@ public class ObservationObject {
 							@JsonProperty(value = "Duration", required = true) String Duration, 
 							@JsonProperty(value = "Observation_ID", required = true) String Observation_ID, 
 							@JsonProperty(value = "Scenario", required = true) String Scenario, 
-							@JsonProperty(value = "Session", required = true) String Session)
+							@JsonProperty(value = "Session", required = true) String Session, 
+							@JsonProperty(value = "Student", required = true) String Student, 
+							@JsonProperty(value = "Teacher", required = false) String Teacher, 
+							@JsonProperty(value = "Sensory_Component", required = false) String Sensory_Component)
 	{
 		this.Date_Time = Date_Time;
 		this.Duration = Duration;
 		this.Observation_ID = Observation_ID;
 		this.Scenario = Scenario;
 		this.Session = Session;
+		this.Student = Student;
+		this.Teacher = Teacher;
+		this.Sensory_Component = Sensory_Component;
 	}
 
 	public ObservationObject(){		

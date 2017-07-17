@@ -62,7 +62,7 @@ public class SparqlExecutor {
 			e.printStackTrace();
 		}
 		try {
-			ontModel.write( out, "RDF/XML" );
+			ontModel.write(out, "RDF/XML");
 		}
 		finally {
 		   try {

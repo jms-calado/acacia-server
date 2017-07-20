@@ -61,6 +61,7 @@ public class InsertUser extends Resource {
 		                + "acacia:" + user_type + "_" + user.getID() + " acacia:Age \"" + user.getAge() + "\"^^xsd:int . "
 		                + "acacia:" + user_type + "_" + user.getID() + " acacia:Gender \"" + user.getGender() + "\"^^xsd:string . "
 		                + "acacia:" + user_type + "_" + user.getID() + " acacia:Education_Degree \"" + user.getEducation_Degree() + "\"^^xsd:string . "
+		                + "acacia:" + user_type + "_" + user.getID() + " acacia:Area_of_Degree \"" + user.getArea_of_Degree() + "\"^^xsd:string . "
 		                + "acacia:" + user_type + "_" + user.getID() + " acacia:ID \"" + user.getID() + "\"^^xsd:int . "
 		                + "}";
 				System.out.println(update);

@@ -17,18 +17,22 @@ public class UserObject {
 	private String ID;
 	@NotEmpty
 	private String Education_Degree;
+	@NotEmpty
+	private String Area_of_Degree;
 	
 	@JsonCreator
 	public UserObject(@JsonProperty(value = "Gender", required = true) Gender Gender, 
 					@JsonProperty(value = "Name", required = true) String Name, 
 					@JsonProperty(value = "Age", required = true) String Age, 
 					@JsonProperty(value = "ID", required = true) String ID, 
-					@JsonProperty(value = "Education_Degree", required = true) String Education_Degree){
+					@JsonProperty(value = "Education_Degree", required = true) String Education_Degree, 
+					@JsonProperty(value = "Area_of_Degree", required = true) String Area_of_Degree){
 		this.Gender = Gender;
 		this.Name = Name;
 		this.Age = Age;
 		this.ID = ID;
 		this.Education_Degree = Education_Degree;
+		this.Area_of_Degree = Area_of_Degree;
 	}
 	public UserObject(){		
 	}
@@ -76,6 +80,15 @@ public class UserObject {
 	@JsonProperty("Education_Degree")
 	public void setEducation_Degree(String Education_Degree){
 		this.Education_Degree = Education_Degree;
+	}
+	
+	@JsonProperty("Area_of_Degree")
+	public String getArea_of_Degree(){
+		return Area_of_Degree;
+	}
+	@JsonProperty("Area_of_Degree")
+	public void setArea_of_Degree(String Area_of_Degree){
+		this.Area_of_Degree = Area_of_Degree;
 	}
 	
 }

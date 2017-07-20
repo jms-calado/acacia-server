@@ -5,16 +5,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.update.UpdateAction;
+
+import acacia.dataobjects.ConstantURIs;
+import acacia.dataobjects.GlobalVar;
 
 public class SparqlExecutor {
 	
@@ -27,6 +32,24 @@ public class SparqlExecutor {
 		Model model = ModelFactory.createDefaultModel();
 		model.read(reader, null);
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, model);
+		
+		//Set Highest Observation ID:
+		String query = ConstantURIs.prefixes
+				+ "SELECT ?obsid "
+                + "WHERE {"
+                + "?x acacia:Observation_ID ?obsid . "
+                + "}"
+                + "ORDER BY DESC(?obsid) LIMIT 1";
+
+		ResultSet rs = executeQuery(query);
+		
+		QuerySolution qs = rs.next();
+		List<String> sl = rs.getResultVars();
+		for (String str: sl) {
+		Object obj = qs.get(str).asLiteral().getValue();
+		GlobalVar.GlobalID = Integer.parseInt(String.valueOf(obj));
+		System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalID));	
+		}
 	}
 
 	/*//https://svn.apache.org/repos/asf/jena/branches/jena-owl2/doc/ontology/common-problems.html

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import acacia.dataobjects.ConstantURIs;
+import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
 
@@ -58,24 +59,25 @@ public class InsertObservation extends Resource {
 			Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
 				
 			if(constraintViolations.size() == 0){
-			
+				GlobalVar.GlobalID++;
+				String observationID = String.valueOf(GlobalVar.GlobalID);
 				String update = ConstantURIs.prefixes + 
 						"INSERT DATA {" + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " rdf:type acacia:" + observation_type + "_Observation . " +
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " rdf:type acacia:" + observation_type + "_Observation . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Duration \"" + observation.getDuration() + "\"^^xsd:time . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Observation_ID \"" + observation.getObservation_ID() + "\"^^xsd:int . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
-						"acacia:" + observation_type + "_Observation_" + observation.getObservation_ID() + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
+						"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " +
+						"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Duration \"" + observation.getDuration() + "\"^^xsd:time . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Observation_ID \"" + observationID + "\"^^xsd:int . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
+						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
 				if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){
 					update = update + 
-						"acacia:Human_Observation_" + observation.getObservation_ID() + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
+						"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
 				}
 				if(observation_type == "Digital" && !observation.getSensory_Component().isEmpty()){
 					update = update + 
-						"acacia:Digital_Observation_" + observation.getObservation_ID() + " acacia:Has_Sensory_Component acacia:" + observation.getSensory_Component() + " . ";
+						"acacia:Digital_Observation_" + observationID + " acacia:Has_Sensory_Component acacia:" + observation.getSensory_Component() + " . ";
 				}
 				update = update + "}";
 				

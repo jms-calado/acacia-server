@@ -60,13 +60,22 @@ public class InsertSession extends Resource {
 						+ "acacia:Session_" + session_id + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
 		                + "acacia:Session_" + session_id + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
 		                + "acacia:Session_" + session_id + " acacia:Observation_Sample_Rate \"" + session.getObservation_Sample_Rate() + "\"^^xsd:float . "
-		                + "acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + session.getTeacher() + " . "
-		                + "acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + session.getSensory_Component() + " . "
 		                + "acacia:Session_" + session_id + " acacia:Belongs_to_Scenario acacia:" + session.getScenario() + " . ";
 		                
-                if(!session.getStudent().isEmpty()){
+                if(session.getStudent().length > 0){
+                	for(String student : session.getStudent())
 					update = update + 
-							"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + session.getStudent() + " . ";
+							"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + student + " . ";
+				}    
+                if(session.getTeacher().length > 0){
+                	for(String teacher : session.getTeacher())
+					update = update + 
+	                		"acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + teacher + " . ";
+				}    
+                if(session.getSensory_Component().length > 0){
+                	for(String sensory_component : session.getSensory_Component())
+					update = update + 
+	                		"acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + sensory_component + " . ";
 				}
 
 				update = update + "}";

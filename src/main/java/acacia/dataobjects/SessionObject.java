@@ -1,7 +1,5 @@
 package acacia.dataobjects;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -14,23 +12,23 @@ public class SessionObject {
 	private String Duration;
 	@NotEmpty
 	private String Date_Time;
-	//@NotNull
-	private String Student;
 	@NotEmpty
 	private String Scenario;
 	@NotEmpty
-	private String Teacher;
-	//@NotEmpty
-	private String Sensory_Component;
-	
+	private String[] Teacher;
+	@NotEmpty
+	private String[] Sensory_Component;
+	@NotEmpty
+	private String[] Student;
+
 	@JsonCreator
 	public SessionObject(@JsonProperty(value = "Date_Time", required = true) String Date_Time, 
 							@JsonProperty(value = "Duration", required = true) String Duration, 
 							@JsonProperty(value = "Observation_Sample_Rate", required = true) String Observation_Sample_Rate, 
 							@JsonProperty(value = "Scenario", required = true) String Scenario, 
-							@JsonProperty(value = "Sensory_Component", required = false) String Sensory_Component, 
-							@JsonProperty(value = "Teacher", required = true) String Teacher, 
-							@JsonProperty(value = "Student", required = true) String Student)
+							@JsonProperty(value = "Sensory_Component", required = false) String[] Sensory_Component, 
+							@JsonProperty(value = "Teacher", required = false) String[] Teacher, 
+							@JsonProperty(value = "Student", required = false) String[] Student)
 	{
 		this.Date_Time = Date_Time;
 		this.Duration = Duration;
@@ -72,11 +70,11 @@ public class SessionObject {
 	}
 
 	@JsonProperty("Student")
-	public String getStudent(){
+	public String[] getStudent(){
 		return Student;
 	}
 	@JsonProperty("Student")
-	public void setStudent(String Student){
+	public void setStudent(String[] Student){
 		this.Student = Student;
 	}
 
@@ -90,20 +88,20 @@ public class SessionObject {
 	}
 	
 	@JsonProperty("Teacher")
-	public String getTeacher(){
+	public String[] getTeacher(){
 		return Teacher;
 	}
 	@JsonProperty("Teacher")
-	public void setTeacher(String Teacher){
+	public void setTeacher(String[] Teacher){
 		this.Teacher = Teacher;
 	}
 
 	@JsonProperty("Sensory_Component")
-	public String getSensory_Component(){
+	public String[] getSensory_Component(){
 		return Sensory_Component;
 	}
 	@JsonProperty("Sensory_Component")
-	public void setSensory_Component(String Sensory_Component){
+	public void setSensory_Component(String[] Sensory_Component){
 		this.Sensory_Component = Sensory_Component;
 	}
 }

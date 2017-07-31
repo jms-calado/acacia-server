@@ -1,5 +1,7 @@
 package acacia.dataobjects;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -7,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserObject {
 	public enum Gender {Male, Female};
-	@NotEmpty
+	@NotNull
 	private Gender Gender;
-	@NotEmpty
+	//@NotEmpty
+	//private String Gender;
+	//@NotEmpty
 	private String Name;
 	@NotEmpty
 	private String Age;
@@ -21,12 +25,13 @@ public class UserObject {
 	private String Area_of_Degree;
 	
 	@JsonCreator
-	public UserObject(@JsonProperty(value = "Gender", required = true) Gender Gender, 
-					@JsonProperty(value = "Name", required = true) String Name, 
-					@JsonProperty(value = "Age", required = true) String Age, 
-					@JsonProperty(value = "ID", required = true) String ID, 
-					@JsonProperty(value = "Education_Degree", required = true) String Education_Degree, 
-					@JsonProperty(value = "Area_of_Degree", required = true) String Area_of_Degree){
+	public UserObject(
+				@JsonProperty(value = "Gender", required = true) Gender Gender, 
+				@JsonProperty(value = "Name", required = true) @NotEmpty String Name, 
+				@JsonProperty(value = "Age", required = true) String Age, 
+				@JsonProperty(value = "ID", required = true) String ID, 
+				@JsonProperty(value = "Education_Degree", required = true) String Education_Degree, 
+				@JsonProperty(value = "Area_of_Degree", required = true) String Area_of_Degree){
 		this.Gender = Gender;
 		this.Name = Name;
 		this.Age = Age;
@@ -36,15 +41,6 @@ public class UserObject {
 	}
 	public UserObject(){		
 	}
-	
-	@JsonProperty("Name")
-	public String getName(){
-		return Name;
-	}
-	@JsonProperty("Name")
-	public void setName(String Name){
-		this.Name = Name;
-	}
 
 	@JsonProperty("Gender")
 	public Gender getGender(){
@@ -53,6 +49,15 @@ public class UserObject {
 	@JsonProperty("Gender")
 	public void setGender(Gender Gender){
 		this.Gender = Gender;
+	}
+	
+	@JsonProperty("Name")
+	public String getName(){
+		return Name;
+	}
+	@JsonProperty("Name")
+	public void setName(String Name){
+		this.Name = Name;
 	}
 
 	@JsonProperty("Age")

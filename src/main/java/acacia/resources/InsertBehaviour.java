@@ -44,65 +44,64 @@ public class InsertBehaviour extends Resource {
 		ObjectMapper mapper = new ObjectMapper();
 		BehaviourObject behaviour = new BehaviourObject();
 		try {
-			behaviour = mapper.readValue(jsonbody, BehaviourObject.class);			
-			Set<ConstraintViolation<BehaviourObject>> constraintViolations = validator.validate(behaviour);
-				
-			if(constraintViolations.size() == 0){
-
-				String update = ConstantURIs.prefixes 
-					+ "INSERT DATA {"
-					+ "acacia:Behaviour_" + behaviour.getObservationID() + " rdf:type acacia:Behaviour . "
-					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Belongs_to_Observation acacia:" + behaviour.getObservationID() + " . ";
-				if(!behaviour.getActive_Participation().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Active_Participation \"" + behaviour.getActive_Participation() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getAttention().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Attention \"" + behaviour.getAttention() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getDisengaged().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Disengaged \"" + behaviour.getDisengaged() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getEngaged().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Engaged \"" + behaviour.getEngaged() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getInactive_Participation().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Inactive_Participation \"" + behaviour.getInactive_Participation() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getOff_Task().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Off_Task \"" + behaviour.getOff_Task() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getOn_Task().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:On_Task \"" + behaviour.getOn_Task() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getOther_Behaviour().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Other_Behaviour \"" + behaviour.getOther_Behaviour() + "\"^^xsd:float . ";
-				}
-				if(!behaviour.getOther_Behaviour_Name().isEmpty()){
-					update = update
-						+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Other_Behaviour_Name \"" + behaviour.getOther_Behaviour_Name() + "\"^^xsd:float . ";
-				}
-				update = update + "}";
-				System.out.println(update);
-				executeUpdate(update);
-			}else{
-				for (ConstraintViolation<BehaviourObject> cv : constraintViolations) {
-					msg = cv.getMessage();
-					System.out.println("Validator Error: " + msg);
-					return Response.status(422).entity(msg).build();
-				}
-			}
+			behaviour = mapper.readValue(jsonbody, BehaviourObject.class);	
 		} catch (Exception e) {
 			e.printStackTrace();
-			//return Response.status(422).entity("Cause: " + msg).build();
 			return Response.status(422).build();
+		}		
+		Set<ConstraintViolation<BehaviourObject>> constraintViolations = validator.validate(behaviour);
+			
+		if(constraintViolations.size() == 0){
+
+			String update = ConstantURIs.prefixes 
+				+ "INSERT DATA {"
+				+ "acacia:Behaviour_" + behaviour.getObservationID() + " rdf:type acacia:Behaviour . "
+				+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Belongs_to_Observation acacia:" + behaviour.getObservationID() + " . ";
+			if(!behaviour.getActive_Participation().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Active_Participation \"" + behaviour.getActive_Participation() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getAttention().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Attention \"" + behaviour.getAttention() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getDisengaged().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Disengaged \"" + behaviour.getDisengaged() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getEngaged().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Engaged \"" + behaviour.getEngaged() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getInactive_Participation().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Inactive_Participation \"" + behaviour.getInactive_Participation() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getOff_Task().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Off_Task \"" + behaviour.getOff_Task() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getOn_Task().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:On_Task \"" + behaviour.getOn_Task() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getOther_Behaviour().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Other_Behaviour \"" + behaviour.getOther_Behaviour() + "\"^^xsd:float . ";
+			}
+			if(!behaviour.getOther_Behaviour_Name().isEmpty()){
+				update = update
+					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Other_Behaviour_Name \"" + behaviour.getOther_Behaviour_Name() + "\"^^xsd:float . ";
+			}
+			update = update + "}";
+			System.out.println(update);
+			executeUpdate(update);
+		}else{
+			for (ConstraintViolation<BehaviourObject> cv : constraintViolations) {
+				msg = cv.getMessage();
+				System.out.println("Validator Error: " + msg);
+				return Response.status(422).build();
+			}
 		}
 		return Response.status(201).build();
 	}

@@ -55,45 +55,43 @@ public class InsertObservation extends Resource {
 		ObservationObject observation = new ObservationObject();
 		try {
 			observation = mapper.readValue(jsonbody, ObservationObject.class);
-
-			Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
-				
-			if(constraintViolations.size() == 0){
-				GlobalVar.GlobalID++;
-				String observationID = String.valueOf(GlobalVar.GlobalID);
-				String update = ConstantURIs.prefixes + 
-						"INSERT DATA {" + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " +
-						"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Duration \"" + observation.getDuration() + "\"^^xsd:time . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Observation_ID \"" + observationID + "\"^^xsd:int . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
-						"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
-				if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){
-					update = update + 
-						"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
-				}
-				if(observation_type == "Digital" && !observation.getSensory_Component().isEmpty()){
-					update = update + 
-						"acacia:Digital_Observation_" + observationID + " acacia:Has_Sensory_Component acacia:" + observation.getSensory_Component() + " . ";
-				}
-				update = update + "}";
-				
-				System.out.println(update);
-				executeUpdate(update);
-				
-			}else{
-				for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
-					msg = cv.getPropertyPath() + " : " + cv.getMessage();
-					System.out.println("Validator Error: " + msg);
-				}
-				return Response.status(422).entity(msg).build();
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			//return Response.status(422).entity(msg).build();
+			return Response.status(422).build();
+		}
+		Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
+			
+		if(constraintViolations.size() == 0){
+			GlobalVar.GlobalID++;
+			String observationID = String.valueOf(GlobalVar.GlobalID);
+			String update = ConstantURIs.prefixes + 
+					"INSERT DATA {" + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " +
+					"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Duration \"" + observation.getDuration() + "\"^^xsd:time . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Observation_ID \"" + observationID + "\"^^xsd:int . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
+					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
+			if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){
+				update = update + 
+					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
+			}
+			if(observation_type == "Digital" && !observation.getSensory_Component().isEmpty()){
+				update = update + 
+					"acacia:Digital_Observation_" + observationID + " acacia:Has_Sensory_Component acacia:" + observation.getSensory_Component() + " . ";
+			}
+			update = update + "}";
+			
+			System.out.println(update);
+			executeUpdate(update);
+			
+		}else{
+			for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
+				msg = cv.getPropertyPath() + " : " + cv.getMessage();
+				System.out.println("Validator Error: " + msg);
+			}
 			return Response.status(422).build();
 		}
 		return Response.status(201).build();

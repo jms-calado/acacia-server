@@ -46,54 +46,52 @@ public class InsertSession extends Resource {
 		SessionObject session = new SessionObject();
 		try {
 			session = mapper.readValue(jsonbody, SessionObject.class);
-
-			Set<ConstraintViolation<SessionObject>> constraintViolations = validator.validate(session);
-				
-			if(constraintViolations.size() == 0){
-				
-				LocalDateTime date_time = LocalDateTime.parse(session.getDate_Time());
-				String session_id = date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-				
-				String update = ConstantURIs.prefixes + 
-						"INSERT DATA {"
-						+ "acacia:Session_" + session_id + " rdf:type acacia:Session . "
-						+ "acacia:Session_" + session_id + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
-		                + "acacia:Session_" + session_id + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
-		                + "acacia:Session_" + session_id + " acacia:Observation_Sample_Rate \"" + session.getObservation_Sample_Rate() + "\"^^xsd:float . "
-		                + "acacia:Session_" + session_id + " acacia:Belongs_to_Scenario acacia:" + session.getScenario() + " . ";
-		                
-                if(session.getStudent().length > 0){
-                	for(String student : session.getStudent())
-					update = update + 
-							"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + student + " . ";
-				}    
-                if(session.getTeacher().length > 0){
-                	for(String teacher : session.getTeacher())
-					update = update + 
-	                		"acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + teacher + " . ";
-				}    
-                if(session.getSensory_Component().length > 0){
-                	for(String sensory_component : session.getSensory_Component())
-					update = update + 
-	                		"acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + sensory_component + " . ";
-				}
-
-				update = update + "}";
-				
-				System.out.println(update);
-				executeUpdate(update);
-
-			}else{
-				for (ConstraintViolation<SessionObject> cv : constraintViolations) {
-					msg = cv.getMessage();
-					System.out.println("Validator Error: " + msg);
-					return Response.status(422).entity(msg).build();
-				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			//return Response.status(422).entity("Cause: " + msg).build();
 			return Response.status(422).build();
+		}
+		Set<ConstraintViolation<SessionObject>> constraintViolations = validator.validate(session);
+			
+		if(constraintViolations.size() == 0){
+			
+			LocalDateTime date_time = LocalDateTime.parse(session.getDate_Time());
+			String session_id = date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+			
+			String update = ConstantURIs.prefixes + 
+					"INSERT DATA {"
+					+ "acacia:Session_" + session_id + " rdf:type acacia:Session . "
+					+ "acacia:Session_" + session_id + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
+	                + "acacia:Session_" + session_id + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
+	                + "acacia:Session_" + session_id + " acacia:Observation_Sample_Rate \"" + session.getObservation_Sample_Rate() + "\"^^xsd:float . "
+	                + "acacia:Session_" + session_id + " acacia:Belongs_to_Scenario acacia:" + session.getScenario() + " . ";
+	                
+            if(session.getStudent().length > 0){
+            	for(String student : session.getStudent())
+				update = update + 
+						"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + student + " . ";
+			}    
+            if(session.getTeacher().length > 0){
+            	for(String teacher : session.getTeacher())
+				update = update + 
+                		"acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + teacher + " . ";
+			}    
+            if(session.getSensory_Component().length > 0){
+            	for(String sensory_component : session.getSensory_Component())
+				update = update + 
+                		"acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + sensory_component + " . ";
+			}
+
+			update = update + "}";
+			
+			System.out.println(update);
+			executeUpdate(update);
+
+		}else{
+			for (ConstraintViolation<SessionObject> cv : constraintViolations) {
+				msg = cv.getMessage();
+				System.out.println("Validator Error: " + msg);
+				return Response.status(422).build();
+			}
 		}
 		return Response.status(201).build();
 	}

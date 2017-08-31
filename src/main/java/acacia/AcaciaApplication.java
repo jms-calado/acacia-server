@@ -11,7 +11,6 @@ import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 
 import org.eclipse.jetty.servlets.CrossOriginFilter;
-
 import acacia.dataobjects.GlobalVar;
 import acacia.health.SearchHealthCheck;
 import acacia.resources.FindUser;
@@ -28,11 +27,14 @@ import acacia.resources.ListStudentsOfObservation;
 import acacia.resources.ListStudentsOfSession;
 import acacia.resources.TestFind;
 import acacia.services.SparqlExecutor;
+import be.tomcools.dropwizard.websocket.WebsocketBundle;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import pt.acacia.websocket.DeviceWebSocketServer;
 
 public class AcaciaApplication extends Application<AcaciaConfiguration> {
+    private WebsocketBundle websocket = new WebsocketBundle();
 
 	public static void main(String[] args) throws Exception {
 		new AcaciaApplication().run(args);
@@ -46,6 +48,8 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
     @Override
     public void initialize(Bootstrap<AcaciaConfiguration> bootstrap) {
         GlobalVar.GlobalID = 0;
+        super.initialize(bootstrap);
+        bootstrap.addBundle(websocket);
     }
 	
 	@Override
@@ -80,6 +84,9 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		//environment.jersey().register(new TestFind(qe));
 		environment.healthChecks().register("search", new SearchHealthCheck());
 		environment.healthChecks().register("insert", new SearchHealthCheck());
+		
+        //Annotated endpoint
+        websocket.addEndpoint(DeviceWebSocketServer.class);
 	}
 
 }

@@ -12,6 +12,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -48,6 +49,7 @@ public class InsertObservation extends Resource {
     }
 
 	@POST
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response insert(@PathParam("observation_type") @Pattern(regexp = "Human|Digital") @NotEmpty String observation_type, String jsonbody)
 			throws JsonParseException, JsonMappingException, IOException {
 		String msg = null;
@@ -86,6 +88,7 @@ public class InsertObservation extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
+			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{
 			for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
@@ -94,7 +97,6 @@ public class InsertObservation extends Resource {
 			}
 			return Response.status(422).build();
 		}
-		return Response.status(201).build();
 	}
 
 }

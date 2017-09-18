@@ -27,11 +27,11 @@ import acacia.resources.ListStudentsOfObservation;
 import acacia.resources.ListStudentsOfSession;
 import acacia.resources.TestFind;
 import acacia.services.SparqlExecutor;
+import acacia.websocket.DeviceWebSocketServer;
 import be.tomcools.dropwizard.websocket.WebsocketBundle;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import pt.acacia.websocket.DeviceWebSocketServer;
 
 public class AcaciaApplication extends Application<AcaciaConfiguration> {
     private WebsocketBundle websocket = new WebsocketBundle();

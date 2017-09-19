@@ -1,6 +1,6 @@
 # ACACIA ontology
 
-Microservice for the general usage of the ACACIA Ontology. Receives user-input via REST, queries an OWL ontology with SPARQL and outputs data as JSON.
+Microservice for the general usage of the ACACIA Ontology. Receives user-input via REST, queries an OWL ontology with SPARQL and outputs data as JSON. Uses Websockets to control the sensors and for notification alerts.
 
 Built with [Dropwizard framework](www.dropwizard.io/) and [Apache Jena](https://jena.apache.org/).
 

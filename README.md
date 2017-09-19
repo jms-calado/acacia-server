@@ -127,15 +127,15 @@ Builds both a jar for local testing and a Debian package for deployment.
 
 ### Running
 
-`java -jar target/ontology-1.0.0.jar server dev.yml`
+`java -jar target/ontology-2.1.0.jar server dev.yml`
 
 Runs locally in development mode.
 
 ### Deploying
    
-Copy `target/ontology-1.0.0.deb` into a Debian-based server and install with:
+Copy `target/ontology-2.1.0.deb` into a Debian-based server and install with:
 
-`dpkg -i ontology-1.0.0.deb`
+`dpkg -i ontology-2.1.0.deb`
 
 This will deploy the microservice into a system service and run it in production mode.
 

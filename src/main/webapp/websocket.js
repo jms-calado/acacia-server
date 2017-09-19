@@ -1,5 +1,6 @@
 window.onload = init;
-var socket = new WebSocket("ws://localhost:5904/actions");
+//var socket = new WebSocket("ws://localhost:5904/actions");
+var socket = new WebSocket("ws://arca.acacia.red:5904/actions");
 socket.onmessage = onMessage;
 
 function onMessage(event) {

@@ -1,0 +1,72 @@
+
+Websocket API:
+
+	Objects:
+		Session:
+			type: string
+			example: "Session_2017-07-06_14-00-00"
+		Scenario:
+			type: string
+			example: "Affective_States_Automatic_Detection_"
+		Digital_Observation_Sample_Rate:
+			type: string
+			example: "30000"
+		Sensory_Component:
+			type: array
+			example: ["GP3", "Affectiva"]
+
+	publish:
+		action:
+			on:
+				{
+					"action": "on",
+					"id": 0,
+					"Session": Session,
+					"Scenario": Scenario,
+					"Digital_Observation_Sample_Rate": Digital_Observation_Sample_Rate,
+					"Sensory_Component": Sensory_Component
+				}
+			off:
+				{
+					"action": "off",
+					"id": 0
+				}
+			start:
+				{
+					"action": "start",
+					"id": 0
+				}
+			stop:
+				{
+					"action": "stop",
+					"id": 0
+				}
+	subscribe:
+		action:
+			add:
+				{
+					"action": "add",
+					"id": 0,
+					"name": "username",
+					"type": "Student",
+					"statusOnOff": "Off",
+					"statusStartStop": "Stop",
+					"sensors": ["GP3", "Affectiva"]
+				}
+			remove:
+				{
+					"action": "remove",
+					"id": 0
+				}
+			toggleOnOff:
+				{
+					"action": "toggleOnOff",
+					"id": 0,
+					"statusOnOff": "On"
+				}
+			toggleStartStop:
+				{
+					"action": "toggleStartStop",
+					"id": 0,
+					"statusStartStop": "Stop"
+				}

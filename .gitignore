@@ -4,7 +4,6 @@ target
 dependency-reduced-pom.xml
 resources/catalog-v001.xml
 resources/ontology.acacia.red.postman_collection.json
-client
 logs
 
 # Windows image file caches

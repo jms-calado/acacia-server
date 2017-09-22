@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="websocket.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Testing Interface</h1>
+            <p>Welcome to the Testing Interface.</p>
+            <br />
+			<div id="rest">
+				<div class="button">
+					<a href="#" OnClick="getSessions('list/Session')">List Sessions</a>
+				</div>
+				<br />
+				<br />
+				<div id="sessionslist">
+					<table style="width:10%"><tbody id ="table1" ></tbody>
+					</table> 
+				</div>
+			</div>
+            <br />
+            <h3>Currently connected users:</h3>
+            <div id="content">
+            </div>
+        </div>
+        <script src="rest.js"></script>
+    </body>
+</html>

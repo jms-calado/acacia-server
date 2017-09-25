@@ -1,6 +1,6 @@
 window.onload = init;
-var socket = new WebSocket("ws://localhost:5904/actions");
-//var socket = new WebSocket("ws://arca.acacia.red:5904/actions");
+//var socket = new WebSocket("ws://localhost:5904/actions");
+var socket = new WebSocket("ws://api.arca.acacia.red:5904/actions");
 socket.onmessage = onMessage;
 
 var OntoSession = null;
@@ -37,6 +37,18 @@ function onMessage(event) {
     }
 }
 
+function addDevice() {
+    var DeviceAction = {
+        action: "add",
+        name: "Student_X",
+		sensors: ["GP3","Affectiva"],
+        type: "Student",
+        statusOnOff: "Off",
+		statusStartStop: "Stop",
+		session: "Session_2017-07-06_14-00-00"
+    };
+    socket.send(JSON.stringify(DeviceAction));
+}
 function toggleOnDevice(element) {
     var id = element;
     var DeviceAction = {

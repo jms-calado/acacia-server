@@ -1,5 +1,5 @@
-//var baseURL = 'https://arca.acacia.red/';
-var baseURL = 'http://localhost:5904/';
+//var baseURL = 'http://localhost:5904/';
+var baseURL = 'https://api.arca.acacia.red/';
 var session;
 
 jQuery.extend({
@@ -73,19 +73,3 @@ function postcallback (arr) {
 	Has_Sensory_Component = sensor_arr;
 }
 
-//module.export.Has_Sensory_Component = Sensory_Component;
-	
-/*function getSession(){	
-	var ajaxOptions = {
-		method : 'GET',
-		url : baseURL + '/list/Session',
-		crossDomain : true,
-		dataType : 'json',
-		success : function(json) 
-		{ 
-			 
-		},
-		error : function(xhr, status, error) { console.log(status + error); }
-	};
-	$.ajax(ajaxOptions);
-}*/

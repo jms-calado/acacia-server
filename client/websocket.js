@@ -2,6 +2,17 @@ window.onload = init;
 //var socket = new WebSocket("ws://localhost:5904/actions");
 var socket = new WebSocket("ws://api.arca.acacia.red:5904/actions");
 socket.onmessage = onMessage;
+socket.onopen = function () {
+	console.log("connected");
+};
+
+socket.onclose = function () {
+	console.log("onclose");
+};
+
+socket.onerror = function (error) {
+	console.log(error);
+};
 
 var OntoSession = null;
 var Has_Sensory_Component  = null;

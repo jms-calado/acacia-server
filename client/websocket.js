@@ -1,18 +1,17 @@
 window.onload = init;
 //var socket = new WebSocket("ws://localhost:5904/actions");
-var socket = new WebSocket("ws://api.arca.acacia.red:5904/actions");
+var socket = new WebSocket("wss://api.arca.acacia.red/actions");
+
 socket.onmessage = onMessage;
-socket.onopen = function () {
-	console.log("connected");
-};
-
-socket.onclose = function () {
-	console.log("onclose");
-};
-
-socket.onerror = function (error) {
-	console.log(error);
-};
+// socket.onopen = function () {
+	// console.log("connected");
+// };
+// socket.onclose = function () {
+	// console.log("onclose");
+// };
+// socket.onerror = function (error) {
+	// console.log(error);
+// };
 
 var OntoSession = null;
 var Has_Sensory_Component  = null;
@@ -59,6 +58,7 @@ function addDevice() {
 		session: "Session_2017-07-06_14-00-00"
     };
     socket.send(JSON.stringify(DeviceAction));
+	document.getElementById('add_device').remove();
 }
 function toggleOnDevice(element) {
     var id = element;
@@ -70,7 +70,6 @@ function toggleOnDevice(element) {
 		Digital_Observation_Sample_Rate: Observation_Sample_Rate,//
 		Sensory_Component: Has_Sensory_Component//
     };
-	console.log(JSON.stringify(DeviceAction));
     socket.send(JSON.stringify(DeviceAction));
 }
 
@@ -99,6 +98,20 @@ function toggleStopDevice(element) {
         id: id
     };
     socket.send(JSON.stringify(DeviceAction));
+}
+
+function toogleAllfunction(function_name)
+{
+	var classes = document.getElementsByClassName("device");
+	for (var item of classes) {
+		window[function_name](item);
+	}
+}
+
+function toogleControl() {
+	toogleAllfunction('toggleOnDevice')
+	//var node = document.getElementById('controls')
+	//node.children[1].innerHTML = "<a href=\"#\" OnClick=toogleAllfunction('toggleStartDevice')>Start All</a>"
 }
 
 function printDeviceElement(device) {
@@ -136,7 +149,7 @@ function printDeviceElement(device) {
 	
     var deviceSensors = document.createElement("span");
 	var sensorsList = "<br><table><tr><th rowspan=\"" + device.sensors.length + "\">Sensors:</th>";
-	for (var i = 0; i < device.sensors.length; i++) { //device.sensors.lenght
+	for (var i = 0; i < device.sensors.length; i++) { 
 		sensorsList += "<td>" + device.sensors[i] + "</td></tr><tr>";
 	}
 	sensorsList += "</tr></table>";

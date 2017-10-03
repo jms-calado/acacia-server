@@ -3,7 +3,6 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="websocket.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -13,26 +12,30 @@
             <p>Welcome to the Testing Interface.</p>
             <br />
 			<div id="rest">
-				<div class="button">
+				<div id="listsessions" class="button">
 					<a href="#" OnClick="getSessions('list/Session')">List Sessions</a>
 				</div>
-				<br />
-				<br />
+				<br /><br />
 				<div id="sessionslist">
-					<table style="width:10%"><tbody id ="table1" ></tbody>
+					<table style="width:10%">
+						<tbody id ="table1"></tbody>
 					</table> 
-				</div>
+				</div>		
+			</div>		
+			<br /><br />
+			<div id="controls" class="button">
+				<a href="#" OnClick=toogleControl()>Turn On All</a>
 			</div>
             <br />
             <h3>Currently connected users:</h3>
-			<div class="button">
+			<div id="add_device" class="button">
 				<a href="#" OnClick=addDevice()>Add dummy student</a>
-			</div>
-            <br />
-            <br />
+			</div>		
+			<br /><br />
             <div id="content">
             </div>
         </div>
         <script src="rest.js"></script>
+        <script src="websocket.js"></script>
     </body>
 </html>

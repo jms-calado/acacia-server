@@ -1,5 +1,6 @@
 //var baseURL = 'http://localhost:5904/';
 var baseURL = 'https://api.arca.acacia.red/';
+
 var session;
 
 jQuery.extend({
@@ -36,6 +37,7 @@ jQuery.extend({
 
 function getSessions(url) {
 	$.getValues(url, getcallback);
+	document.getElementById('listsessions').remove();
 }
 
 function getcallback (arr) {

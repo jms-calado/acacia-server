@@ -1,6 +1,6 @@
 window.onload = init;
-//var socket = new WebSocket("ws://localhost:5904/actions");
-var socket = new WebSocket("wss://api.arca.acacia.red/actions");
+var socket = new WebSocket("ws://localhost:5904/actions");
+//var socket = new WebSocket("wss://api.arca.acacia.red/actions");
 
 socket.onmessage = onMessage;
 // socket.onopen = function () {
@@ -50,7 +50,7 @@ function onMessage(event) {
 function addDevice() {
     var DeviceAction = {
         action: "add",
-        name: "Student_X",
+        name: "Student_Dummy",
 		sensors: ["GP3","Affectiva"],
         type: "Student",
         statusOnOff: "Off",
@@ -58,8 +58,20 @@ function addDevice() {
 		session: "Session_2017-07-06_14-00-00"
     };
     socket.send(JSON.stringify(DeviceAction));
-	document.getElementById('add_device').remove();
+	document.getElementById("add_device").innerHTML = "<a href=\"#\" OnClick=removeDevice()>Remove dummy student</a>"
 }
+
+function removeDevice() {	
+    var id = document.getElementsByClassName("device Student")[0].id
+    var DeviceAction = {
+        action: "remove",
+        id: parseInt(id)
+    };
+    socket.send(JSON.stringify(DeviceAction));
+	document.getElementById("add_device").innerHTML = "<a href=\"#\" OnClick=addDevice()>Add dummy student</a>"
+	//document.getElementById('add_device').remove();
+}
+
 function toggleOnDevice(element) {
     var id = element;
     var DeviceAction = {
@@ -100,8 +112,7 @@ function toggleStopDevice(element) {
     socket.send(JSON.stringify(DeviceAction));
 }
 
-function toogleAllfunction(function_name)
-{
+function toogleAllfunction(function_name) {
 	var classes = document.getElementsByClassName("device");
 	for (var item of classes) {
 		window[function_name](item);
@@ -109,9 +120,19 @@ function toogleAllfunction(function_name)
 }
 
 function toogleControl() {
-	toogleAllfunction('toggleOnDevice')
-	//var node = document.getElementById('controls')
-	//node.children[1].innerHTML = "<a href=\"#\" OnClick=toogleAllfunction('toggleStartDevice')>Start All</a>"
+	if(document.getElementById("controlOn")){
+		toogleAllfunction('toggleOnDevice')
+		document.getElementById("controls").innerHTML = "<a id=\"controlStart\" href=\"#\" OnClick=toogleControl()>Start All</a>"
+	} else if(document.getElementById("controlStart")){
+		toogleAllfunction('toggleStartDevice')
+		document.getElementById("controls").innerHTML = "<a id=\"controlStop\" href=\"#\" OnClick=toogleControl()>Stop All</a>"
+	} else if(document.getElementById("controlStop")){
+		toogleAllfunction('toggleStopDevice')
+		document.getElementById("controls").innerHTML = "<a id=\"controlOff\" href=\"#\" OnClick=toogleControl()>Turn Off All</a>"
+	} else if(document.getElementById("controlOff")){
+		toogleAllfunction('toggleOffDevice')
+		document.getElementById("controls").innerHTML = "<a id=\"controlOn\" href=\"#\" OnClick=toogleControl()>Turn On All</a>"
+	}
 }
 
 function printDeviceElement(device) {

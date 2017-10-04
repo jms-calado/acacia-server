@@ -1,8 +1,12 @@
 package acacia.resources;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -16,6 +20,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -26,6 +31,7 @@ import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
+import acacia.websocket.AlertEvent;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -88,6 +94,37 @@ public class InsertObservation extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
+	//here be dragons
+			/*
+			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
+			String AlertDateTime = obsTime.minusMinutes(30).toString();
+			String query = "SELECT ?x "//
+			            +  "WHERE { "
+			            +  "?y rdfs:subClassOf* onto:Observations ."
+			            +  "?x rdf:type ?y ."
+			            +  "?x onto:Has_Session ?w ."
+			            +  "FILTER regex(str(?w), '" + observation.getSession() + "$', 'i') ."
+			            +  "?x onto:Has_Student ?v ."
+			            +  "FILTER regex(str(?v), '" + observation.getStudent() + "$', 'i') ."
+			            +  "?x onto:Date_Time ?u ."
+			            +  "FILTER ( ?u > \"" + AlertDateTime + "\"^^xsd:dateTime ) . "
+			            +  "?a rdfs:subClassOf* onto:Behavior ."
+			            +  "?b rdf:type ?a ."
+			            +  "?b onto:Has_Observations ?x ."
+			            +  "?b onto:Off_Task ?c ."
+			            +  "FILTER(?c >= 0.5) ."
+			            +  "}";
+			ResultSet rs = executeQuery(query);
+			int repetitions = 0;
+			while (rs.hasNext()) {
+				repetitions++;
+			}
+			if (repetitions > 2) {
+				fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
+			}
+			*/
+	//end of danger
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{
@@ -98,5 +135,12 @@ public class InsertObservation extends Resource {
 			return Response.status(422).build();
 		}
 	}
-
+	/*
+	@Inject
+	@AlertEvent
+	private Event<String> alertEvent;
+	
+	public void fireAlertEvent(String message) {
+		alertEvent.fire(message);
+	}*/
 }

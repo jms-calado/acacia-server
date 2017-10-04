@@ -10,6 +10,7 @@ import javax.websocket.server.ServerEndpoint;
 import acacia.model.Device;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
 
 import java.io.IOException;
 //import javax.inject.Inject;
@@ -108,4 +109,8 @@ public class DeviceWebSocketServer {
             }
         }
     }
+    /*
+    public void observeEvent(@Observes @AlertEvent String message) {
+    	sessionHandler.alert(message);
+    }*/
 }    

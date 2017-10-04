@@ -202,4 +202,12 @@ public class DeviceSessionHandler {
             sendToSession(device.getSession(), updateDevMessage);
         }
 	}
+	
+	public void alert(String message) {
+        JsonProvider provider = JsonProvider.provider();
+        JsonObject updateDevMessage = provider.createObjectBuilder()
+                    .add("alert", message)
+                    .build();
+        sendToAllConnectedSessions(updateDevMessage);
+	}
 }

@@ -15,25 +15,22 @@
 				<div id="listsessions" class="button">
 					<a href="#" OnClick="getSessions('list/Session')">List Sessions</a>
 				</div>
-				<br /><br />
 				<div id="sessionslist">
 					<table style="width:10%">
 						<tbody id ="table1"></tbody>
 					</table> 
 				</div>		
-			</div>		
-			<br /><br />
-			<div id="controls" class="button">
-				<a href="#" OnClick=toogleControl()>Turn On All</a>
 			</div>
-            <br />
+			<div id="controller">
+				<br /><br />
+			</div>
             <h3>Currently connected users:</h3>
+            <div id="content">
+            </div>
+			<br /><br />
 			<div id="add_device" class="button">
 				<a href="#" OnClick=addDevice()>Add dummy student</a>
 			</div>		
-			<br /><br />
-            <div id="content">
-            </div>
         </div>
         <script src="rest.js"></script>
         <script src="websocket.js"></script>

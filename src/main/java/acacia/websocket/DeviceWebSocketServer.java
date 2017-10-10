@@ -7,10 +7,12 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import acacia.cdi.AlertEvent;
 import acacia.model.Device;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
+import javax.inject.Named;
 
 import java.io.IOException;
 //import javax.inject.Inject;
@@ -25,6 +27,7 @@ import javax.json.JsonReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Named
 @ApplicationScoped    
 @ServerEndpoint("/actions")
 public class DeviceWebSocketServer {
@@ -109,8 +112,9 @@ public class DeviceWebSocketServer {
             }
         }
     }
-    /*
+    
     public void observeEvent(@Observes @AlertEvent String message) {
+    	System.out.println(message);
     	sessionHandler.alert(message);
-    }*/
+    }
 }    

@@ -1,4 +1,4 @@
-package acacia.websocket;
+package acacia.cdi;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;

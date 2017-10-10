@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -27,11 +29,12 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import acacia.cdi.AlertEvent;
+import acacia.cdi.EventAlertBean;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
-import acacia.websocket.AlertEvent;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -95,42 +98,46 @@ public class InsertObservation extends Resource {
 			System.out.println(update);
 			executeUpdate(update);
 	//here be dragons
-			/*
+			
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
 			String AlertDateTime = obsTime.minusMinutes(30).toString();
-			String query = "SELECT ?x "//
+			/*String query = "SELECT ?x "//
 			            +  "WHERE { "
-			            +  "?y rdfs:subClassOf* onto:Observations ."
+			            +  "?y rdfs:subClassOf* acacia:Observation ."
 			            +  "?x rdf:type ?y ."
-			            +  "?x onto:Has_Session ?w ."
+			            +  "?x acacia:Belongs_to_Session ?w ."
 			            +  "FILTER regex(str(?w), '" + observation.getSession() + "$', 'i') ."
-			            +  "?x onto:Has_Student ?v ."
+			            +  "?x acacia:Has_Student ?v ."
 			            +  "FILTER regex(str(?v), '" + observation.getStudent() + "$', 'i') ."
-			            +  "?x onto:Date_Time ?u ."
+			            +  "?x acacia:Date_Time ?u ."
 			            +  "FILTER ( ?u > \"" + AlertDateTime + "\"^^xsd:dateTime ) . "
-			            +  "?a rdfs:subClassOf* onto:Behavior ."
+			            +  "?a rdfs:subClassOf* acacia:Behaviour ."
 			            +  "?b rdf:type ?a ."
-			            +  "?b onto:Has_Observations ?x ."
-			            +  "?b onto:Off_Task ?c ."
+			            +  "?b acacia:Belongs_to_Observation ?x ."
+			            +  "?b acacia:Off_Task ?c ."
 			            +  "FILTER(?c >= 0.5) ."
 			            +  "}";
 			ResultSet rs = executeQuery(query);
+			System.out.println(rs.toString());
 			int repetitions = 0;
 			while (rs.hasNext()) {
 				repetitions++;
 			}
 			if (repetitions > 2) {
-				fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
-			}
-			*/
+				EventAlertBean fire = new EventAlertBean();
+				fire.fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
+			}*/
+
+			EventAlertBean fire = new EventAlertBean();
+			fire.fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
 	//end of danger
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{
 			for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
 				msg = cv.getPropertyPath() + " : " + cv.getMessage();
-				System.out.println("Validator Error: " + msg);
+				System.out.println("Validator Error O: " + msg);
 			}
 			return Response.status(422).build();
 		}

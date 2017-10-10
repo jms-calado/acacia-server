@@ -74,6 +74,6 @@ function postcallback (arr) {
 	}
 	Has_Sensory_Component = sensor_arr;
 	
-	document.getElementById("controller").innerHTML = "<br /><div id=\"controls\" class=\"button\"><a id=\"controlOn\" href=\"#\" OnClick=toogleControl()>Turn On All</a></div><br />"
+	//document.getElementById("controller").innerHTML = "<br /><div id=\"controls\" class=\"button\"><a id=\"controlOn\" href=\"#\" OnClick=toogleControl()>Turn On All</a></div><br />"
 }
 

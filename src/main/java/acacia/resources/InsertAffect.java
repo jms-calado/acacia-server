@@ -56,7 +56,7 @@ public class InsertAffect extends Resource {
 			String update = ConstantURIs.prefixes 
 				+ "INSERT DATA {"
 				+ "acacia:Affect_" + affect.getObservationID() + " rdf:type acacia:Affect . "
-				+ "acacia:Affect_" + affect.getObservationID() + " acacia:Belongs_to_Observation acacia:" + affect.getObservationID() + " . ";
+				+ "acacia:Affect_" + affect.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + affect.getObservationID() + " . ";
 			if(!affect.getBored().isEmpty()){
 				update = update
 					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Bored \"" + affect.getBored() + "\"^^xsd:float . ";
@@ -103,7 +103,7 @@ public class InsertAffect extends Resource {
 		}else{
 			for (ConstraintViolation<AffectObject> cv : constraintViolations) {
 				msg = cv.getMessage();
-				System.out.println("Validator Error: " + msg);
+				System.out.println("Validator Error A: " + msg);
 				return Response.status(422).build();
 			}
 		}

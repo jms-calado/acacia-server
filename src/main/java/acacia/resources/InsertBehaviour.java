@@ -56,7 +56,7 @@ public class InsertBehaviour extends Resource {
 			String update = ConstantURIs.prefixes 
 				+ "INSERT DATA {"
 				+ "acacia:Behaviour_" + behaviour.getObservationID() + " rdf:type acacia:Behaviour . "
-				+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Belongs_to_Observation acacia:" + behaviour.getObservationID() + " . ";
+				+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + behaviour.getObservationID() + " . ";
 			if(!behaviour.getActive_Participation().isEmpty()){
 				update = update
 					+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Active_Participation \"" + behaviour.getActive_Participation() + "\"^^xsd:float . ";
@@ -99,7 +99,7 @@ public class InsertBehaviour extends Resource {
 		}else{
 			for (ConstraintViolation<BehaviourObject> cv : constraintViolations) {
 				msg = cv.getMessage();
-				System.out.println("Validator Error: " + msg);
+				System.out.println("Validator Error B: " + msg);
 				return Response.status(422).build();
 			}
 		}

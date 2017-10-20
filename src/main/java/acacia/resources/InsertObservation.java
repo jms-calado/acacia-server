@@ -1,6 +1,8 @@
 package acacia.resources;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -16,21 +18,24 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+//import acacia.cdi.EventAlertBean;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
+import acacia.websocket.DeviceWebSocketServer;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)
 public class InsertObservation extends Resource {
-
+	
 	public InsertObservation(SparqlExecutor qe) {
 		super(qe);
 		setUpValidator();
@@ -88,15 +93,49 @@ public class InsertObservation extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
+	//here be dragons
+			String alertMsg = "";
+			/**/
+			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
+			String AlertDateTime = obsTime.minusMinutes(30).format(formatter);
+			String query = ConstantURIs.prefixes
+						+  "SELECT ?x "//
+			            +  "WHERE { "
+			            +  "?y rdfs:subClassOf* acacia:Observation ."
+			            +  "?x rdf:type ?y ."
+			            +  "?x acacia:Belongs_to_Session ?w ."
+			            +  "FILTER regex(str(?w), '" + observation.getSession() + "$', 'i') ."
+			            +  "?x acacia:Has_Student ?v ."
+			            +  "FILTER regex(str(?v), '" + observation.getStudent() + "$', 'i') ."
+			            +  "?x acacia:Date_Time ?u ."
+			            +  "FILTER ( ?u > \"" + AlertDateTime + "\"^^xsd:dateTime ) . "
+			            +  "?a rdfs:subClassOf* acacia:Behaviour ."
+			            +  "?b rdf:type ?a ."
+			            +  "?b acacia:Belongs_to_Observation ?x ."
+			            +  "?b acacia:Off_Task ?c ."
+			            +  "FILTER(?c >= 0.5) ."
+			            +  "}";
+			ResultSet rs = executeQuery(query);
+			int repetitions = 0;
+			while (rs.hasNext()) {
+				repetitions++;
+			}
+			if (repetitions > 2) {
+				alertMsg = "Student " + observation.getStudent() + " is showing issue: \"Drop Out\"";
+				if (DeviceWebSocketServer.sessionHandler != null){
+					DeviceWebSocketServer.sessionHandler.alert(alertMsg);
+				}
+			}/**/			
+	//end of danger
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{
 			for (ConstraintViolation<ObservationObject> cv : constraintViolations) {
 				msg = cv.getPropertyPath() + " : " + cv.getMessage();
-				System.out.println("Validator Error: " + msg);
+				System.out.println("Validator Error O: " + msg);
 			}
 			return Response.status(422).build();
 		}
 	}
-
 }

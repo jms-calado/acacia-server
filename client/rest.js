@@ -1,5 +1,5 @@
-//var baseURL = 'http://localhost:5904/';
-var baseURL = 'https://api.arca.acacia.red/';
+var baseURL = 'http://localhost:5904/';
+//var baseURL = 'https://api.arca.acacia.red/';
 
 var session;
 

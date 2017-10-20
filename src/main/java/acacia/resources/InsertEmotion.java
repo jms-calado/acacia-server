@@ -56,7 +56,7 @@ public class InsertEmotion extends Resource {
 			String update = ConstantURIs.prefixes 
 				+ "INSERT DATA {"
 				+ "acacia:Emotion_" + emotion.getObservationID() + " rdf:type acacia:Emotion . "
-				+ "acacia:Emotion_" + emotion.getObservationID() + " acacia:Belongs_to_Observation acacia:" + 	emotion.getObservationID() + " . ";
+				+ "acacia:Emotion_" + emotion.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + 	emotion.getObservationID() + " . ";
 			if(!emotion.getAnger().isEmpty()){
 				update = update
 						+ "acacia:Emotion_" + emotion.getObservationID() + " acacia:Anger \"" + emotion.getAnger() 		   + "\"^^xsd:float . ";
@@ -99,7 +99,7 @@ public class InsertEmotion extends Resource {
 		}else{
 			for (ConstraintViolation<EmotionObject> cv : constraintViolations) {
 				msg = cv.getMessage();
-				System.out.println("Validator Error: " + msg);
+				System.out.println("Validator Error E: " + msg);
 				return Response.status(422).build();
 			}
 		}

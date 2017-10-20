@@ -5,8 +5,8 @@ var Has_Sensory_Component  = null;
 var Belongs_to_Scenario = null;
 var Observation_Sample_Rate = null;
 
-var socket = new WebSocket("ws://localhost:5904/actions");
-//var socket = new WebSocket("wss://api.arca.acacia.red/actions");
+//var socket = new WebSocket("ws://localhost:5904/actions");
+var socket = new WebSocket("wss://api.arca.acacia.red/actions");
 
 socket.onmessage = onMessage;
 // socket.onopen = function () {
@@ -46,6 +46,9 @@ function onMessage(event) {
             recording.innerHTML = "<b>Recording:</b> No (<a href=\"#\" OnClick=toggleStartDevice(" + device.id + ")>Start</a>)";
         }
     }
+	if (device.action === "alert") {
+		alert(device.alert);
+	}
 }
 
 function addDevice() {

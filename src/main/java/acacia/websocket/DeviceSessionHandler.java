@@ -199,9 +199,9 @@ public class DeviceSessionHandler {
 	public void alert(String message) {
         JsonProvider provider = JsonProvider.provider();
         JsonObject updateDevMessage = provider.createObjectBuilder()
-                    .add("alert", message)
-                    .build();
-        System.out.println(message);
+                .add("action", "alert")
+                .add("alert", message)
+                .build();
         sendToAllConnectedSessions(updateDevMessage);
 	}
 }

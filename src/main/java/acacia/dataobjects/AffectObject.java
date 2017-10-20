@@ -11,7 +11,7 @@ public class AffectObject {
 	private String Bored;
 	private String Concentrated;
 	private String Confused;
-	private String Exited;
+	private String Excited;
 	private String Frustrated;
 	private String Meditation;
 	private String Neutral_Affect;
@@ -45,13 +45,13 @@ public class AffectObject {
 	public void setConfused(String Confused){
 		this.Confused = Confused;
 	}
-	@JsonProperty("Exited")
-	public String getExited(){
-		return Exited;
+	@JsonProperty("Excited")
+	public String getExcited(){
+		return Excited;
 	}
-	@JsonProperty("Exited")
-	public void setExited(String Exited){
-		this.Exited = Exited;
+	@JsonProperty("Excited")
+	public void setExcited(String Excited){
+		this.Excited = Excited;
 	}
 	@JsonProperty("Frustrated")
 	public String getFrustrated(){

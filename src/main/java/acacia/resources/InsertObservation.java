@@ -93,9 +93,8 @@ public class InsertObservation extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
-	//here be dragons
+
 			String alertMsg = "";
-			/**/
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
 			String AlertDateTime = obsTime.minusMinutes(30).format(formatter);
@@ -122,12 +121,12 @@ public class InsertObservation extends Resource {
 				repetitions++;
 			}
 			if (repetitions > 2) {
-				alertMsg = "Student " + observation.getStudent() + " is showing issue: \"Drop Out\"";
+				alertMsg = "Alert: " + observation.getStudent() + " is showing issue: \"Drop Out\"";
 				if (DeviceWebSocketServer.sessionHandler != null){
 					DeviceWebSocketServer.sessionHandler.alert(alertMsg);
 				}
-			}/**/			
-	//end of danger
+			}
+	        System.out.println(alertMsg);
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{

@@ -59,35 +59,35 @@ public class InsertAffect extends Resource {
 				+ "acacia:Affect_" + affect.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + affect.getObservationID() + " . ";
 			if(!affect.getBored().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Bored \"" + affect.getBored() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Bored \"" 			+ affect.getBored() 			+ "\"^^xsd:float . ";
 			}
 			if(!affect.getConcentrated().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Concentrated \"" + affect.getConcentrated() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Concentrated \"" 		+ affect.getConcentrated() 		+ "\"^^xsd:float . ";
 			}
 			if(!affect.getConfused().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Confused \"" + affect.getConfused() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Confused \"" 			+ affect.getConfused() 			+ "\"^^xsd:float . ";
 			}
-			if(!affect.getExited().isEmpty()){
+			if(!affect.getExcited().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Exited \"" + affect.getExited() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Excited \"" 			+ affect.getExcited() 			+ "\"^^xsd:float . ";
 			}
 			if(!affect.getFrustrated().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Frustrated \"" + affect.getFrustrated() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Frustrated \"" 		+ affect.getFrustrated() 		+ "\"^^xsd:float . ";
 			}
 			if(!affect.getMeditation().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Meditation \"" + affect.getMeditation() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Meditation \"" 		+ affect.getMeditation() 		+ "\"^^xsd:float . ";
 			}
 			if(!affect.getNeutral_Affect().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Neutral_Affect \"" + affect.getNeutral_Affect() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Neutral_Affect \"" 	+ affect.getNeutral_Affect() 	+ "\"^^xsd:float . ";
 			}
 			if(!affect.getOther_Affect().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Other_Affect \"" + affect.getOther_Affect() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Other_Affect \"" 		+ affect.getOther_Affect() 		+ "\"^^xsd:float . ";
 			}
 			if(!affect.getOther_Affect_Name().isEmpty()){
 				update = update
@@ -95,7 +95,7 @@ public class InsertAffect extends Resource {
 			}
 			if(!affect.getSatisfaction().isEmpty()){
 				update = update
-					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Satisfaction \"" + affect.getSatisfaction() + "\"^^xsd:float . ";
+					+ "acacia:Affect_" + affect.getObservationID() + " acacia:Satisfaction \"" 		+ affect.getSatisfaction() 		+ "\"^^xsd:float . ";
 			}
 			update = update	+ "}";
 			System.out.println(update);

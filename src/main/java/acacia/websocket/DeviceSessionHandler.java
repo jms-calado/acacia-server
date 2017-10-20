@@ -1,14 +1,6 @@
 package acacia.websocket;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.json.spi.JsonProvider;
-
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,10 +9,11 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.spi.JsonProvider;
 import javax.websocket.Session;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import acacia.model.Device;
 
@@ -208,6 +201,7 @@ public class DeviceSessionHandler {
         JsonObject updateDevMessage = provider.createObjectBuilder()
                     .add("alert", message)
                     .build();
+        System.out.println(message);
         sendToAllConnectedSessions(updateDevMessage);
 	}
 }

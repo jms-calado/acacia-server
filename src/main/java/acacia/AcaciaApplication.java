@@ -9,6 +9,7 @@ import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
+import javax.websocket.server.ServerEndpointConfig;
 
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import acacia.dataobjects.GlobalVar;
@@ -66,6 +67,13 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		filter.setInitParameter(ALLOWED_HEADERS_PARAM, "Origin,Content-Type,Accept,X-Requested-With");
 		filter.setInitParameter(ALLOW_CREDENTIALS_PARAM, "true");
 		filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+		
+        //Annotated endpoint
+        websocket.addEndpoint(DeviceWebSocketServer.class);
+        
+        //programmatic endpoint
+        //ServerEndpointConfig websocketserverEndpointConfig = ServerEndpointConfig.Builder.create(DeviceWebSocketServer.class, "/actions").build();
+        //websocket.addEndpoint(websocketserverEndpointConfig);
 
 		SparqlExecutor qe = configuration.getQueryExecutorFactory().buildQE();
 		
@@ -85,8 +93,6 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.healthChecks().register("search", new SearchHealthCheck());
 		environment.healthChecks().register("insert", new SearchHealthCheck());
 		
-        //Annotated endpoint
-        websocket.addEndpoint(DeviceWebSocketServer.class);
 	}
 
 }

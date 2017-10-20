@@ -1,5 +1,16 @@
 package acacia.websocket;
 
+import java.io.IOException;
+//import javax.inject.Inject;
+import java.io.StringReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -7,34 +18,15 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import acacia.cdi.AlertEvent;
 import acacia.model.Device;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.inject.Named;
-
-import java.io.IOException;
-//import javax.inject.Inject;
-import java.io.StringReader;
-import java.net.SocketTimeoutException;
-
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-@Named
 @ApplicationScoped    
 @ServerEndpoint("/actions")
-public class DeviceWebSocketServer {
-
-    //@Inject
+public class DeviceWebSocketServer { 
+	
+	//@Inject
     //private DeviceSessionHandler sessionHandler;
-	private static DeviceSessionHandler sessionHandler = new DeviceSessionHandler();
+	public static DeviceSessionHandler sessionHandler = new DeviceSessionHandler();
     
     @OnOpen
     public void open(Session session) {
@@ -113,8 +105,4 @@ public class DeviceWebSocketServer {
         }
     }
     
-    public void observeEvent(@Observes @AlertEvent String message) {
-    	System.out.println(message);
-    	sessionHandler.alert(message);
-    }
 }    

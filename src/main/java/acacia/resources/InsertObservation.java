@@ -5,10 +5,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -29,17 +25,17 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import acacia.cdi.AlertEvent;
-import acacia.cdi.EventAlertBean;
+//import acacia.cdi.EventAlertBean;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
+import acacia.websocket.DeviceWebSocketServer;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)
 public class InsertObservation extends Resource {
-
+	
 	public InsertObservation(SparqlExecutor qe) {
 		super(qe);
 		setUpValidator();
@@ -98,11 +94,13 @@ public class InsertObservation extends Resource {
 			System.out.println(update);
 			executeUpdate(update);
 	//here be dragons
-			
+			String alertMsg = "";
+			/**/
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
-			String AlertDateTime = obsTime.minusMinutes(30).toString();
-			/*String query = "SELECT ?x "//
+			String AlertDateTime = obsTime.minusMinutes(30).format(formatter);
+			String query = ConstantURIs.prefixes
+						+  "SELECT ?x "//
 			            +  "WHERE { "
 			            +  "?y rdfs:subClassOf* acacia:Observation ."
 			            +  "?x rdf:type ?y ."
@@ -119,18 +117,16 @@ public class InsertObservation extends Resource {
 			            +  "FILTER(?c >= 0.5) ."
 			            +  "}";
 			ResultSet rs = executeQuery(query);
-			System.out.println(rs.toString());
 			int repetitions = 0;
 			while (rs.hasNext()) {
 				repetitions++;
 			}
 			if (repetitions > 2) {
-				EventAlertBean fire = new EventAlertBean();
-				fire.fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
-			}*/
-
-			EventAlertBean fire = new EventAlertBean();
-			fire.fireAlertEvent("Student " + observation.getStudent() + " is showing issue: \"Drop Out\"");
+				alertMsg = "Student " + observation.getStudent() + " is showing issue: \"Drop Out\"";
+				if (DeviceWebSocketServer.sessionHandler != null){
+					DeviceWebSocketServer.sessionHandler.alert(alertMsg);
+				}
+			}/**/			
 	//end of danger
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
@@ -142,12 +138,4 @@ public class InsertObservation extends Resource {
 			return Response.status(422).build();
 		}
 	}
-	/*
-	@Inject
-	@AlertEvent
-	private Event<String> alertEvent;
-	
-	public void fireAlertEvent(String message) {
-		alertEvent.fire(message);
-	}*/
 }

@@ -14,6 +14,5 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ TYPE, FIELD, METHOD, PARAMETER })
-public @interface AlertEvent {
-
+public @interface Alert {
 }

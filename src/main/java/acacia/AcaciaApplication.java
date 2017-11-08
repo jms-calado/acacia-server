@@ -24,8 +24,12 @@ import acacia.resources.InsertUser;
 import acacia.resources.ListClasses;
 import acacia.resources.ListIndividualProperties;
 import acacia.resources.ListObservationsOfSession;
+import acacia.resources.ListSessionsOfStudent;
 import acacia.resources.ListStudentsOfObservation;
 import acacia.resources.ListStudentsOfSession;
+import acacia.resources.PlotSession;
+import acacia.resources.PlotStudent;
+import acacia.resources.PlotStudentSession;
 import acacia.resources.TestFind;
 import acacia.services.SparqlExecutor;
 import acacia.websocket.DeviceWebSocketServer;
@@ -76,7 +80,11 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
         //websocket.addEndpoint(websocketserverEndpointConfig);
 
 		SparqlExecutor qe = configuration.getQueryExecutorFactory().buildQE();
-		
+
+		environment.jersey().register(new PlotStudentSession(qe));
+		environment.jersey().register(new PlotStudent(qe));
+		environment.jersey().register(new PlotSession(qe));
+		environment.jersey().register(new ListSessionsOfStudent(qe));
 		environment.jersey().register(new ListStudentsOfSession(qe));
 		environment.jersey().register(new ListStudentsOfObservation(qe));
 		environment.jersey().register(new ListObservationsOfSession(qe));

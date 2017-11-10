@@ -36,6 +36,10 @@ public abstract class Resource {
 			item = new HashMap<String, String>();
 			for (String str: sl) {
 				Object obj = null;
+				if(qs.get(str) == null) {
+					System.out.println("Error: Null results");
+					return list;
+				}
 				if (qs.get(str).isLiteral()) {
 					obj = qs.get(str).asLiteral().getValue();
 				}

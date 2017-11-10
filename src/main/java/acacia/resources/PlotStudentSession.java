@@ -72,34 +72,38 @@ public class PlotStudentSession extends Resource {
 			System.out.println(query);
 			ResultSet rs = executeQuery(query);
 			List<Map<String, String>> list = buildResult(rs);
-			//System.out.println(list.toString());			
-			String lastObservation = null;
-			JsonObjectBuilder obj = Json.createObjectBuilder();
-	        JsonObjectBuilder builder = Json.createObjectBuilder();
-			for(Map<String, String> map : list) {
-				//System.out.println(map.toString());				
-				String observation = map.get("Observation");
-				String property = map.get("Property");
-				String value = map.get("Value");
-				if(observation.equals(lastObservation)) {
-					builder.add(property, value);
-				}else {
-					if(lastObservation!=null) {
-						JsonObject jobj = builder.build();					
-						//System.out.println(jobj);
-						obj.add(lastObservation, jobj);
+			//System.out.println(list.toString());
+			if (list.isEmpty()) {
+				return Response.ok("{\"Error\":\"No Data Found\"}", MediaType.APPLICATION_JSON).status(200).build();
+			}else {
+				String lastObservation = null;
+				JsonObjectBuilder obj = Json.createObjectBuilder();
+		        JsonObjectBuilder builder = Json.createObjectBuilder();
+				for(Map<String, String> map : list) {
+					//System.out.println(map.toString());				
+					String observation = map.get("Observation");
+					String property = map.get("Property");
+					String value = map.get("Value");
+					if(observation.equals(lastObservation)) {
+						builder.add(property, value);
+					}else {
+						if(lastObservation!=null) {
+							JsonObject jobj = builder.build();					
+							//System.out.println(jobj);
+							obj.add(lastObservation, jobj);
+						}
+						lastObservation = observation;
+						builder.add(property, value);
 					}
-					lastObservation = observation;
-					builder.add(property, value);
 				}
+				JsonObject jobj = builder.build();
+				//System.out.println(jobj);
+				//obj.entrySet().forEach(e -> builder.add(e.getKey(), e.getValue()));
+				obj.add(lastObservation, jobj);
+				JsonObject jsonObj = obj.build();
+				//System.out.println(jsonObj);
+				return Response.ok(jsonObj.toString(), MediaType.APPLICATION_JSON).status(200).build();
 			}
-			JsonObject jobj = builder.build();
-			//System.out.println(jobj);
-			//obj.entrySet().forEach(e -> builder.add(e.getKey(), e.getValue()));
-			obj.add(lastObservation, jobj);
-			JsonObject jsonObj = obj.build();
-			//System.out.println(jsonObj);
-			return Response.ok(jsonObj.toString(), MediaType.APPLICATION_JSON).status(200).build();	        	        
 		}
 		catch (JsonException e){
 			String msg = e.getMessage();

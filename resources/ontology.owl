@@ -17,12 +17,13 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Instruction">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Predicate"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Priority"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -37,14 +38,13 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Priority"/>
-        </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Predicate"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Alternativa">
     <rdfs:subClassOf>
@@ -85,28 +85,20 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#User">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Education_Degree"/>
-        </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Gender"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#ID"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
@@ -126,7 +118,7 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#ID"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -135,11 +127,19 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Gender"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Education_Degree"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological">
     <rdfs:subClassOf>
@@ -160,67 +160,9 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Off_Task"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#On_Task"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Active_Participation"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disengaged"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Inactive_Participation"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Attention"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Engaged"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -256,18 +198,18 @@
             >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Off_Task"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#On_Task"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -286,6 +228,64 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Off_Task"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Active_Participation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Inactive_Participation"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disengaged"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Engaged"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#On_Task"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -297,19 +297,11 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Session"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
@@ -320,7 +312,7 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_ID"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -336,7 +328,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_ID"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
@@ -347,11 +339,19 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Session"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Analysis_of_Music_in_E-Learning">
     <rdfs:subClassOf>
@@ -371,20 +371,21 @@
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_Sample_Rate"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
         <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:minCardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Sensory_Component"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
         </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -392,7 +393,7 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Date_Time"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -407,34 +408,43 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Date_Time"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Sensory_Component"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_Sample_Rate"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:minCardinality>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object">
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -445,28 +455,8 @@
         </owl:someValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Instruction"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -476,6 +466,16 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Instruction"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Physiological">
     <rdfs:subClassOf>
@@ -491,10 +491,10 @@
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
     </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sociological"/>
     <owl:disjointWith>
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Issue"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sociological"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Low_Performance">
     <rdfs:subClassOf>
@@ -505,43 +505,40 @@
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Scenario">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Data_Mining_Rate"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Machine_Learning_Rate"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Machine_Learning_Rate"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Data_Mining_Rate"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Annalist">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#User"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Issue">
     <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sociological"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -550,6 +547,9 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
       </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Software_Sensor">
@@ -572,12 +572,13 @@
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Learning_Features"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensory_Component">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#URL"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -592,17 +593,15 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#URL"/>
         </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Human_Observation">
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
@@ -612,6 +611,7 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Musical">
     <rdfs:subClassOf>
@@ -633,30 +633,29 @@
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
         </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Low_Attention">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
     </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sociological"/>
-    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Issue"/>
     <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Drop_Out"/>
+    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Issue"/>
+    <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sociological"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#AutoCAD">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Scenario"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Features">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -666,39 +665,33 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation">
     <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Human_Observation"/>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Sensory_Component"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Musics">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Recommendation"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Risk_Assessement"/>
-        </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -713,18 +706,53 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Risk_Assessement"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Recommendation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Admin">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#User"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disgust"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Surprise"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -743,39 +771,39 @@
             </owl:onProperty>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disgust"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Happiness"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Joy"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Emotion"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
@@ -794,23 +822,22 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disgust"/>
-        </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sadness"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Emotion"/>
         </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -820,33 +847,6 @@
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Surprise"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Contempt"/>
-        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -863,54 +863,26 @@
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sadness"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Happiness"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affect">
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Affect"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Contempt"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affect">
     <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Confused"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Concentrated"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustrated"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Excited"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
@@ -920,11 +892,11 @@
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Bored"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -941,11 +913,11 @@
             >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Excited"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -962,53 +934,45 @@
             </owl:onProperty>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Affect"/>
             </owl:onProperty>
-          </owl:Restriction>
-          <owl:Restriction>
             <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
             >1</owl:minCardinality>
+          </owl:Restriction>
+          <owl:Restriction>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Satisfaction"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Meditation"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</owl:minCardinality>
           </owl:Restriction>
         </owl:unionOf>
       </owl:Class>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Satisfaction"/>
         </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Affect"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Excited"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Other_Affect"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -1021,13 +985,49 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Confused"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustrated"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Behaviour"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Concentrated"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Bored"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Affect"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -1444,9 +1444,9 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >Male</rdf:first>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Female</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
@@ -1459,48 +1459,76 @@
   <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Illness">
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student"/>
   </owl:DatatypeProperty>
-  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_5">
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_13">
     <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-    >0.54321</Joy>
+    >0.04321</Joy>
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.02345</Anger>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.02345</Sadness>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.02346</Contempt>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.03456</Disgust>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.01345</Surprise>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.04561</Fear>
     <Belongs_to_Observation>
-      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_5">
-        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2017-11-08T00:00:00</Date_Time>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
-        >13:17:49</Duration>
-        <Has_Student>
-          <Student rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123">
-            <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Male</Gender>
-            <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >123</ID>
-            <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >12</Education_Degree>
-            <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Mechanics</Area_of_Degree>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_12">
+        <Has_Sensory_Component>
+          <Facial_Expression_Recognition rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva">
             <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >John Doe</Name>
+            >Affectiva</Name>
+            <Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Affectiva Emotion Detection Algorithm</Description>
+            <URL rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >https://www.affectiva.com/</URL>
+          </Facial_Expression_Recognition>
+        </Has_Sensory_Component>
+        <Has_Student>
+          <Student rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321">
+            <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Robotics</Area_of_Degree>
+            <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Female</Gender>
+            <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MSc</Education_Degree>
+            <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Mary Jane</Name>
             <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >20</Age>
+            >23</Age>
+            <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >321</ID>
           </Student>
         </Has_Student>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T00:00:00</Date_Time>
         <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >5</Observation_ID>
+        >12</Observation_ID>
         <Belongs_to_Session>
           <Session rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-10-05_14-00-00">
             <Observation_Sample_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
             >30000.0</Observation_Sample_Rate>
-            <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
-            <Has_Sensory_Component>
-              <Facial_Expression_Recognition rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva">
+            <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
+            <Has_Student>
+              <Student rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123">
+                <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Male</Gender>
+                <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >123</ID>
+                <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >12</Education_Degree>
+                <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Mechanics</Area_of_Degree>
                 <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Affectiva</Name>
-                <Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Affectiva Emotion Detection Algorithm</Description>
-                <URL rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >https://www.affectiva.com/</URL>
-              </Facial_Expression_Recognition>
-            </Has_Sensory_Component>
+                >John Doe</Name>
+                <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >20</Age>
+              </Student>
+            </Has_Student>
             <Has_Sensory_Component>
               <Eye_Tracker rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#GP3">
                 <URL rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1511,6 +1539,7 @@
                 >GazePoint GP3 Eye Tracker</Description>
               </Eye_Tracker>
             </Has_Sensory_Component>
+            <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
             <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
             >2017-10-05T14:00:00</Date_Time>
             <Belongs_to_Scenario>
@@ -1525,6 +1554,51 @@
             </Belongs_to_Scenario>
             <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
             >01:00:00</Duration>
+          </Session>
+        </Belongs_to_Session>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_5">
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.54321</Joy>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_5">
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T00:00:00</Date_Time>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >5</Observation_ID>
+        <Belongs_to_Session>
+          <Session rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00">
+            <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+            <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+            <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+            >01:00:00</Duration>
+            <Observation_Sample_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >10.0</Observation_Sample_Rate>
+            <Has_Teacher>
+              <Teacher rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Teacher_007">
+                <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >PhD</Education_Degree>
+                <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >007</ID>
+                <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >42</Age>
+                <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Male</Gender>
+                <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >James Bond</Name>
+              </Teacher>
+            </Has_Teacher>
+            <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#GP3"/>
+            <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2017-07-06T14:00:00</Date_Time>
+            <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
+            <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
           </Session>
         </Belongs_to_Session>
         <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
@@ -1552,9 +1626,9 @@
     <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Male</Gender>
     <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></Name>
-    <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hulk</Name>
+    <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></Name>
     <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Physics</Area_of_Degree>
   </Teacher>
@@ -1572,55 +1646,13 @@
         <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
         <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
-        >13:05:12</Duration>
-        <Has_Student>
-          <Student rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321">
-            <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Robotics</Area_of_Degree>
-            <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Female</Gender>
-            <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >MSc</Education_Degree>
-            <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Mary Jane</Name>
-            <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >23</Age>
-            <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >321</ID>
-          </Student>
-        </Has_Student>
+        >00:10:10</Duration>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
         <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2017-11-08T00:00:00</Date_Time>
+        >2017-07-04T00:00:00</Date_Time>
         <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >3</Observation_ID>
-        <Belongs_to_Session>
-          <Session rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00">
-            <Observation_Sample_Rate rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-            >10.0</Observation_Sample_Rate>
-            <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
-            <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#GP3"/>
-            <Has_Teacher>
-              <Teacher rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Teacher_007">
-                <Education_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >PhD</Education_Degree>
-                <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >007</ID>
-                <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                >42</Age>
-                <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Male</Gender>
-                <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >James Bond</Name>
-              </Teacher>
-            </Has_Teacher>
-            <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
-            >01:00:00</Duration>
-            <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
-            <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
-            <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-            >2017-07-06T14:00:00</Date_Time>
-          </Session>
-        </Belongs_to_Session>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
       </Digital_Observation>
     </Belongs_to_Observation>
     <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
@@ -1629,6 +1661,36 @@
     >2.3E-4</Anger>
     <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >0.42356</Sadness>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_12">
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12345</Anger>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.23456</Disgust>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12346</Contempt>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.34561</Fear>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.21345</Surprise>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_10">
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T14:00:00</Date_Time>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >10</Observation_ID>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12345</Sadness>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.54321</Joy>
   </Emotion>
   <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_4">
     <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
@@ -1643,9 +1705,9 @@
         >4</Observation_ID>
         <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
         <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2017-11-08T00:00:00</Date_Time>
+        >2017-07-04T00:00:00</Date_Time>
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
-        >13:05:59</Duration>
+        >00:10:10</Duration>
         <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
       </Digital_Observation>
     </Belongs_to_Observation>
@@ -1660,17 +1722,6 @@
     <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >0.12121</Sadness>
   </Emotion>
-  <rdf:List>
-    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Female</rdf:first>
-    <rdf:rest>
-      <rdf:List>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Male</rdf:first>
-      </rdf:List>
-    </rdf:rest>
-  </rdf:List>
   <Annalist rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Annalist_777">
     <Gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Female</Gender>
@@ -1683,6 +1734,173 @@
     >PhD</Education_Degree>
     <ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int">777</ID>
   </Annalist>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_7">
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.32345</Anger>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.22346</Contempt>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.01345</Surprise>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.53456</Disgust>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.32345</Sadness>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_7">
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >7</Observation_ID>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T14:00:00</Date_Time>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.14321</Joy>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.04561</Fear>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_6">
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.22346</Contempt>
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.22345</Anger>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.22345</Sadness>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.64321</Joy>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.44561</Fear>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_6">
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T00:00:00</Date_Time>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >6</Observation_ID>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:00</Duration>
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.33456</Disgust>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.31345</Surprise>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_9">
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.04321</Joy>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_9">
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >9</Observation_ID>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T14:00:00</Date_Time>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12345</Sadness>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.33456</Disgust>
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.62345</Anger>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.72346</Contempt>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.54561</Fear>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.01345</Surprise>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_8">
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.02345</Anger>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.04561</Fear>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.02346</Contempt>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_8">
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >8</Observation_ID>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T14:00:00</Date_Time>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.33456</Disgust>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.41345</Surprise>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.22345</Sadness>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.44321</Joy>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_11">
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.29345</Surprise>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.19346</Contempt>
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.04561</Fear>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.14321</Joy>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.19345</Sadness>
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.19345</Anger>
+    <Belongs_to_Observation>
+      <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_13">
+        <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+        <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >13</Observation_ID>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-10-05_14-00-00"/>
+        <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2017-07-04T00:00:00</Date_Time>
+        <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+        >00:10:10</Duration>
+        <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+      </Digital_Observation>
+    </Belongs_to_Observation>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.43456</Disgust>
+  </Emotion>
+  <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_10">
+    <Fear rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.34561</Fear>
+    <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12345</Sadness>
+    <Joy rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.54321</Joy>
+    <Surprise rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.21345</Surprise>
+    <Contempt rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12346</Contempt>
+    <Anger rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.12345</Anger>
+    <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.23456</Disgust>
+    <Belongs_to_Observation rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_10"/>
+  </Emotion>
   <Affect rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affect_4">
     <Belongs_to_Observation>
       <Human_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Human_Observation_4">
@@ -1701,6 +1919,18 @@
     <Concentrated rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >0.1259</Concentrated>
   </Affect>
+  <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_11">
+    <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-10-05_14-00-00"/>
+    <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
+    >00:10:10</Duration>
+    <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
+    <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
+    <Has_Sensory_Component rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affectiva"/>
+    <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2017-07-04T00:00:00</Date_Time>
+    <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >11</Observation_ID>
+  </Digital_Observation>
   <Admin rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Admin_999">
     <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int">100</Age>
     <Area_of_Degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1717,7 +1947,7 @@
     <Belongs_to_Observation>
       <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_2">
         <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</Observation_ID>
+        >2</Observation_ID>
         <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2017-07-06_14-00-00"/>
         <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
@@ -1733,6 +1963,17 @@
     <Disgust rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >0.35268</Disgust>
   </Emotion>
+  <rdf:List>
+    <rdf:rest>
+      <rdf:List>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Male</rdf:first>
+      </rdf:List>
+    </rdf:rest>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Female</rdf:first>
+  </rdf:List>
   <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_1">
     <Sadness rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >0.13123</Sadness>

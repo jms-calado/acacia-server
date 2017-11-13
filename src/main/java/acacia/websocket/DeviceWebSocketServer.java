@@ -18,7 +18,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import acacia.model.Device;
+import acacia.dataobjects.Device;
 
 @ApplicationScoped    
 @ServerEndpoint("/actions")

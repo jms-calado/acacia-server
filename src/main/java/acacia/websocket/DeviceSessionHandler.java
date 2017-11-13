@@ -15,7 +15,7 @@ import javax.json.JsonObject;
 import javax.json.spi.JsonProvider;
 import javax.websocket.Session;
 
-import acacia.model.Device;
+import acacia.dataobjects.Device;
 
 @ApplicationScoped
 public class DeviceSessionHandler {

@@ -1,4 +1,4 @@
-package acacia.model;
+package acacia.dataobjects;
 
 import javax.json.JsonArray;
 import javax.websocket.Session;

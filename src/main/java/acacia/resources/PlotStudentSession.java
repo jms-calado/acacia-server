@@ -66,9 +66,12 @@ public class PlotStudentSession extends Resource {
 					"FILTER regex(str(?Student), '" + student + "$', 'i') ." + 
 					"?Observation acacia:Belongs_to_Session ?Session ." + 
 					"FILTER regex(str(?Session), '" + session + "', 'i') ." + 
+					"?Observation acacia:Date_Time ?DateTime ." +
 					"?" + class_type + " ?Property ?Value ." + 
 					"?Property a owl:DatatypeProperty ." + 
-					"}";
+					"}" +
+					"GROUP BY ?Observation ?Property ?Value ?DateTime " +
+					"ORDER BY ASC(?DateTime)";
 			System.out.println(query);
 			ResultSet rs = executeQuery(query);
 			List<Map<String, String>> list = buildResult(rs);

@@ -85,15 +85,16 @@ public class InsertSession extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
+			return Response.ok("[\"" + session_id + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 
 		}else{
 			for (ConstraintViolation<SessionObject> cv : constraintViolations) {
 				msg = cv.getMessage();
 				System.out.println("Validator Error: " + msg);
-				return Response.status(422).build();
 			}
+			return Response.status(422).build();
 		}
-		return Response.status(201).build();
+		//return Response.status(201).build();
 	}
 
 }

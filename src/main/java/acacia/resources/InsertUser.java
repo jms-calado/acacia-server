@@ -68,14 +68,16 @@ public class InsertUser extends Resource {
 	                + "}";
 			System.out.println(update);
 			executeUpdate(update);
+
+			return Response.ok("[\"" + user_type + "_" + user.getID() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 		}else{
 			for (ConstraintViolation<UserObject> cv : constraintViolations) {
 				msg = cv.getMessage();
 				System.out.println("Validator Error: " + cv.getInvalidValue() + cv.getRootBean() + msg);
-				return Response.status(400).build();
 			}
+			return Response.status(400).build();
 		}
-		return Response.created(null).build();
+		//return Response.created(null).build();
 	}
 
 }

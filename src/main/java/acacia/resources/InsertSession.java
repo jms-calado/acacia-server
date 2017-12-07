@@ -85,7 +85,7 @@ public class InsertSession extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
-			return Response.ok("[\"" + session_id + "\"]", MediaType.APPLICATION_JSON).status(201).build();
+			return Response.ok("[\"Session_" + session_id + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 
 		}else{
 			for (ConstraintViolation<SessionObject> cv : constraintViolations) {

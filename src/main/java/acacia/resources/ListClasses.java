@@ -26,7 +26,9 @@ public class ListClasses extends Resource {
 	}
 
 	@GET
-	public List<Map<String, String>> search(@PathParam("class_type") @Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component") @NotEmpty String class_type) throws FileNotFoundException {
+	public List<Map<String, String>> search(@PathParam("class_type") 
+			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue") 
+			@NotEmpty String class_type) throws FileNotFoundException {
 		String query=null;
 		switch (class_type){
 		case "Student" : 
@@ -38,23 +40,24 @@ public class ListClasses extends Resource {
 			+ "WHERE { "
 			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
 			+ "?" + class_type + " acacia:Name ?Name . "
-			+ "} ORDER BY ?" + class_type + "";
+			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		case "Observation" :
+		case "Issue" :
 		case "Sensory_Component" :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
 			+ "?y rdfs:subClassOf* acacia:" + class_type + " ."
 			+ "?" + class_type + " rdf:type ?y "
-			+ "} ORDER BY ?" + class_type + "";
+			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		default :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
 			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
-			+ "} ORDER BY ?" + class_type + "";
+			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		}
 		System.out.println(query);

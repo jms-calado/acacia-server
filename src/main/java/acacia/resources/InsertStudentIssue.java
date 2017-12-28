@@ -2,6 +2,7 @@ package acacia.resources;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -77,9 +78,12 @@ public class InsertStudentIssue extends Resource {
 			String update2 = ConstantURIs.prefixes + 
 					"INSERT DATA {"
 	                + "acacia:Student_Issue_" + observationID + " rdf:type acacia:Student_Issue . "
-	                + "acacia:Student_Issue_" + observationID + " acacia:Has_Issue acacia:" + issueObject.getIssue() + " . "
-	    			+ "acacia:Student_Issue_" + observationID + " acacia:Belongs_to_Observation acacia:Human_Observation_" + observationID + " . "
-	                + "}";
+	    			+ "acacia:Student_Issue_" + observationID + " acacia:Belongs_to_Observation acacia:Human_Observation_" + observationID + " . ";
+			for(Map.Entry<String, String> entry : issueObject.getIssue().entrySet())
+			{
+				update2 += "acacia:Student_Issue_" + observationID + " acacia:Has_Issue acacia:" + issueObject.getIssue() + " . ";				
+			}
+			update2 += "}";
 			System.out.println(update2);
 			executeUpdate(update2);
 

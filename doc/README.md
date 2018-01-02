@@ -275,7 +275,7 @@ curl -X POST "https://api.arca.acacia.red/insert/student_issue" \
 {
   "Date_Time": "2017-07-06T14:00:00",
   "Duration": "01:00:00",
-  "Session": "Session_2017-07-06_14-00-00",
+  "Session": ["Session_2017-07-06_14-00-00", "Session_2017-07-13_14-00-00"],
   "Scenario": "Affective_States_Automatic_Detection_",
   "Student": "Student_123",
   "Teacher": "Teacher_007",
@@ -291,11 +291,11 @@ curl -X POST "https://api.arca.acacia.red/insert/student_issue" \
 |:-----|:----:|:------------|:--------:|--------:|
 | Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
 | Duration |  string |  | true | HH:mm:ss |
-| Session |  string |  | true |  |
+| Session |  string array |  | true |  |
 | Scenario |  string |  | true |  |
 | Student | string |  | true |  |
 | Teacher | string |  | true |  |
-| Issue | string |  | true |  |
+| Issue | json object |  | true | "{"Issue_name" : "Value"}" |
 
 ### Response code: 201
 Success

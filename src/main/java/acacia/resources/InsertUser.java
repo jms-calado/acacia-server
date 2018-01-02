@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import acacia.dataobjects.ConstantURIs;
+import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.UserObject;
 import acacia.services.SparqlExecutor;
 
@@ -56,20 +57,21 @@ public class InsertUser extends Resource {
 		Set<ConstraintViolation<UserObject>> constraintViolations = validator.validate(user);
 		
 		if(constraintViolations.size() == 0){
+			GlobalVar.GlobalUserID++;
+			String userID = String.valueOf(GlobalVar.GlobalUserID);
 			String update = ConstantURIs.prefixes + 
 					"INSERT DATA {"
-	                + "acacia:" + user_type + "_" + user.getID() + " rdf:type acacia:" + user_type + " . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:Name \"" + user.getName() + "\"^^xsd:string . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:Age \"" + user.getAge() + "\"^^xsd:int . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:Gender \"" + user.getGender() + "\"^^xsd:string . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:Education_Degree \"" + user.getEducation_Degree() + "\"^^xsd:string . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:Area_of_Degree \"" + user.getArea_of_Degree() + "\"^^xsd:string . "
-	                + "acacia:" + user_type + "_" + user.getID() + " acacia:ID \"" + user.getID() + "\"^^xsd:int . "
+	                + "acacia:" + user_type + "_" + userID + " rdf:type acacia:" + user_type + " . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:Name \"" + user.getName() + "\"^^xsd:string . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:Age \"" + user.getAge() + "\"^^xsd:int . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:Gender \"" + user.getGender() + "\"^^xsd:string . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:Race_Ethnicity \"" + user.getEducation_Degree() + "\"^^xsd:string . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:ID \"" + userID + "\"^^xsd:int . "
 	                + "}";
 			System.out.println(update);
 			executeUpdate(update);
 
-			return Response.ok("[\"" + user_type + "_" + user.getID() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
+			return Response.ok("[\"" + user_type + "_" + userID + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 		}else{
 			for (ConstraintViolation<UserObject> cv : constraintViolations) {
 				msg = cv.getMessage();

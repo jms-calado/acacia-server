@@ -69,21 +69,24 @@ public class InsertObservation extends Resource {
 		Set<ConstraintViolation<ObservationObject>> constraintViolations = validator.validate(observation);
 			
 		if(constraintViolations.size() == 0){
-			GlobalVar.GlobalID++;
-			String observationID = String.valueOf(GlobalVar.GlobalID);
+			GlobalVar.GlobalObservationID++;
+			String observationID = String.valueOf(GlobalVar.GlobalObservationID);
 			String update = ConstantURIs.prefixes + 
 					"INSERT DATA {" + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " +
-					"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
+					//"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Duration \"" + observation.getDuration() + "\"^^xsd:time . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Observation_ID \"" + observationID + "\"^^xsd:int . " + 
-					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
+					//"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + observation.getSession() + " . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
+			for(String session:observation.getSession()) {
+				update = update + "acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + session + " . ";
+			}
 			if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){
 				update = update + 
-					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";
+					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + observation.getTeacher() + " . ";				
 			}
 			if(observation_type == "Digital" && !observation.getSensory_Component().isEmpty()){
 				update = update + 
@@ -93,7 +96,7 @@ public class InsertObservation extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(update);
-
+/*
 			String alertMsg = "";
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 			LocalDateTime obsTime = LocalDateTime.parse(observation.getDate_Time(), formatter);
@@ -127,6 +130,8 @@ public class InsertObservation extends Resource {
 				}
 			}
 	        System.out.println(alertMsg);
+	        
+	        */
 			return Response.ok("{\"Observation_ID\":\"" + observationID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{

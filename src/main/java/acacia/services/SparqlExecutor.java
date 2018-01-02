@@ -47,8 +47,8 @@ public class SparqlExecutor {
 		List<String> sl = rs.getResultVars();
 		for (String str: sl) {
 		Object obj = qs.get(str).asLiteral().getValue();
-		GlobalVar.GlobalID = Integer.parseInt(String.valueOf(obj));
-		System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalID));	
+		GlobalVar.GlobalObservationID = Integer.parseInt(String.valueOf(obj));
+		System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalObservationID));	
 		}
 	}
 

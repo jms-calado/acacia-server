@@ -17,8 +17,8 @@ public class UserObject {
 	private String Name;
 	@NotEmpty
 	private String Age;
-	@NotEmpty
-	private String ID;
+	//@NotEmpty
+	//private String ID;
 	@NotEmpty
 	private String Education_Degree;
 	@NotEmpty
@@ -29,13 +29,13 @@ public class UserObject {
 				@JsonProperty(value = "Gender", required = true) Gender Gender, 
 				@JsonProperty(value = "Name", required = true) @NotEmpty String Name, 
 				@JsonProperty(value = "Age", required = true) String Age, 
-				@JsonProperty(value = "ID", required = true) String ID, 
+				//@JsonProperty(value = "ID", required = true) String ID, 
 				@JsonProperty(value = "Education_Degree", required = true) String Education_Degree, 
 				@JsonProperty(value = "Area_of_Degree", required = true) String Area_of_Degree){
 		this.Gender = Gender;
 		this.Name = Name;
 		this.Age = Age;
-		this.ID = ID;
+		//this.ID = ID;
 		this.Education_Degree = Education_Degree;
 		this.Area_of_Degree = Area_of_Degree;
 	}
@@ -69,14 +69,14 @@ public class UserObject {
 		this.Age = Age;
 	}
 
-	@JsonProperty("ID")
+	/*@JsonProperty("ID")
 	public String getID(){
 		return ID;
 	}
 	@JsonProperty("ID")
 	public void setID(String ID){
 		this.ID = ID;
-	}
+	}*/
 
 	@JsonProperty("Education_Degree")
 	public String getEducation_Degree(){

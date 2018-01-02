@@ -53,7 +53,8 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 
     @Override
     public void initialize(Bootstrap<AcaciaConfiguration> bootstrap) {
-        GlobalVar.GlobalID = 0;
+        GlobalVar.GlobalObservationID = 0;
+        GlobalVar.GlobalUserID = 0;
         super.initialize(bootstrap);
         bootstrap.addBundle(websocket);
     }

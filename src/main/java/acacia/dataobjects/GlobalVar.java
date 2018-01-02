@@ -1,5 +1,6 @@
 package acacia.dataobjects;
 
 public class GlobalVar {
-	public static int GlobalID;
+	public static int GlobalObservationID;
+	public static int GlobalUserID;
 }

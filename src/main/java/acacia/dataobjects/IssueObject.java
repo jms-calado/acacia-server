@@ -1,5 +1,7 @@
 package acacia.dataobjects;
 
+import java.util.Map;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -7,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueObject {
 	@NotEmpty
-	private String Issue;
+	private Map<String, String> Issue;
 	@NotEmpty
 	private String Duration;
 	@NotEmpty
@@ -17,7 +19,7 @@ public class IssueObject {
 	@NotEmpty
 	private String Scenario;
 	@NotEmpty
-	private String Session;
+	private String[] Session;
 	@NotEmpty
 	private String Teacher;
 	
@@ -25,10 +27,10 @@ public class IssueObject {
 	public IssueObject(@JsonProperty(value = "Date_Time", required = true) String Date_Time, 
 						@JsonProperty(value = "Duration", required = true) String Duration, 
 						@JsonProperty(value = "Scenario", required = true) String Scenario, 
-						@JsonProperty(value = "Session", required = true) String Session, 
+						@JsonProperty(value = "Session", required = true) String[] Session, 
 						@JsonProperty(value = "Student", required = true) String Student, 
 						@JsonProperty(value = "Teacher", required = true) String Teacher, 
-						@JsonProperty(value = "Issue", required = true) String Issue)
+						@JsonProperty(value = "Issue", required = true) Map<String, String> Issue)
 	{
 		this.Date_Time = Date_Time;
 		this.Duration = Duration;
@@ -79,11 +81,11 @@ public class IssueObject {
 	}
 
 	@JsonProperty("Session")
-	public String getSession(){
+	public String[] getSession(){
 		return Session;
 	}
 	@JsonProperty("Session")
-	public void setSession(String Session){
+	public void setSession(String[] Session){
 		this.Session = Session;
 	}
 	
@@ -97,11 +99,11 @@ public class IssueObject {
 	}
 	
 	@JsonProperty("Issue")
-	public String getIssue(){
+	public Map<String, String> getIssue(){
 		return Issue;
 	}
 	@JsonProperty("Issue")
-	public void setIssue(String Issue){
+	public void setIssue(Map<String, String> Issue){
 		this.Issue = Issue;
 	}
 }

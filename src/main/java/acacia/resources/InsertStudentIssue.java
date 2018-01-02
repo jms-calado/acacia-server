@@ -2,6 +2,7 @@ package acacia.resources;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -58,30 +59,38 @@ public class InsertStudentIssue extends Resource {
 		Set<ConstraintViolation<IssueObject>> constraintViolations = validator.validate(issueObject);
 		
 		if(constraintViolations.size() == 0){
-			GlobalVar.GlobalID++;
-			String observationID = String.valueOf(GlobalVar.GlobalID);
+			GlobalVar.GlobalObservationID++;
+			String observationID = String.valueOf(GlobalVar.GlobalObservationID);
 			String update1 = ConstantURIs.prefixes + 
 					"INSERT DATA {" + 
 					"acacia:Human_Observation_" + observationID + " rdf:type acacia:Human_Observation . " +
 					"acacia:Human_Observation_" + observationID + " acacia:Date_Time \"" + issueObject.getDate_Time() + "\"^^xsd:dateTime . " + 
 					"acacia:Human_Observation_" + observationID + " acacia:Duration \"" + issueObject.getDuration() + "\"^^xsd:time . " + 
 					"acacia:Human_Observation_" + observationID + " acacia:Observation_ID \"" + observationID + "\"^^xsd:int . " + 
-					"acacia:Human_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + issueObject.getSession() + " . " + 
 					"acacia:Human_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + issueObject.getScenario() + " . " + 
 					"acacia:Human_Observation_" + observationID + " acacia:Has_Student acacia:" + issueObject.getStudent() + " . " +
-					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + issueObject.getTeacher() + " . " +
-					"}";			
+					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + issueObject.getTeacher() + " . ";
+			for(String session:issueObject.getSession()) {
+				update1 = update1 + "acacia:Human_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + session + " . ";
+			}
+			update1 = update1 + "}";			
 			System.out.println(update1);
 			executeUpdate(update1);
 						
-			String update2 = ConstantURIs.prefixes + 
-					"INSERT DATA {"
-	                + "acacia:Student_Issue_" + observationID + " rdf:type acacia:Student_Issue . "
-	                + "acacia:Student_Issue_" + observationID + " acacia:Has_Issue acacia:" + issueObject.getIssue() + " . "
-	    			+ "acacia:Student_Issue_" + observationID + " acacia:Belongs_to_Observation acacia:Human_Observation_" + observationID + " . "
-	                + "}";
-			System.out.println(update2);
-			executeUpdate(update2);
+			int i = 0;
+			for(Map.Entry<String, String> entry : issueObject.getIssue().entrySet())
+			{
+				String update2 = ConstantURIs.prefixes + 
+					"INSERT DATA {" +
+	                "acacia:Student_Issue_" + observationID + "_" + i + " rdf:type acacia:Student_Issue . " +
+	    			"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Belongs_to_Observation acacia:Human_Observation_" + observationID + " . " +
+					"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Has_Issue acacia:" + entry.getKey() + " . " +
+					"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Value \"" + entry.getValue() + "\"^^xsd:float . " +
+					"}";
+				System.out.println(update2);
+				executeUpdate(update2);
+				i++;					
+			}
 
 			return Response.status(201).build();
 		}else{

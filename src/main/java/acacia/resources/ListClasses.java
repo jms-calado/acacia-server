@@ -43,8 +43,8 @@ public class ListClasses extends Resource {
 			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		case "Observation" :
-		case "Issue" :
 		case "Sensory_Component" :
+		case "Issue" :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
@@ -52,6 +52,13 @@ public class ListClasses extends Resource {
 			+ "?" + class_type + " rdf:type ?y "
 			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
+		/*case "Issue" :
+			query = ConstantURIs.prefixes + 
+			" SELECT ?" + class_type + " "
+			+ "WHERE { "
+			+ "?" + class_type + " rdfs:subClassOf* acacia:" + class_type + " ."
+			+ "} ORDER BY ASC(?" + class_type + ")";
+            break;*/
 		default :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "

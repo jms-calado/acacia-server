@@ -17,7 +17,7 @@ public class ObservationObject {
 	@NotEmpty
 	private String Scenario;
 	@NotEmpty
-	private String Session;
+	private String[] Session;
 	//@NotEmpty
 	private String Teacher;
 	//@NotEmpty
@@ -28,7 +28,7 @@ public class ObservationObject {
 							@JsonProperty(value = "Duration", required = true) String Duration, 
 							//@JsonProperty(value = "Observation_ID", required = true) String Observation_ID, 
 							@JsonProperty(value = "Scenario", required = true) String Scenario, 
-							@JsonProperty(value = "Session", required = true) String Session, 
+							@JsonProperty(value = "Session", required = true) String[] Session, 
 							@JsonProperty(value = "Student", required = true) String Student, 
 							@JsonProperty(value = "Teacher", required = false) String Teacher, 
 							@JsonProperty(value = "Sensory_Component", required = false) String Sensory_Component)
@@ -92,11 +92,11 @@ public class ObservationObject {
 	}
 
 	@JsonProperty("Session")
-	public String getSession(){
+	public String[] getSession(){
 		return Session;
 	}
 	@JsonProperty("Session")
-	public void setSession(String Session){
+	public void setSession(String[] Session){
 		this.Session = Session;
 	}
 	

@@ -58,8 +58,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
   "Name": "Hulk",
   "Age": "45",
   "ID": "555",
-  "Education_Degree": "PhD",
-  "Area_of_Degree": "Physics"
+  "Race_Ethnicity": "White"
 }
 ```
 
@@ -78,9 +77,17 @@ Success
 
 #### Response (application/json) 
 
+> response_body:
+
+```json
+  ["Teacher_9"]
+```
+
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
 
 ---
 
@@ -110,8 +117,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Admin" \
   "Name": "Morgan Freeman",
   "Age": "100",
   "ID": "999",
-  "Education_Degree": "DSc",
-  "Area_of_Degree": "Physics"
+  "Race_Ethnicity": "White"
 }
 ```
 
@@ -130,9 +136,17 @@ Success
 
 #### Response (application/json) 
 
+> response_body:
+
+```json
+  ["Admin_9"]
+```
+
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
 
 ---
 
@@ -162,8 +176,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Annalist" \
   "Name": "Lara Croft",
   "Age": "35",
   "ID": "777",
-  "Education_Degree": "PhD",
-  "Area_of_Degree": "Physics"
+  "Race_Ethnicity": "White"
 }
 ```
 
@@ -182,9 +195,17 @@ Success
 
 #### Response (application/json) 
 
+> response_body:
+
+```json
+  ["Annalist_9"]
+```
+
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
 
 ---
 
@@ -244,10 +265,18 @@ Success
 
 #### Response (application/json) 
 
+> response_body:
+
+```json
+  ["Session_2017-07-06_14-00-00"]
+```
+
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 
+<br><br>
+<br><br>
 
 ---
 
@@ -334,8 +363,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Student" \
   "Name": "Peter Pan",
   "Age": "20",
   "ID": "213",
-  "Education_Degree": "12",
-  "Area_of_Degree": "Physics"
+  "Race_Ethnicity": "White"
 }
 ```  
 
@@ -354,9 +382,17 @@ Success
 
 #### Response (application/json) 
 
+> response_body:
+
+```json
+["Student_9"]
+```
+
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
 
 ---
 
@@ -586,11 +622,22 @@ curl -X POST "https://api.arca.acacia.red/insert/observation/Human" \
 ### Response code: 201
 Success
 
-#### Response (application/json) 
 
-##### *Response*:
+#### Human_ObservationResponse (application/json) 
+
+> response_body:
+
+```json
+{
+  "Observation_ID": "8"
+}
+```
+
+##### *Human_ObservationResponse*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
 
 ---
 

@@ -18,7 +18,6 @@ search: true
 
 ---
 
-### api.arca.acacia.red API Documentation (version 2.1.0)
 
 ---
 
@@ -31,6 +30,61 @@ search: true
 ---
 
 # 1.1. /insert
+
+## /insert/Class
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### ClassRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/Class" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Subject": "Male",
+  "Description": "Hulk",
+  "Student": [
+    "Student_123",
+    "Student_321"
+  ],
+  "Teacher": [
+    "Teacher_007"
+  ],
+}
+```
+
+#### *ClassRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Subject |  string |  | true |  |
+| Description |  string |  | false |  |
+| Student |  string array |  | true |  |
+| Teacher |  string array |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
 
 ## /insert/Teacher
 
@@ -65,7 +119,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
 #### *TeacherRequest*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| Gender |  string |  | true |  |
+| Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
 | ID |  string |  | true |  |
@@ -124,7 +178,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Admin" \
 #### *AdminRequest*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| Gender |  string |  | true |  |
+| Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
 | ID |  string |  | true |  |
@@ -183,7 +237,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Annalist" \
 #### *AnnalistRequest*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| Gender |  string |  | true |  |
+| Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
 | ID |  string |  | true |  |
@@ -370,7 +424,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Student" \
 #### *StudentRequest*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| Gender |  string |  | true |  |
+| Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
 | ID |  string |  | true |  |
@@ -704,14 +758,256 @@ Success
 
 ---
 
+## /insert/profile/Academic
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### AcademicRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/profile/Academic" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+	"Education_Degree":"Bachelor",
+	"Area_of_Degree":"Arts",
+	"Average_Course_Grade":"12",
+	"Income_Class":"High",
+	"University":"UFOPA",
+	"Student_Status":"Normal",
+	"User":"Student_123"
+}
+```
+
+#### *AcademicRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Education_Degree |  string |  | true | High_School/Bachelor/Master/Doctor |
+| Area_of_Degree |  string |  | true | Science/Engineering/Arts/Humanities |
+| Average_Course_Grade |  string |  | true |  |
+| Income_Class |  string |  | true | High/Medium/Low |
+| University |  string |  | true | UFOPA/UDFJC/UNAN LEON |
+| Student_Status |  string |  | true | Worker/Normal/Athlete/Parent/Other |
+| User |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/profile/Learning
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### LearningRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/profile/Learning" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+	"Active_Reflective":"4",
+	"Sensing_Intuitive":"-5",
+	"Sequential_Global":"6",
+	"Visual_Verbal":"-8",
+	"User":"Student_123"
+}
+```
+
+#### *LearningRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Active_Reflective |  string |  | true |  |
+| Sensing_Intuitive |  string |  | true |  |
+| Sequential_Global |  string |  | true |  |
+| Visual_Verbal |  string |  | true |  |
+| User |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/profile/Diversity
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### DiversityRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/profile/Diversity" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+	"Disability":"Blind",
+	"User":"Student_123"
+}
+```
+
+#### *DiversityRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Disability |  string |  | true | Blind/Visually_Impaired/Deaf/Hearing_Impaired/Speech_Disorder/Physical_Disability/Other |
+| User |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/profile/Musical
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### MusicalRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/profile/Musical" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+	"Musical_Instrument":"Keys",
+	"User":"Student_123"
+}
+```
+
+#### *MusicalRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Musical_Instrument |  string |  | true | String/Percussion/Keys/Wind |
+| User |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
 # 1.2. /list
+
+## /list/Class
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Class"
+```
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+    {
+        "Class": "Class_1"
+    },
+    {
+        "Class": "Class_Math"
+    }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *ClassResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Class |  string |  | true |  |
+
+<br><br>
+
+---
 
 ## /list/Student
 
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Student"
+curl -X GET "https://api.arca.acacia.red/list/Student"
 ```
 
 ##### Headers
@@ -756,7 +1052,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Teacher"
+curl -X GET "https://api.arca.acacia.red/list/Teacher"
 ```
 
 ##### Headers
@@ -795,7 +1091,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Affect"
+curl -X GET "https://api.arca.acacia.red/list/Affect"
 ```
 
 ##### Headers
@@ -834,7 +1130,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Behaviour"
+curl -X GET "https://api.arca.acacia.red/list/Behaviour"
 ```
 
 ##### Headers
@@ -873,7 +1169,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Emotion"
+curl -X GET "https://api.arca.acacia.red/list/Emotion"
 ```
 
 ##### Headers
@@ -916,7 +1212,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Issue"
+curl -X GET "https://api.arca.acacia.red/list/Issue"
 ```
 
 ##### Headers
@@ -963,7 +1259,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Observation"
+curl -X GET "https://api.arca.acacia.red/list/Observation"
 ```
 
 ##### Headers
@@ -1015,7 +1311,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Session"
+curl -X GET "https://api.arca.acacia.red/list/Session"
 ```
 
 <br><br>
@@ -1050,7 +1346,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Admin"
+curl -X GET "https://api.arca.acacia.red/list/Admin"
 ```
 
 ### Response code: 200
@@ -1071,7 +1367,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Annalist"
+curl -X GET "https://api.arca.acacia.red/list/Annalist"
 ```
 
 ### Response code: 200
@@ -1091,7 +1387,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Human_Observation"
+curl -X GET "https://api.arca.acacia.red/list/Human_Observation"
 ```
 
 <br><br>
@@ -1126,7 +1422,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Digital_Observation"
+curl -X GET "https://api.arca.acacia.red/list/Digital_Observation"
 ```
 
 <br><br>
@@ -1169,7 +1465,7 @@ Success
 ### **GET**:
 
 ```curl
-curl -X GET "http://api.arca.acacia.red/list/Sensory_Component"
+curl -X GET "https://api.arca.acacia.red/list/Sensory_Component"
 ```
 
 <br><br>
@@ -1379,6 +1675,74 @@ Success
 <br><br>
 
 <br><br>
+
+<br><br>
+
+---
+
+## /list/students_of_class
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+#### Body (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/list/students_of_class" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+[
+  "Class_1"
+]
+```
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Individual": "Student_123",
+    "Name": "John Doe"
+  },
+  {
+    "Individual": "Student_321",
+    "Name": "Mary Jane"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *students_of_classResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Individual |  string |  | true |  |
+| Name |  string |  | true |  |
 
 <br><br>
 

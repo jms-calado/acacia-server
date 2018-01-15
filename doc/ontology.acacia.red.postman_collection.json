@@ -38,7 +38,406 @@
 					},
 					"response": [
 						{
-							"id": "0b69a198-561e-46b2-8975-b4847e9792d1",
+							"id": "93f13fa8-d5de-4b5f-bc13-6ae1afb76469",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Subject\": \"Math\",\n  \"Description\": \"Introduction to the basics of Mathematics\",\n  \"Student\": [\"Student_123\", \"Student_321\"],\n  \"Teacher\": [\"Teacher_007\"]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/Class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"Class"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "48f8b560-5035-4138-9248-4144a6d6ae31",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Academic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Education_Degree\":\"12\",\n\t\"Area_of_Degree\":\"Arts\",\n\t\"Average_Course_Grade\":\"12\",\n\t\"Income_Class\":\"High\",\n\t\"University\":\"NOVA\",\n\t\"Student_Status\":\"Normal\",\n\t\"User\":\"Student_123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/profile/Academic",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"profile",
+								"Academic"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "fd752c94-b04a-4c74-b75f-f72f99885aa2",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Learning",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Active_Reflective\":\"4\",\n\t\"Sensing_Intuitive\":\"-5\",\n\t\"Sequential_Global\":\"6\",\n\t\"Visual_Verbal\":\"-8\",\n\t\"User\":\"Student_123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/profile/Learning",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"profile",
+								"Learning"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "b7b8b5a1-b13f-47c5-8cb2-c336639fbd12",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Musical",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Musical_Instrument\":\"Keys\",\n\t\"User\":\"Student_123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/profile/Musical",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"profile",
+								"Musical"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "de4d1a67-3759-43e0-a7cd-e59009c439b1",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Diversity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Disability\":\"Blind\",\n\t\"User\":\"Student_123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/profile/Diversity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"profile",
+								"Diversity"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "b2dbd9b5-175c-48d0-b3bf-9239e95a6277",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -117,7 +516,7 @@
 					},
 					"response": [
 						{
-							"id": "1a438366-efd4-473d-8d31-0fa760ebead5",
+							"id": "d104b405-6287-4008-8aa2-e5ee39d23225",
 							"name": "insert Admin example",
 							"originalRequest": {
 								"method": "POST",
@@ -196,7 +595,7 @@
 					},
 					"response": [
 						{
-							"id": "535b3378-7b79-4448-9b6c-fad8699b4f0c",
+							"id": "04b22da1-3c5c-4d4e-a5b8-d735a11ef702",
 							"name": "insert Annalist example",
 							"originalRequest": {
 								"method": "POST",
@@ -275,7 +674,7 @@
 					},
 					"response": [
 						{
-							"id": "727b458b-cbd6-4752-9fe5-07c98e760844",
+							"id": "ba8afa04-cc93-429c-addb-dd6f286b732b",
 							"name": "insert Session example",
 							"originalRequest": {
 								"method": "POST",
@@ -338,7 +737,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Peter Pan\",\n\t\"Age\":\"20\",\n\t\"ID\":\"213\",\n\t\"Race_Ethnicity\":\"White\"\n}"
+							"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Peter Pan\",\n\t\"Age\":\"20\",\n\t\"Race_Ethnicity\":\"White\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/insert/Student",
@@ -354,7 +753,7 @@
 					},
 					"response": [
 						{
-							"id": "72a37459-4211-4f92-90fd-0305a6b4f75f",
+							"id": "629a5499-5476-46fd-9674-ebcff65ca398",
 							"name": "insert Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -434,7 +833,7 @@
 					},
 					"response": [
 						{
-							"id": "256954e1-5bce-49b6-9031-e06d0c77ece2",
+							"id": "f738cf3d-4042-49fa-9a83-48ed061436c1",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -514,7 +913,7 @@
 					},
 					"response": [
 						{
-							"id": "c7d7b5f2-2984-49ff-9127-dbdfd95e2102",
+							"id": "eaa6dd62-9e6d-4cb0-a989-3884e3882f49",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -595,7 +994,7 @@
 					},
 					"response": [
 						{
-							"id": "ad5354b0-8f84-46ca-92fb-5bed9a33a328",
+							"id": "fc279e6e-43f1-47c5-b361-f937f6243dba",
 							"name": "insert Digital_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -681,7 +1080,7 @@
 					},
 					"response": [
 						{
-							"id": "887188ae-6ffd-443a-a833-4d9cb029e9d1",
+							"id": "ce9c3675-5591-48f5-b950-14b2ea6fb3f2",
 							"name": "insert Emotion example",
 							"originalRequest": {
 								"method": "POST",
@@ -760,7 +1159,7 @@
 					},
 					"response": [
 						{
-							"id": "c195e51e-e779-4655-bf6c-cf9eff7dfb2c",
+							"id": "c717071f-aef8-4fc1-9a3d-457daa6b34ba",
 							"name": "insert Behaviour example",
 							"originalRequest": {
 								"method": "POST",
@@ -839,7 +1238,7 @@
 					},
 					"response": [
 						{
-							"id": "b1f2e3fb-bcb3-45b5-ad99-a4eefae7d942",
+							"id": "4628d2f1-8f9a-4c03-b714-36729ede6d4c",
 							"name": "insert Affect  example",
 							"originalRequest": {
 								"method": "POST",
@@ -924,7 +1323,98 @@
 					},
 					"response": [
 						{
-							"id": "29ea1a45-c1b8-4305-a7d4-ccd59ed56ea3",
+							"id": "1d315450-a6d2-498e-ae38-1692053f739d",
+							"name": "list Student example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "90",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 326,
+							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Class",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Class"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "2f59f64c-0134-4dcf-83aa-721e8088a476",
 							"name": "list Student example",
 							"originalRequest": {
 								"method": "GET",
@@ -1015,7 +1505,7 @@
 					},
 					"response": [
 						{
-							"id": "58acbf79-75f8-451c-8019-f8776e559bfa",
+							"id": "555f7e4e-1f5a-4733-90a3-c40dc3ca22ae",
 							"name": "list Teacher example",
 							"originalRequest": {
 								"method": "GET",
@@ -1106,7 +1596,7 @@
 					},
 					"response": [
 						{
-							"id": "4fe94ad2-1536-4e62-8770-5c2cf833c5a2",
+							"id": "e1864326-0ea1-4c6d-ad50-c4353d3d9b1c",
 							"name": "list Affect example",
 							"originalRequest": {
 								"method": "GET",
@@ -1197,7 +1687,7 @@
 					},
 					"response": [
 						{
-							"id": "12d92dc3-753f-4c5b-8640-8b85c6cb3e1d",
+							"id": "75cc1cad-8772-495b-adfb-e645883b52bd",
 							"name": "list Behaviour example",
 							"originalRequest": {
 								"method": "GET",
@@ -1288,7 +1778,7 @@
 					},
 					"response": [
 						{
-							"id": "d0468e20-0c2b-4693-a46d-21bae17ac22b",
+							"id": "211d7500-9b21-4cda-ab8c-6f39a5cfc4ec",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -1379,7 +1869,7 @@
 					},
 					"response": [
 						{
-							"id": "834dd289-7e20-4b8a-8c2c-1bf4933230d4",
+							"id": "5bcad771-6fb0-470c-b5f6-438c190a8063",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -1470,7 +1960,7 @@
 					},
 					"response": [
 						{
-							"id": "3792bc68-cff3-4b6f-965d-7efb168daeee",
+							"id": "48975152-8bef-407c-897e-09feee7c6436",
 							"name": "list Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -1553,7 +2043,7 @@
 					},
 					"response": [
 						{
-							"id": "e9b86a90-82cd-43e3-82ab-c6446e958eac",
+							"id": "438c1cd6-3eb5-42f5-be43-acf14297742a",
 							"name": "list Session example",
 							"originalRequest": {
 								"method": "GET",
@@ -1628,7 +2118,7 @@
 					},
 					"response": [
 						{
-							"id": "602a2ffc-c664-4256-ac83-b36f55716387",
+							"id": "7103d7c8-0d4b-4837-a388-faba4f36d03a",
 							"name": "list Admin example",
 							"originalRequest": {
 								"method": "GET",
@@ -1703,7 +2193,7 @@
 					},
 					"response": [
 						{
-							"id": "11a70a1d-d3cf-4fa3-845f-fdde7ba17c16",
+							"id": "c66f40fa-823d-467d-8b05-fc7f1b2627be",
 							"name": "list Annalist example",
 							"originalRequest": {
 								"method": "GET",
@@ -1778,7 +2268,7 @@
 					},
 					"response": [
 						{
-							"id": "6976ba32-cb96-40c2-b549-6ff62e2f526a",
+							"id": "de1f138f-6322-45d4-837b-ccd1049f9e4c",
 							"name": "list Human_Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -1853,7 +2343,7 @@
 					},
 					"response": [
 						{
-							"id": "4252c7b6-46aa-4904-8475-952ab9872865",
+							"id": "0bef7df6-c42a-48e0-9496-a5dcc11b7563",
 							"name": "list Digital_Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -1928,7 +2418,7 @@
 					},
 					"response": [
 						{
-							"id": "12b53920-8fed-4106-9965-db4e73906bed",
+							"id": "4c83cea4-60e1-4f8e-b8a6-3797285167a5",
 							"name": "list Sensory_Component example",
 							"originalRequest": {
 								"method": "GET",
@@ -2011,7 +2501,7 @@
 					},
 					"response": [
 						{
-							"id": "dba96383-ff3f-4c5e-bfba-8631df1ae876",
+							"id": "c7b93f9c-61bd-4cf6-a4a7-696ef8da1a77",
 							"name": "list individual_properties example",
 							"originalRequest": {
 								"method": "POST",
@@ -2096,7 +2586,7 @@
 					},
 					"response": [
 						{
-							"id": "b60b796e-3186-4ca0-b349-edc7d7a63e24",
+							"id": "84adb6bf-7d75-4f2b-b714-814453ca4a43",
 							"name": "list observations_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2165,6 +2655,176 @@
 						],
 						"body": {
 							"mode": "raw",
+							"raw": "[\"Session_2017-07-04_14-00-00\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/students_of_session",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"students_of_session"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "669dfbc5-55b5-4864-92b1-9805d53b9e33",
+							"name": "list students_of_session example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Session_2017-7-04_14-00-00\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/students_of_session",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"students_of_session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "96",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:38:47 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 25,
+							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"},{\"Individual\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "students_of_class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"Class_1\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/students_of_class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"students_of_class"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "fd9da6d0-50fa-42ec-b1da-93d62b82803f",
+							"name": "list students_of_session example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Session_2017-7-04_14-00-00\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/students_of_session",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"students_of_session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "96",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:38:47 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 25,
+							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"},{\"Individual\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Plot/student/Emotion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
 							"raw": "[\"Student_123\"]"
 						},
 						"url": {
@@ -2182,7 +2842,179 @@
 					},
 					"response": [
 						{
-							"id": "b20d2fb2-4aa9-4be5-b7b2-30e4e7879c34",
+							"id": "c2f76d69-2a64-45f3-8f6d-e134b4fc2229",
+							"name": "list students_of_session example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Session_2017-7-04_14-00-00\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/students_of_session",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"students_of_session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "96",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:38:47 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 25,
+							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"},{\"Individual\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Plot/session/Emotion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"Session_2017-07-06_14-00-00\"]"
+						},
+						"url": {
+							"raw": "{{host}}/plot/session/Emotion",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"plot",
+								"session",
+								"Emotion"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "11df9d47-abbc-4d9e-9de1-9ecfa4c9b376",
+							"name": "list students_of_session example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Session_2017-7-04_14-00-00\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/students_of_session",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"students_of_session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "96",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:38:47 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 25,
+							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"},{\"Individual\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Plot/student_session/Emotion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Student\":\"Student_123\",\r\n  \"Session\":\"Session_2017-07-06_14-00-00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/plot/student_session/Emotion",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"plot",
+								"student_session",
+								"Emotion"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "5f85fde0-446a-4ee8-9467-9d0702bd59f0",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2267,7 +3099,7 @@
 					},
 					"response": [
 						{
-							"id": "cc5ad11d-be94-4de9-8737-adaec2ec2f35",
+							"id": "9ad1c429-c41f-4112-941d-d87ec66c79a4",
 							"name": "list student_of_observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -2353,7 +3185,7 @@
 					},
 					"response": [
 						{
-							"id": "1325c1e6-ead2-4e59-8e31-794166be4df3",
+							"id": "fba4da55-3ac6-4963-9e28-237c569e4d15",
 							"name": "find Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -2439,7 +3271,7 @@
 					},
 					"response": [
 						{
-							"id": "f4dfbaa4-c247-4ab7-97e7-272282057b75",
+							"id": "1f9fc309-81c9-4bdf-b42b-0c729f89eda1",
 							"name": "find Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -2523,13 +3355,13 @@
 	],
 	"variable": [
 		{
-			"id": "a8e25eb7-b930-4ded-a25f-bd317b48ee01",
+			"id": "1deeb3cd-13b0-4d55-9e68-0a06fe59f1cb",
 			"key": "local",
 			"value": "http://localhost:5904",
 			"type": "text"
 		},
 		{
-			"id": "5cfc4be1-326f-4942-90e7-c6bb6385594e",
+			"id": "7d5a75ed-43e1-4c82-a068-3c07eceae488",
 			"key": "server",
 			"value": "https://api.arca.acacia.red",
 			"type": "text"

@@ -77,7 +77,7 @@ public class InsertUser extends Resource {
 				msg = cv.getMessage();
 				System.out.println("Validator Error: " + cv.getInvalidValue() + cv.getRootBean() + msg);
 			}
-			return Response.status(400).build();
+			return Response.status(422).build();
 		}
 		//return Response.created(null).build();
 	}

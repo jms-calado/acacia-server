@@ -9,15 +9,11 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import javax.validation.constraints.Pattern;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -26,7 +22,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.IssueObject;
-import acacia.dataobjects.UserObject;
 import acacia.services.SparqlExecutor;
 
 @Path("/insert/student_issue")

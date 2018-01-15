@@ -27,7 +27,7 @@ public class ListClasses extends Resource {
 
 	@GET
 	public List<Map<String, String>> search(@PathParam("class_type") 
-			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue") 
+			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue|Class") 
 			@NotEmpty String class_type) throws FileNotFoundException {
 		String query=null;
 		switch (class_type){
@@ -48,17 +48,10 @@ public class ListClasses extends Resource {
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "
 			+ "WHERE { "
-			+ "?y rdfs:subClassOf* acacia:" + class_type + " ."
+			+ "?y rdfs:subClassOf* acacia:" + class_type + " . "
 			+ "?" + class_type + " rdf:type ?y "
 			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
-		/*case "Issue" :
-			query = ConstantURIs.prefixes + 
-			" SELECT ?" + class_type + " "
-			+ "WHERE { "
-			+ "?" + class_type + " rdfs:subClassOf* acacia:" + class_type + " ."
-			+ "} ORDER BY ASC(?" + class_type + ")";
-            break;*/
 		default :
 			query = ConstantURIs.prefixes + 
 			" SELECT ?" + class_type + " "

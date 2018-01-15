@@ -35,7 +35,7 @@ public abstract class Resource {
 			sl = rs.getResultVars();
 			item = new HashMap<String, String>();
 			for (String str: sl) {
-				Object obj = null;
+				Object obj = null;		
 				if(qs.get(str) == null) {
 					System.out.println("Error: Null results");
 					return list;
@@ -46,9 +46,6 @@ public abstract class Resource {
 				if (qs.get(str).isResource()) {
 					obj = qs.get(str).asResource().getLocalName();
 				}
-				/*if (qs.get(str).isURIResource()) {
-					obj = qs.get(str).asLiteral().getValue();
-				}*/
 				item.put(str, String.valueOf(obj));
 			}
 			list.add(item);

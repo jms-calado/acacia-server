@@ -46,9 +46,27 @@ public class SparqlExecutor {
 		QuerySolution qs = rs.next();
 		List<String> sl = rs.getResultVars();
 		for (String str: sl) {
-		Object obj = qs.get(str).asLiteral().getValue();
-		GlobalVar.GlobalObservationID = Integer.parseInt(String.valueOf(obj));
-		System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalObservationID));	
+			Object obj = qs.get(str).asLiteral().getValue();
+			GlobalVar.GlobalObservationID = Integer.parseInt(String.valueOf(obj));
+			System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalObservationID));	
+		}
+
+		//Set Highest User ID:
+		String query2 = ConstantURIs.prefixes
+				+ "SELECT ?id "
+                + "WHERE {"
+                + "?x acacia:ID ?id . "
+                + "}"
+                + "ORDER BY DESC(?id) LIMIT 1";
+
+		ResultSet rs2 = executeQuery(query2);
+		
+		QuerySolution qs2 = rs2.next();
+		List<String> sl2 = rs2.getResultVars();
+		for (String str2: sl2) {
+			Object obj2 = qs2.get(str2).asLiteral().getValue();
+			GlobalVar.GlobalUserID = Integer.parseInt(String.valueOf(obj2));
+			System.out.println("Global User ID: " + String.valueOf(GlobalVar.GlobalUserID));	
 		}
 	}
 

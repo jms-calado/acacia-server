@@ -1,8 +1,6 @@
 package acacia.resources;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -18,7 +16,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.jena.query.ResultSet;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -30,7 +27,6 @@ import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
 import acacia.services.SparqlExecutor;
-import acacia.websocket.DeviceWebSocketServer;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -54,8 +54,8 @@ curl -X POST "https://api.arca.acacia.red/insert/Class" \
 
 ```json
 {
-  "Subject": "Male",
-  "Description": "Hulk",
+  "Subject": "Math_101",
+  "Description": "Introduction to the basics of Mathematics",
   "Student": [
     "Student_123",
     "Student_321"
@@ -1711,8 +1711,11 @@ curl -X POST "https://api.arca.acacia.red/list/students_of_class" \
 
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+|  |  string |Class individual identifier | true | single element array |
 
-<br><br>
+	<aside class="notice">
+	string acquired as a response of POST: <a href="#list-class">/list/Class</a>
+	</aside>
 
 <br><br>
 

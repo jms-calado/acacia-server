@@ -112,7 +112,6 @@ curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
   "Gender": "Male",
   "Name": "Hulk",
   "Age": "45",
-  "ID": "555",
   "Race_Ethnicity": "White"
 }
 ```
@@ -123,9 +122,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
 | Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
-| ID |  string |  | true |  |
-| Education_Degree |  string |  | true |  |
-| Area_of_Degree |  string |  | true |  |
+| Race_Ethnicity |  string |  | true |  |
 
 ### Response code: 201
 Success
@@ -171,7 +168,6 @@ curl -X POST "https://api.arca.acacia.red/insert/Admin" \
   "Gender": "Male",
   "Name": "Morgan Freeman",
   "Age": "100",
-  "ID": "999",
   "Race_Ethnicity": "White"
 }
 ```
@@ -182,9 +178,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Admin" \
 | Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
-| ID |  string |  | true |  |
-| Education_Degree |  string |  | true |  |
-| Area_of_Degree |  string |  | true |  |
+| Race_Ethnicity |  string |  | true |  |
 
 ### Response code: 201
 Success
@@ -230,7 +224,6 @@ curl -X POST "https://api.arca.acacia.red/insert/Annalist" \
   "Gender": "Female",
   "Name": "Lara Croft",
   "Age": "35",
-  "ID": "777",
   "Race_Ethnicity": "White"
 }
 ```
@@ -241,9 +234,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Annalist" \
 | Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
-| ID |  string |  | true |  |
-| Education_Degree |  string |  | true |  |
-| Area_of_Degree |  string |  | true |  |
+| Race_Ethnicity |  string |  | true |  |
 
 ### Response code: 201
 Success
@@ -417,7 +408,6 @@ curl -X POST "https://api.arca.acacia.red/insert/Student" \
   "Gender": "Male",
   "Name": "Peter Pan",
   "Age": "20",
-  "ID": "213",
   "Race_Ethnicity": "White"
 }
 ```  
@@ -428,9 +418,7 @@ curl -X POST "https://api.arca.acacia.red/insert/Student" \
 | Gender |  string |  | true | Male/Female |
 | Name |  string |  | true |  |
 | Age |  string |  | true |  |
-| ID |  string |  | true |  |
-| Education_Degree |  string |  | true |  |
-| Area_of_Degree |  string |  | true |  |
+| Race_Ethnicity |  string |  | true |  |
 
 ### Response code: 201
 Success

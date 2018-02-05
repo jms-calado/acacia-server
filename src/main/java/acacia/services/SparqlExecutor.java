@@ -51,7 +51,7 @@ public class SparqlExecutor {
 			System.out.println("Global Observation ID: " + String.valueOf(GlobalVar.GlobalObservationID));	
 		}
 
-		//Set Highest User ID:
+		//Set Highest BasicUser ID:
 		String query2 = ConstantURIs.prefixes
 				+ "SELECT ?id "
                 + "WHERE {"
@@ -66,7 +66,7 @@ public class SparqlExecutor {
 		for (String str2: sl2) {
 			Object obj2 = qs2.get(str2).asLiteral().getValue();
 			GlobalVar.GlobalUserID = Integer.parseInt(String.valueOf(obj2));
-			System.out.println("Global User ID: " + String.valueOf(GlobalVar.GlobalUserID));	
+			System.out.println("Global BasicUser ID: " + String.valueOf(GlobalVar.GlobalUserID));	
 		}
 	}
 

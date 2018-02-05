@@ -4,6 +4,9 @@ target
 dependency-reduced-pom.xml
 resources/catalog-v001.xml
 resources/ontology.acacia.red.postman_collection.json
+doc/Local.postman_environment.json
+doc/Server.postman_environment.json
+doc/ontology.acacia.red.postman_collection.json
 logs
 
 # Windows image file caches
@@ -56,3 +59,7 @@ Temporary Items
 resources/ontology1.owl
 resources/ontology2.owl
 ontology.owl
+/prod.yml
+/dev.yml
+/dev.yml
+/prod.yml

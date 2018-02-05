@@ -1,9 +1,10 @@
-package acacia.resources;
+package acacia.resources.updates;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -18,9 +19,12 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import acacia.core.JwtUser;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.EmotionObject;
+import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
+import io.dropwizard.auth.Auth;
 
 @Path("/insert/emotion")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -38,7 +42,10 @@ public class InsertEmotion extends Resource {
     }
 
 	@POST
-	public Response insert(String jsonbody) 
+	@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
+	public Response insert(
+			@Auth JwtUser jwtUser,
+			String jsonbody) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();

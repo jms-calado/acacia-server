@@ -1,4 +1,4 @@
-package acacia.resources;
+package acacia.resources.updates;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,9 +18,12 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import acacia.core.JwtUser;
 import acacia.dataobjects.ClassObject;
 import acacia.dataobjects.ConstantURIs;
+import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
+import io.dropwizard.auth.Auth;
 
 @Path("/insert/Class")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -38,7 +41,9 @@ public class InsertClass extends Resource {
     }
 
 	@POST
-	public Response insert(String jsonbody) throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
+	public Response insert(
+			@Auth JwtUser jwtUser,
+			String jsonbody) throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		ClassObject class1 = new ClassObject();

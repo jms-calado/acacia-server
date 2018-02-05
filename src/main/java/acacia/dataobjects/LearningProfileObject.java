@@ -24,7 +24,7 @@ public class LearningProfileObject {
 			@JsonProperty(value = "Active_Reflective", required = true) String Active_Reflective, 
 			@JsonProperty(value = "Visual_Verbal", required = true) String Visual_Verbal, 
 			@JsonProperty(value = "Sequential_Global", required = true) String Sequential_Global, 
-			@JsonProperty(value = "User", required = false) String User)
+			@JsonProperty(value = "BasicUser", required = false) String User)
 	{
 		this.Sensing_Intuitive = Sensing_Intuitive;
 		this.Active_Reflective = Active_Reflective;
@@ -72,11 +72,11 @@ public class LearningProfileObject {
 		this.Visual_Verbal = Visual_Verbal;
 	}
 	
-	@JsonProperty("User")
+	@JsonProperty("BasicUser")
 	public String getUser(){
 		return User;
 	}
-	@JsonProperty("User")
+	@JsonProperty("BasicUser")
 	public void setUser(String User){
 		this.User = User;
 	}

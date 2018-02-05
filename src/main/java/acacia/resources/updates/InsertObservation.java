@@ -1,8 +1,9 @@
-package acacia.resources;
+package acacia.resources.updates;
 
 import java.io.IOException;
 import java.util.Set;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -22,11 +23,14 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import acacia.core.JwtUser;
 //import acacia.cdi.EventAlertBean;
 import acacia.dataobjects.ConstantURIs;
 import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.ObservationObject;
+import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
+import io.dropwizard.auth.Auth;
 
 @Path("/insert/observation/{observation_type}")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -50,8 +54,12 @@ public class InsertObservation extends Resource {
     }
 
 	@POST
+	@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response insert(@PathParam("observation_type") @Pattern(regexp = "Human|Digital") @NotEmpty String observation_type, String jsonbody)
+	public Response insert(
+			@Auth JwtUser jwtUser,
+			@PathParam("observation_type") @Pattern(regexp = "Human|Digital") @NotEmpty String observation_type, 
+			String jsonbody)
 			throws JsonParseException, JsonMappingException, IOException {
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();

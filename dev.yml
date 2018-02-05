@@ -26,9 +26,54 @@ logging:
       logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
       currentLogFilename: ./logs/acacia.log
       archivedLogFilenamePattern: ./logs/acacia-%d{yyyy-MM-dd}-%i.log.gz
-      archivedFileCount: 5
+      archivedFileCount: 15
       timeZone: UTC
       maxFileSize: 10MB
       
 ontology:
   file: resources/ontology.owl
+  
+jwtTokenSecret: jwtTokenSecretisabigstringandneedstobebecause42
+
+database:
+  # the name of your JDBC driver
+  driverClass: org.postgresql.Driver
+
+  # the username
+  user: acacia-ontology
+
+  # the password
+  password: 5WqhdbssbgyTxYvBqq6P
+
+  # the JDBC URL
+  url: jdbc:postgresql://localhost/postgres
+
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the timeout before a connection validation queries fail
+  #validationQueryTimeout: 3s
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+  # the amount of time to sleep between runs of the idle connection validation, abandoned cleaner and idle pool resizing
+  #evictionInterval: 10s
+
+  # the minimum amount of time an connection must sit idle in the pool before it is eligible for eviction
+  #minIdleTime: 1 minute
+  

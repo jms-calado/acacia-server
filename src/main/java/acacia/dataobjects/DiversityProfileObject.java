@@ -18,7 +18,7 @@ public class DiversityProfileObject {
 	@JsonCreator
 	public DiversityProfileObject(
 			@JsonProperty(value = "Disability", required = true) Disability Disability, 
-			@JsonProperty(value = "User", required = false) String User)
+			@JsonProperty(value = "BasicUser", required = false) String User)
 	{
 		this.Disability = Disability;
 		this.User = User;
@@ -36,11 +36,11 @@ public class DiversityProfileObject {
 		this.Disability = Disability;
 	}
 	
-	@JsonProperty("User")
+	@JsonProperty("BasicUser")
 	public String getUser(){
 		return User;
 	}
-	@JsonProperty("User")
+	@JsonProperty("BasicUser")
 	public void setUser(String User){
 		this.User = User;
 	}

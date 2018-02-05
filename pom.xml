@@ -4,7 +4,7 @@
 
 	<groupId>acacia</groupId>
 	<artifactId>ontology</artifactId>
-	<version>3.1.0</version>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>ACACIA Ontology</name>
@@ -51,6 +51,46 @@
 		  <groupId>be.tomcools</groupId>
 		  <artifactId>dropwizard-websocket-jee7-bundle</artifactId>
 		  <version>2.0.0</version>
+		</dependency>
+	    <dependency>
+	      <groupId>io.dropwizard</groupId>
+	      <artifactId>dropwizard-auth</artifactId>
+	      <version>${dropwizard.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>io.dropwizard</groupId>
+	      <artifactId>dropwizard-hibernate</artifactId>
+	      <version>${dropwizard.version}</version>
+	    </dependency>
+	    <dependency>
+		    <groupId>io.dropwizard</groupId>
+		    <artifactId>dropwizard-jdbi</artifactId>
+		    <version>${dropwizard.version}</version>
+		</dependency>
+	    <dependency>
+	      <groupId>io.dropwizard</groupId>
+	      <artifactId>dropwizard-migrations</artifactId>
+	      <version>${dropwizard.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>io.dropwizard</groupId>
+	      <artifactId>dropwizard-assets</artifactId>
+	      <version>${dropwizard.version}</version>
+	    </dependency>
+	    <dependency>
+		    <groupId>postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.1-901.jdbc4</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.github.toastshaman</groupId>
+		    <artifactId>dropwizard-auth-jwt</artifactId>
+		    <version>1.1.2-0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.mindrot</groupId>
+		    <artifactId>jbcrypt</artifactId>
+		    <version>0.4</version>
 		</dependency>
 	</dependencies>
 	

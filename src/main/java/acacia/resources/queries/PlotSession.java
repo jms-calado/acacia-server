@@ -1,24 +1,14 @@
-package acacia.resources;
+package acacia.resources.queries;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.StringReader;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
+import javax.annotation.security.RolesAllowed;
 import javax.json.Json;
-import javax.json.JsonException;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
-import javax.json.JsonReader;
-import javax.json.JsonValue;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
@@ -28,18 +18,17 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.query.ResultSetFormatter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import acacia.dataobjects.AffectObject;
+import acacia.core.JwtUser;
 import acacia.dataobjects.ConstantURIs;
+import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
+import io.dropwizard.auth.Auth;
 
 @Path("/plot/session/{class_type}")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -50,7 +39,11 @@ public class PlotSession extends Resource {
 	}
 	    
 	@POST
-	public Response insert(@PathParam("class_type") @Pattern(regexp = "Emotion|Behaviour|Affect") @NotEmpty String class_type, @Size(min = 1, max = 1)@NotEmpty List<String> session) 
+	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	public Response insert(
+			@Auth JwtUser jwtUser,
+			@PathParam("class_type") @Pattern(regexp = "Emotion|Behaviour|Affect") @NotEmpty String class_type, 
+			@Size(min = 1, max = 1)@NotEmpty List<String> session) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 	
 		String query = ConstantURIs.prefixes +

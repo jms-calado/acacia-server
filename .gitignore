@@ -7,6 +7,7 @@ resources/ontology.acacia.red.postman_collection.json
 doc/Local.postman_environment.json
 doc/Server.postman_environment.json
 doc/ontology.acacia.red.postman_collection.json
+doc/psql.sql
 logs
 
 # Windows image file caches
@@ -58,8 +59,7 @@ Temporary Items
 .apdisk
 resources/ontology1.owl
 resources/ontology2.owl
+resources/ontology3.owl
 ontology.owl
 /prod.yml
-/dev.yml
-/dev.yml
 /prod.yml

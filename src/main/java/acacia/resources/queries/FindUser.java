@@ -33,9 +33,9 @@ public class FindUser extends Resource {
 	}
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public List<Map<String, String>> search(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@PathParam("user_type") @Pattern(regexp = "Student|Teacher") @NotEmpty String user_type, 
 			@Size(min = 1, max = 1)@NotEmpty List<String> name) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 

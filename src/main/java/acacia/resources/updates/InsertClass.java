@@ -14,6 +14,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.jetty.util.URIUtil;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,9 +43,12 @@ public class InsertClass extends Resource {
     }
 
 	@POST
+	//@RolesAllowed({"Admin", "Teacher"})
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			String jsonbody) throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
+
+		System.out.println(jsonbody);
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		ClassObject class1 = new ClassObject();
@@ -57,21 +62,30 @@ public class InsertClass extends Resource {
 			
 		if(constraintViolations.size() == 0){
 			
+			String classId = URIUtil.encodePath(class1.getSubject());
+			//System.out.println(classId);
+			
 			String update = ConstantURIs.prefixes + 
 					"INSERT DATA {"
-					+ "acacia:Class_" + class1.getSubject() + " rdf:type acacia:Class . "
-					+ "acacia:Class_" + class1.getSubject() + " acacia:Subject \"" + class1.getSubject() + "\"^^xsd:string . "
-	                + "acacia:Class_" + class1.getSubject() + " acacia:Description \"" + class1.getDescription() + "\"^^xsd:string . ";
+					+ "acacia:Class_" + classId + " rdf:type acacia:Class . "
+					+ "acacia:Class_" + classId + " acacia:Subject \"" + class1.getSubject() + "\"^^xsd:string . "
+	                + "acacia:Class_" + classId + " acacia:Description \"" + class1.getDescription() + "\"^^xsd:string . ";
 	                
             if(class1.getStudent().length > 0){
-            	for(String student : class1.getStudent())
-				update = update + 
-					"acacia:Class_" + class1.getSubject() + " acacia:Has_Student acacia:" + student + " . ";
+            	for(String student : class1.getStudent()) {
+            		if(student.equals("") || student == null)
+            			return Response.ok("{\"Error\":\"Invalid student\"}", MediaType.APPLICATION_JSON).status(422).build();
+					update = update + 
+						"acacia:Class_" + classId + " acacia:Has_Student acacia:" + student + " . ";
+            	}
 			}    
             if(class1.getTeacher().length > 0){
-            	for(String teacher : class1.getTeacher())
-				update = update + 
-					"acacia:Class_" + class1.getSubject() + " acacia:Has_Teacher acacia:" + teacher + " . ";
+            	for(String teacher : class1.getTeacher()) {
+            		if(teacher.equals("") || teacher == null)
+            			return Response.ok("{\"Error\":\"Invalid teacher\"}", MediaType.APPLICATION_JSON).status(422).build();
+					update = update + 
+						"acacia:Class_" + classId + " acacia:Has_Teacher acacia:" + teacher + " . ";
+            	}
 			}
 			update = update + "}";
 			

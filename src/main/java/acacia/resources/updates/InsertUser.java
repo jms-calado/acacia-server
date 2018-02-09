@@ -47,12 +47,13 @@ public class InsertUser extends Resource {
     }
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			String jsonbody, 
 			@PathParam("user_type") @Pattern(regexp = "Student|Teacher|Admin|Annalist") @NotEmpty String user_type) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
+		System.out.println(jsonbody);
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		UserObject user = new UserObject();

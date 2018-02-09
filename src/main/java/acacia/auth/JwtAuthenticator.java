@@ -4,13 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.jose4j.jwt.JwtClaims;
-import org.jose4j.jwt.MalformedClaimException;
 import org.jose4j.jwt.consumer.JwtContext;
 
-import com.google.common.collect.ImmutableSet;
-
-import acacia.core.Person;
 import acacia.core.JwtUser;
+import acacia.core.Person;
 import acacia.dao.PersonDAO;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;

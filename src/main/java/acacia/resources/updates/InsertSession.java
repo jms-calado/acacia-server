@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import acacia.core.JwtUser;
 import acacia.dataobjects.ConstantURIs;
+import acacia.dataobjects.GlobalVar;
 import acacia.dataobjects.SessionObject;
 import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
@@ -44,10 +45,11 @@ public class InsertSession extends Resource {
     }
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			String jsonbody) throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
+		System.out.println(jsonbody);
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		SessionObject session = new SessionObject();
@@ -62,7 +64,8 @@ public class InsertSession extends Resource {
 		if(constraintViolations.size() == 0){
 			
 			LocalDateTime date_time = LocalDateTime.parse(session.getDate_Time());
-			String session_id = date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+			GlobalVar.GlobalSessionID++;
+			String session_id = GlobalVar.GlobalSessionID + "_" + date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 			
 			String update = ConstantURIs.prefixes + 
 					"INSERT DATA {"
@@ -74,25 +77,39 @@ public class InsertSession extends Resource {
 	                
             if(session.getStudent().length > 0){
             	for(String student : session.getStudent())
-				update = update + 
+            		update = update + 
 						"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + student + " . ";
 			}    
             if(session.getTeacher().length > 0){
             	for(String teacher : session.getTeacher())
-				update = update + 
+            		update = update + 
                 		"acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + teacher + " . ";
 			}    
             if(session.getSensory_Component().length > 0){
             	for(String sensory_component : session.getSensory_Component())
-				update = update + 
+            		update = update + 
                 		"acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + sensory_component + " . ";
 			}
+            if(session.getVLO() != null){
+            	if(session.getVLO().length > 0 ) {
+	            	for(String vlo : session.getVLO())
+	            		update = update + 
+							"acacia:Session_" + session_id + " acacia:Has_VLO acacia:" + vlo + " . ";
+            	}
+			}    
+
+            if(session.getVLO() != null){
+	            if(!session.getSessionClass().isEmpty()){
+	        		update = update + 
+						"acacia:Session_" + session_id + " acacia:Has_Class acacia:" + session.getSessionClass() + " . ";
+				}  
+            }
 
 			update = update + "}";
 			
 			System.out.println(update);
 			executeUpdate(update);
-			return Response.ok("[\"Session_" + session_id + "\"]", MediaType.APPLICATION_JSON).status(201).build();
+			return Response.ok("[\"Session_" + session_id + "\", \"" + session.getSessionClass() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 
 		}else{
 			for (ConstraintViolation<SessionObject> cv : constraintViolations) {

@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -21,29 +22,26 @@ import acacia.resources.Resource;
 import acacia.services.SparqlExecutor;
 import io.dropwizard.auth.Auth;
 
-@Path("/list/students_of_session")
+@Path("/list/sessions_class")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ListStudentsOfSession extends Resource {
+public class ListSessionsClass extends Resource {
 	
-	public ListStudentsOfSession(SparqlExecutor qe) {
+	public ListSessionsClass(SparqlExecutor qe) {
 		super(qe);
 	}
 
-	@POST
+	@GET
 	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public List<Map<String, String>> search(
-			//@Auth JwtUser jwtUser,
-			@Size(min = 1, max = 1)@NotEmpty List<String> session) throws FileNotFoundException {
+			//@Auth JwtUser jwtUser
+			) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 
-		        "SELECT ?Individual ?Name "
+		        "SELECT ?Session ?Class "
 		        + "WHERE {"
-		        + "?y rdfs:subClassOf* acacia:Session ."
-		        + "?x rdf:type ?y ."
-		        + "FILTER regex(str(?x),'" + session.get(0) + "$','i') ."
-		        + "?x acacia:Has_Student ?Individual ."
-		        + "?Individual acacia:Name ?Name ."
-		        + "}";
+		        + "?Session rdf:type acacia:Session . "
+		        + "?Session acacia:Has_Class ?Class . "
+		        + "} ORDER BY ?Session ";
 		System.out.println(query);
 		ResultSet rs = executeQuery(query);	
 		return buildResult(rs);

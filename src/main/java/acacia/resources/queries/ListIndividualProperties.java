@@ -31,9 +31,9 @@ public class ListIndividualProperties extends Resource {
 	}
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public List<Map<String, String>> search(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@Size(min = 1, max = 1)@NotEmpty List<String> individual) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 
 		        "SELECT ?Property ?Value "

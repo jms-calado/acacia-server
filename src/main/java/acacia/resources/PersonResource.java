@@ -10,7 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import acacia.core.Person;
-import acacia.core.BasicUser;
 import acacia.core.JwtUser;
 import acacia.dao.PersonDAO;
 import io.dropwizard.auth.Auth;
@@ -29,7 +28,7 @@ public class PersonResource {
 	}
 	
 	@GET
-@RolesAllowed("Admin")
+	@RolesAllowed("Admin")
 	@UnitOfWork
 	public Person getPerson(@Auth JwtUser jwtUser, @PathParam("id") LongParam id) {
 		Long ident = id.get();

@@ -1,7 +1,6 @@
 package acacia.core;
 
 import java.security.Principal;
-import java.util.Set;
 
 public class BasicUser implements Principal {
 

@@ -30,12 +30,14 @@ import acacia.core.JwtUser;
 import acacia.dao.PersonDAO;
 import acacia.dataobjects.GlobalVar;
 import acacia.health.SearchHealthCheck;
+import acacia.resources.AuthTest;
 import acacia.resources.Login;
 import acacia.resources.PersonResource;
 import acacia.resources.queries.FindUser;
 import acacia.resources.queries.ListClasses;
 import acacia.resources.queries.ListIndividualProperties;
 import acacia.resources.queries.ListObservationsOfSession;
+import acacia.resources.queries.ListSessionsClass;
 import acacia.resources.queries.ListSessionsOfStudent;
 import acacia.resources.queries.ListStudentsOfClass;
 import acacia.resources.queries.ListStudentsOfObservation;
@@ -97,6 +99,7 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
     public void initialize(Bootstrap<AcaciaConfiguration> bootstrap) {
         GlobalVar.GlobalObservationID = 0;
         GlobalVar.GlobalUserID = 0;
+        GlobalVar.GlobalSessionID = 0;
         super.initialize(bootstrap);
         bootstrap.addBundle(websocket);
         bootstrap.addBundle(hibernateBundle);
@@ -191,6 +194,7 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(BasicUser.class));
         
 		environment.jersey().register(new Login(configuration.getJwtTokenSecret()));
+		environment.jersey().register(new AuthTest());
         
         //-----------------------------------------------------------------
         
@@ -201,6 +205,7 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new PlotIssue(qe));
 		environment.jersey().register(new PlotIssuesOfStudent(qe));
 		environment.jersey().register(new PlotSession(qe));
+		environment.jersey().register(new ListSessionsClass(qe));
 		environment.jersey().register(new ListSessionsOfStudent(qe));
 		environment.jersey().register(new ListStudentsOfSession(qe));
 		environment.jersey().register(new ListStudentsOfObservation(qe));

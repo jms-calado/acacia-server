@@ -31,9 +31,9 @@ public class ListObservationsOfSession extends Resource {
 	}
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public List<Map<String, String>> search(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@Size(min = 1, max = 1)@NotEmpty List<String> session) throws FileNotFoundException {
 		String query = ConstantURIs.prefixes + 
 		        "SELECT ?Individual "

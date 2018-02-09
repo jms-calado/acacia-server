@@ -3,16 +3,15 @@ package acacia.auth;
 import java.util.List;
 import java.util.Optional;
 
-import com.google.common.collect.ImmutableSet;
+import org.mindrot.jbcrypt.BCrypt;
 
-import acacia.core.Person;
 import acacia.core.BasicUser;
+import acacia.core.Person;
 import acacia.dao.PersonDAO;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.hibernate.UnitOfWork;
-import org.mindrot.jbcrypt.BCrypt;
 
 public class BasicAuthenticator implements Authenticator<BasicCredentials, BasicUser>{
 

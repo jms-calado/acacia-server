@@ -14,6 +14,10 @@ public class SessionObject {
 	private String Date_Time;
 	@NotEmpty
 	private String Scenario;
+	
+	private String[] VLO = null;
+	
+	private String Class = null;
 	@NotEmpty
 	private String[] Teacher;
 	@NotEmpty
@@ -22,13 +26,16 @@ public class SessionObject {
 	private String[] Student;
 
 	@JsonCreator
-	public SessionObject(@JsonProperty(value = "Date_Time", required = true) String Date_Time, 
-							@JsonProperty(value = "Duration", required = true) String Duration, 
-							@JsonProperty(value = "Observation_Sample_Rate", required = true) String Observation_Sample_Rate, 
-							@JsonProperty(value = "Scenario", required = true) String Scenario, 
-							@JsonProperty(value = "Sensory_Component", required = false) String[] Sensory_Component, 
-							@JsonProperty(value = "Teacher", required = false) String[] Teacher, 
-							@JsonProperty(value = "Student", required = false) String[] Student)
+	public SessionObject(
+				@JsonProperty(value = "Date_Time", required = true) String Date_Time, 
+				@JsonProperty(value = "Duration", required = true) String Duration, 
+				@JsonProperty(value = "Observation_Sample_Rate", required = true) String Observation_Sample_Rate, 
+				@JsonProperty(value = "Scenario", required = true) String Scenario, 
+				@JsonProperty(value = "Sensory_Component", required = false) String[] Sensory_Component, 
+				@JsonProperty(value = "Teacher", required = false) String[] Teacher, 
+				@JsonProperty(value = "Student", required = false) String[] Student,
+				@JsonProperty(value = "VLO", required = false) String[] VLO,
+				@JsonProperty(value = "Class", required = false) String Class)
 	{
 		this.Date_Time = Date_Time;
 		this.Duration = Duration;
@@ -37,10 +44,30 @@ public class SessionObject {
 		this.Sensory_Component = Sensory_Component;
 		this.Teacher = Teacher;
 		this.Student = Student;
+		this.VLO = VLO;
+		this.Class = Class;
 	}
 	
 	public SessionObject(){		
 	}
+
+	@JsonProperty("VLO")
+	public String[] getVLO() {
+		return VLO;
+	}
+	@JsonProperty("VLO")
+	public void setVLO(String[] VLO) {
+		this.VLO = VLO;
+	}
+	
+	@JsonProperty("Class")
+	public String getSessionClass() {
+		return Class;
+	}
+	@JsonProperty("Class")
+	public void setSessionClass(String Class) {
+		this.Class = Class;
+	}	
 	
 	@JsonProperty("Date_Time")
 	public String getDate_Time(){

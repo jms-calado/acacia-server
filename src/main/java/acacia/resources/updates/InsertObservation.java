@@ -54,10 +54,10 @@ public class InsertObservation extends Resource {
     }
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist", "Student"})
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@PathParam("observation_type") @Pattern(regexp = "Human|Digital") @NotEmpty String observation_type, 
 			String jsonbody)
 			throws JsonParseException, JsonMappingException, IOException {
@@ -86,6 +86,8 @@ public class InsertObservation extends Resource {
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Scenario acacia:" + observation.getScenario() + " . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Has_Student acacia:" + observation.getStudent() + " . ";
 			for(String session:observation.getSession()) {
+        		if(session.equals("") || session == null)
+        			return Response.ok("{\"Error\":\"Invalid teacher\"}", MediaType.APPLICATION_JSON).status(422).build();
 				update = update + "acacia:" + observation_type + "_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + session + " . ";
 			}
 			if(observation_type.equals("Human") && !observation.getTeacher().isEmpty()){

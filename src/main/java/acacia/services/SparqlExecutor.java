@@ -68,6 +68,25 @@ public class SparqlExecutor {
 			GlobalVar.GlobalUserID = Integer.parseInt(String.valueOf(obj2));
 			System.out.println("Global BasicUser ID: " + String.valueOf(GlobalVar.GlobalUserID));	
 		}
+
+		//Set Highest Session ID:
+		String query3 = ConstantURIs.prefixes
+				+ "SELECT ?session "
+                + "WHERE {"
+                + "?session rdf:type acacia:Session . "
+                + "}"
+                + "ORDER BY DESC(?session) LIMIT 1";
+
+		ResultSet rs3 = executeQuery(query3);
+		
+		QuerySolution qs3 = rs3.next();
+		List<String> sl3 = rs3.getResultVars();
+		for (String str3: sl3) {
+			Object obj3 = qs3.get(str3).asResource().getLocalName();
+			String[] results = String.valueOf(obj3).split("[_]", 3);
+			GlobalVar.GlobalSessionID = Integer.parseInt(results[1]);
+			System.out.println("Global Session ID: " + String.valueOf(GlobalVar.GlobalSessionID));	
+		}
 	}
 
 	/*//https://svn.apache.org/repos/asf/jena/branches/jena-owl2/doc/ontology/common-problems.html

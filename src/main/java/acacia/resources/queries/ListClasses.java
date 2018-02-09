@@ -30,9 +30,9 @@ public class ListClasses extends Resource {
 	}
 
 	@GET
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public List<Map<String, String>> search(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@PathParam("class_type") 
 			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue|Class") 
 			@NotEmpty String class_type) throws FileNotFoundException {

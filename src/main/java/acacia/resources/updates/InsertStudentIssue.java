@@ -44,9 +44,9 @@ public class InsertStudentIssue extends Resource {
     }
 
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			String jsonbody) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 		String msg = null;
@@ -73,6 +73,8 @@ public class InsertStudentIssue extends Resource {
 					"acacia:Human_Observation_" + observationID + " acacia:Has_Student acacia:" + issueObject.getStudent() + " . " +
 					"acacia:Human_Observation_" + observationID + " acacia:Has_Teacher acacia:" + issueObject.getTeacher() + " . ";
 			for(String session:issueObject.getSession()) {
+        		if(session.equals("") || session == null)
+        			return Response.ok("{\"Error\":\"Invalid session\"}", MediaType.APPLICATION_JSON).status(422).build();
 				update1 = update1 + "acacia:Human_Observation_" + observationID + " acacia:Belongs_to_Session acacia:" + session + " . ";
 			}
 			update1 = update1 + "}";			

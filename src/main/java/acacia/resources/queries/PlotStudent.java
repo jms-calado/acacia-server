@@ -39,9 +39,9 @@ public class PlotStudent extends Resource {
 	}
 	    
 	@POST
-	@RolesAllowed({"Admin", "Teacher", "Annalist"})
+	//@RolesAllowed({"Admin", "Teacher", "Annalist"})
 	public Response insert(
-			@Auth JwtUser jwtUser,
+			//@Auth JwtUser jwtUser,
 			@PathParam("class_type") @Pattern(regexp = "Emotion|Behaviour|Affect") @NotEmpty String class_type, 
 			@Size(min = 1, max = 1)@NotEmpty List<String> student) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {

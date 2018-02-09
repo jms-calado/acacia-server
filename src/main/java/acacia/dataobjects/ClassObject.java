@@ -9,13 +9,15 @@ public class ClassObject {
 
 	@NotEmpty
 	private String Subject;
+
 	@NotEmpty
 	private String[] Teacher;
 	
 	private String Description;
+
 	@NotEmpty
 	private String[] Student;
-
+	
 	@JsonCreator
 	public ClassObject(@JsonProperty(value = "Subject", required = true) String Subject, 
 						@JsonProperty(value = "Description", required = false) String Description, 
@@ -68,3 +70,4 @@ public class ClassObject {
 	}
 
 }
+

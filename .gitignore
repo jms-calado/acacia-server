@@ -8,6 +8,15 @@ doc/Local.postman_environment.json
 doc/Server.postman_environment.json
 doc/ontology.acacia.red.postman_collection.json
 doc/psql.sql
+resources/ontology1.owl
+resources/ontology2.owl
+resources/ontology3.owl
+resources/ontology3.owl
+ontology.owl
+/prod.yml
+/prod.yml
+prod.yml
+prod.yml
 logs
 
 # Windows image file caches
@@ -57,9 +66,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-resources/ontology1.owl
-resources/ontology2.owl
-resources/ontology3.owl
-ontology.owl
-/prod.yml
-prod.yml

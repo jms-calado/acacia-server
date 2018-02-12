@@ -35,8 +35,7 @@ public class ListObservationsOfSession extends Resource {
 	public List<Map<String, String>> search(
 			//@Auth JwtUser jwtUser,
 			@Size(min = 1, max = 1)@NotEmpty List<String> session) throws FileNotFoundException {
-		String query = ConstantURIs.prefixes + 
-		        "SELECT ?Individual "
+		String query = "SELECT ?Individual "
 		        + "WHERE {"
 		        + "?y rdfs:subClassOf* acacia:Observation ."
 		        + "?Individual rdf:type ?y ."
@@ -44,7 +43,7 @@ public class ListObservationsOfSession extends Resource {
 		        + "FILTER regex(str(?z),'" + session.get(0) + "$','i') ."
 		        + "}";
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

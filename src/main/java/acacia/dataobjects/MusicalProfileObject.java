@@ -18,7 +18,7 @@ public class MusicalProfileObject {
 	@JsonCreator
 	public MusicalProfileObject(
 			@JsonProperty(value = "Musical_Instrument", required = true) Musical_Instrument Musical_Instrument, 
-			@JsonProperty(value = "BasicUser", required = false) String User)
+			@JsonProperty(value = "User", required = true) String User)
 	{
 		this.Musical_Instrument = Musical_Instrument;
 		this.User = User;
@@ -36,11 +36,11 @@ public class MusicalProfileObject {
 		this.Musical_Instrument = Musical_Instrument;
 	}
 	
-	@JsonProperty("BasicUser")
+	@JsonProperty("User")
 	public String getUser(){
 		return User;
 	}
-	@JsonProperty("BasicUser")
+	@JsonProperty("User")
 	public void setUser(String User){
 		this.User = User;
 	}

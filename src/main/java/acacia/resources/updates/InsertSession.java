@@ -67,8 +67,7 @@ public class InsertSession extends Resource {
 			GlobalVar.GlobalSessionID++;
 			String session_id = GlobalVar.GlobalSessionID + "_" + date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 			
-			String update = ConstantURIs.prefixes + 
-					"INSERT DATA {"
+			String update = "INSERT DATA {"
 					+ "acacia:Session_" + session_id + " rdf:type acacia:Session . "
 					+ "acacia:Session_" + session_id + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
 	                + "acacia:Session_" + session_id + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
@@ -76,29 +75,41 @@ public class InsertSession extends Resource {
 	                + "acacia:Session_" + session_id + " acacia:Belongs_to_Scenario acacia:" + session.getScenario() + " . ";
 	                
             if(session.getStudent().length > 0){
-            	for(String student : session.getStudent())
+            	for(String student : session.getStudent()) {
+            		if(student.equals("") || student == null)
+            			return Response.ok("{\"Error\":\"Invalid student\"}", MediaType.APPLICATION_JSON).status(422).build();
             		update = update + 
 						"acacia:Session_" + session_id + " acacia:Has_Student acacia:" + student + " . ";
+            	}
 			}    
             if(session.getTeacher().length > 0){
-            	for(String teacher : session.getTeacher())
+            	for(String teacher : session.getTeacher()) {
+            		if(teacher.equals("") || teacher == null)
+            			return Response.ok("{\"Error\":\"Invalid teacher\"}", MediaType.APPLICATION_JSON).status(422).build();
             		update = update + 
                 		"acacia:Session_" + session_id + " acacia:Has_Teacher acacia:" + teacher + " . ";
+            	}
 			}    
             if(session.getSensory_Component().length > 0){
-            	for(String sensory_component : session.getSensory_Component())
+            	for(String sensory_component : session.getSensory_Component()) {
+            		if(sensory_component.equals("") || sensory_component == null)
+            			return Response.ok("{\"Error\":\"Invalid sensory_component\"}", MediaType.APPLICATION_JSON).status(422).build();
             		update = update + 
                 		"acacia:Session_" + session_id + " acacia:Has_Sensory_Component acacia:" + sensory_component + " . ";
+            	}
 			}
             if(session.getVLO() != null){
             	if(session.getVLO().length > 0 ) {
-	            	for(String vlo : session.getVLO())
+	            	for(String vlo : session.getVLO()) {
+	            		if(vlo.equals("") || vlo == null)
+	            			return Response.ok("{\"Error\":\"Invalid vlo\"}", MediaType.APPLICATION_JSON).status(422).build();
 	            		update = update + 
 							"acacia:Session_" + session_id + " acacia:Has_VLO acacia:" + vlo + " . ";
+	            	}
             	}
 			}    
 
-            if(session.getVLO() != null){
+            if(session.getSessionClass() != null){
 	            if(!session.getSessionClass().isEmpty()){
 	        		update = update + 
 						"acacia:Session_" + session_id + " acacia:Has_Class acacia:" + session.getSessionClass() + " . ";
@@ -108,7 +119,7 @@ public class InsertSession extends Resource {
 			update = update + "}";
 			
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 			return Response.ok("[\"Session_" + session_id + "\", \"" + session.getSessionClass() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 
 		}else{

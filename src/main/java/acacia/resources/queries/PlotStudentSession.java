@@ -52,8 +52,7 @@ public class PlotStudentSession extends Resource {
             JsonObject jsonMessage = reader.readObject();
             String session = jsonMessage.getString("Session");
             String student = jsonMessage.getString("Student");
-			String query = ConstantURIs.prefixes +
-					"SELECT ?Observation ?Property ?Value " + 
+			String query = "SELECT ?Observation ?Property ?Value " + 
 					"WHERE { " + 
 					"?y rdfs:subClassOf* acacia:" + class_type + " ." + 
 					"?" + class_type + " rdf:type ?y ." + 
@@ -68,8 +67,9 @@ public class PlotStudentSession extends Resource {
 					"}" +
 					"GROUP BY ?Observation ?Property ?Value ?DateTime " +
 					"ORDER BY ASC(?DateTime)";
+			
 			System.out.println(query);
-			ResultSet rs = executeQuery(query);
+			ResultSet rs = executeQuery(ConstantURIs.prefixes + query);
 			List<Map<String, String>> list = buildResult(rs);
 			//System.out.println(list.toString());
 			if (list.isEmpty()) {

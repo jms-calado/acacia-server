@@ -60,14 +60,13 @@ public class InsertDiversityProfile extends Resource{
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Diversity_" + diversityProfile.getUser() + " rdf:type acacia:Academic . "
 				+ "acacia:Diversity_" + diversityProfile.getUser() + " acacia:Belongs_to_User acacia:" 	+ diversityProfile.getUser() 		+ " . "
 				+ "acacia:Diversity_" + diversityProfile.getUser() + " acacia:Disability \"" 			+ diversityProfile.getDisability() 	+ "\"^^xsd:string . "
 				+ "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<DiversityProfileObject> cv : constraintViolations) {
 				msg = cv.getMessage();

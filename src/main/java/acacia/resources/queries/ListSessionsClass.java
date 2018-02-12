@@ -36,14 +36,13 @@ public class ListSessionsClass extends Resource {
 	public List<Map<String, String>> search(
 			//@Auth JwtUser jwtUser
 			) throws FileNotFoundException {
-		String query = ConstantURIs.prefixes + 
-		        "SELECT ?Session ?Class "
+		String query = "SELECT ?Session ?Class "
 		        + "WHERE {"
 		        + "?Session rdf:type acacia:Session . "
 		        + "?Session acacia:Has_Class ?Class . "
 		        + "} ORDER BY ?Session ";
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

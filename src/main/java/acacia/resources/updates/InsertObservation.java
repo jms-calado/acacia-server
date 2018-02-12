@@ -75,8 +75,7 @@ public class InsertObservation extends Resource {
 		if(constraintViolations.size() == 0){
 			GlobalVar.GlobalObservationID++;
 			String observationID = String.valueOf(GlobalVar.GlobalObservationID);
-			String update = ConstantURIs.prefixes + 
-					"INSERT DATA {" + 
+			String update = "INSERT DATA {" + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " +
 					//"acacia:" + observation_type + "_Observation_" + observationID + " rdf:type acacia:" + observation_type + "_Observation . " + 
 					"acacia:" + observation_type + "_Observation_" + observationID + " acacia:Date_Time \"" + observation.getDate_Time() + "\"^^xsd:dateTime . " + 
@@ -101,7 +100,7 @@ public class InsertObservation extends Resource {
 			update = update + "}";
 			
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 /*
 			String alertMsg = "";
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;

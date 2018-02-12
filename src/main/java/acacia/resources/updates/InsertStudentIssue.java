@@ -63,8 +63,7 @@ public class InsertStudentIssue extends Resource {
 		if(constraintViolations.size() == 0){
 			GlobalVar.GlobalObservationID++;
 			String observationID = String.valueOf(GlobalVar.GlobalObservationID);
-			String update1 = ConstantURIs.prefixes + 
-					"INSERT DATA {" + 
+			String update1 = "INSERT DATA {" + 
 					"acacia:Human_Observation_" + observationID + " rdf:type acacia:Human_Observation . " +
 					"acacia:Human_Observation_" + observationID + " acacia:Date_Time \"" + issueObject.getDate_Time() + "\"^^xsd:dateTime . " + 
 					"acacia:Human_Observation_" + observationID + " acacia:Duration \"" + issueObject.getDuration() + "\"^^xsd:time . " + 
@@ -79,20 +78,19 @@ public class InsertStudentIssue extends Resource {
 			}
 			update1 = update1 + "}";			
 			System.out.println(update1);
-			executeUpdate(update1);
+			executeUpdate(ConstantURIs.prefixes + update1);
 						
 			int i = 0;
 			for(Map.Entry<String, String> entry : issueObject.getIssue().entrySet())
 			{
-				String update2 = ConstantURIs.prefixes + 
-					"INSERT DATA {" +
+				String update2 = "INSERT DATA {" +
 	                "acacia:Student_Issue_" + observationID + "_" + i + " rdf:type acacia:Student_Issue . " +
 	    			"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Belongs_to_Observation acacia:Human_Observation_" + observationID + " . " +
 					"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Has_Issue acacia:" + entry.getKey() + " . " +
 					"acacia:Student_Issue_" + observationID + "_" + i + " acacia:Value \"" + entry.getValue() + "\"^^xsd:float . " +
 					"}";
 				System.out.println(update2);
-				executeUpdate(update2);
+				executeUpdate(ConstantURIs.prefixes + update2);
 				i++;					
 			}
 

@@ -60,8 +60,7 @@ public class InsertBehaviour extends Resource {
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Behaviour_" + behaviour.getObservationID() + " rdf:type acacia:Behaviour . "
 				+ "acacia:Behaviour_" + behaviour.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + behaviour.getObservationID() + " . ";
 			if(!behaviour.getActive_Participation().isEmpty()){
@@ -102,7 +101,7 @@ public class InsertBehaviour extends Resource {
 			}
 			update = update + "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<BehaviourObject> cv : constraintViolations) {
 				msg = cv.getMessage();

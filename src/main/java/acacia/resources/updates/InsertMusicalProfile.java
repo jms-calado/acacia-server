@@ -60,14 +60,13 @@ public class InsertMusicalProfile extends Resource{
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Musical_" + musicalProfile.getUser() + " rdf:type acacia:Academic . "
 				+ "acacia:Musical_" + musicalProfile.getUser() + " acacia:Belongs_to_User acacia:" 	+ musicalProfile.getUser() 				+ " . "
 				+ "acacia:Musical_" + musicalProfile.getUser() + " acacia:Musical_Instrument \""	+ musicalProfile.getMusical_Instrument()+ "\"^^xsd:string . "
 				+ "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<MusicalProfileObject> cv : constraintViolations) {
 				msg = cv.getMessage();

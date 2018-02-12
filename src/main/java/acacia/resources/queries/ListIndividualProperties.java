@@ -35,15 +35,14 @@ public class ListIndividualProperties extends Resource {
 	public List<Map<String, String>> search(
 			//@Auth JwtUser jwtUser,
 			@Size(min = 1, max = 1)@NotEmpty List<String> individual) throws FileNotFoundException {
-		String query = ConstantURIs.prefixes + 
-		        "SELECT ?Property ?Value "
+		String query = "SELECT ?Property ?Value "
 		        + "WHERE {"
 		        + "acacia:" + individual.get(0) + " ?Property ?Value ."
 		        + "{?Property a owl:DatatypeProperty }"
 		        + "UNION {?Property a owl:ObjectProperty } ."
 		        + "}";
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

@@ -65,11 +65,11 @@ public class InsertClass extends Resource {
 			String classId = URIUtil.encodePath(class1.getSubject());
 			//System.out.println(classId);
 			
-			String update = ConstantURIs.prefixes + 
-					"INSERT DATA {"
+			String update = "INSERT DATA {"
 					+ "acacia:Class_" + classId + " rdf:type acacia:Class . "
-					+ "acacia:Class_" + classId + " acacia:Subject \"" + class1.getSubject() + "\"^^xsd:string . "
-	                + "acacia:Class_" + classId + " acacia:Description \"" + class1.getDescription() + "\"^^xsd:string . ";
+					+ "acacia:Class_" + classId + " acacia:Subject \"" + class1.getSubject() + "\"^^xsd:string . ";
+	        if(class1.getDescription() != null) 
+	        	update += "acacia:Class_" + classId + " acacia:Description \"" + class1.getDescription() + "\"^^xsd:string . ";
 	                
             if(class1.getStudent().length > 0){
             	for(String student : class1.getStudent()) {
@@ -90,7 +90,7 @@ public class InsertClass extends Resource {
 			update = update + "}";
 			
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 			//return Response.ok("[\"Class_" + class1.getSubject() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 			return Response.ok().status(201).build();
 

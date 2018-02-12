@@ -68,8 +68,7 @@ public class InsertUser extends Resource {
 		if(constraintViolations.size() == 0){
 			GlobalVar.GlobalUserID++;
 			String userID = String.valueOf(GlobalVar.GlobalUserID);
-			String update = ConstantURIs.prefixes + 
-					"INSERT DATA {"
+			String update = "INSERT DATA {"
 	                + "acacia:" + user_type + "_" + userID + " rdf:type acacia:" + user_type + " . "
 	                + "acacia:" + user_type + "_" + userID + " acacia:Name \"" + user.getName() + "\"^^xsd:string . "
 	                + "acacia:" + user_type + "_" + userID + " acacia:Age \"" + user.getAge() + "\"^^xsd:int . "
@@ -78,7 +77,7 @@ public class InsertUser extends Resource {
 	                + "acacia:" + user_type + "_" + userID + " acacia:ID \"" + userID + "\"^^xsd:int . "
 	                + "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 
 			return Response.ok("[\"" + user_type + "_" + userID + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 		}else{

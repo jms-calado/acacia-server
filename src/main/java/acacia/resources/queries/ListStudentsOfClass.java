@@ -35,8 +35,7 @@ public class ListStudentsOfClass extends Resource {
 	public List<Map<String, String>> search(
 			//@Auth JwtUser jwtUser,
 			@Size(min = 1, max = 1)@NotEmpty List<String> classI) throws FileNotFoundException {
-		String query = ConstantURIs.prefixes + 
-		        "SELECT ?Individual ?Name "
+		String query = "SELECT ?Individual ?Name "
 		        + "WHERE {"
 		        + "?y rdfs:subClassOf* acacia:Class ."
 		        + "?x rdf:type ?y ."
@@ -45,7 +44,7 @@ public class ListStudentsOfClass extends Resource {
 		        + "?Individual acacia:Name ?Name ."
 		        + "}";
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

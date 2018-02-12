@@ -46,8 +46,7 @@ public class PlotStudent extends Resource {
 			@Size(min = 1, max = 1)@NotEmpty List<String> student) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 	
-		String query = ConstantURIs.prefixes +
-				"SELECT ?Session ?Property (AVG(?Value) AS ?session_average)  " +
+		String query = "SELECT ?Session ?Property (AVG(?Value) AS ?session_average)  " +
 				"WHERE {  " +
 				"?Observation acacia:Has_Student ?Student . " +
 				"FILTER regex(str(?Student), '" + student.get(0) + "$', 'i') . " +
@@ -60,8 +59,9 @@ public class PlotStudent extends Resource {
 				"} " +
 				"GROUP BY ?Session ?Property " +
 				"ORDER BY ASC(?Session) ";
+		
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);
 		List<Map<String, String>> list = buildResult(rs);
 		//System.out.println(list.toString());	
 		if (list.isEmpty()) {

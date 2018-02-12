@@ -60,8 +60,7 @@ public class InsertAcademicProfile extends Resource{
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Academic_" + academicProfile.getUser() + " rdf:type acacia:Academic . "
 				+ "acacia:Academic_" + academicProfile.getUser() + " acacia:Belongs_to_User acacia:" 	+ academicProfile.getUser() 				+ " . "
 				+ "acacia:Academic_" + academicProfile.getUser() + " acacia:Education_Degree \"" 		+ academicProfile.getEducation_Degree() 	+ "\"^^xsd:string . "
@@ -72,7 +71,7 @@ public class InsertAcademicProfile extends Resource{
 				+ "acacia:Academic_" + academicProfile.getUser() + " acacia:University \"" 				+ academicProfile.getUniversity() 			+ "\"^^xsd:string . "
 				+ "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<AcademicProfileObject> cv : constraintViolations) {
 				msg = cv.getMessage();

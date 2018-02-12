@@ -60,17 +60,16 @@ public class InsertLearningProfile extends Resource{
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Learning_" + learningProfile.getUser() + " rdf:type acacia:Learning . "
 				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Belongs_to_User acacia:" 	+ learningProfile.getUser() 			 + " . "
-				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Active_Reflective \""		+ learningProfile.getActive_Reflective() + "\"^^xsd:int . "
-				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Sensing_Intuitive \"" 		+ learningProfile.getSensing_Intuitive() + "\"^^xsd:int . "
-				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Sequential_Global \"" 		+ learningProfile.getSequential_Global() + "\"^^xsd:int . "
-				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Visual_Verbal \"" 			+ learningProfile.getVisual_Verbal() 	 + "\"^^xsd:int . "
+				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Active_Reflective \""		+ learningProfile.getActive_Reflective() + "\"^^xsd:string . "
+				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Sensing_Intuitive \"" 		+ learningProfile.getSensing_Intuitive() + "\"^^xsd:string . "
+				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Sequential_Global \"" 		+ learningProfile.getSequential_Global() + "\"^^xsd:string . "
+				+ "acacia:Learning_" + learningProfile.getUser() + " acacia:Visual_Verbal \"" 			+ learningProfile.getVisual_Verbal() 	 + "\"^^xsd:string . "
 				+ "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<LearningProfileObject> cv : constraintViolations) {
 				msg = cv.getMessage();

@@ -38,15 +38,14 @@ public class FindUser extends Resource {
 			//@Auth JwtUser jwtUser,
 			@PathParam("user_type") @Pattern(regexp = "Student|Teacher") @NotEmpty String user_type, 
 			@Size(min = 1, max = 1)@NotEmpty List<String> name) throws FileNotFoundException {
-		String query = ConstantURIs.prefixes + 
-				"SELECT ?" + user_type + " "
+		String query = "SELECT ?" + user_type + " "
                 + "WHERE {"
                 + "?" + user_type + " rdf:type acacia:" + user_type + " ."
                 + "?" + user_type + " acacia:Name ?name .\n"
                 + "FILTER regex(?name,'" + name.get(0) + "$','i') ."
                 + "}";
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

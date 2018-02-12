@@ -60,8 +60,7 @@ public class InsertAffect extends Resource {
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Affect_" + affect.getObservationID() + " rdf:type acacia:Affect . "
 				+ "acacia:Affect_" + affect.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + affect.getObservationID() + " . ";
 			if(!affect.getBored().isEmpty()){
@@ -106,7 +105,7 @@ public class InsertAffect extends Resource {
 			}
 			update = update	+ "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<AffectObject> cv : constraintViolations) {
 				msg = cv.getMessage();

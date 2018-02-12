@@ -31,9 +31,9 @@ public class AcademicProfileObject {
 			@JsonProperty(value = "Education_Degree", required = true) String Education_Degree, 
 			@JsonProperty(value = "Income_Class", required = true) String Income_Class, 
 			@JsonProperty(value = "Average_Course_Grade", required = true) String Average_Course_Grade, 
-			@JsonProperty(value = "University", required = false) String University, 
-			@JsonProperty(value = "Student_Status", required = false) Student_Status Student_Status, 
-			@JsonProperty(value = "BasicUser", required = false) String User)
+			@JsonProperty(value = "University", required = true) String University, 
+			@JsonProperty(value = "Student_Status", required = true) Student_Status Student_Status, 
+			@JsonProperty(value = "User", required = true) String User)
 	{
 		this.Area_of_Degree = Area_of_Degree;
 		this.Education_Degree = Education_Degree;
@@ -101,11 +101,11 @@ public class AcademicProfileObject {
 		this.Student_Status = Student_Status;
 	}
 	
-	@JsonProperty("BasicUser")
+	@JsonProperty("User")
 	public String getUser(){
 		return User;
 	}
-	@JsonProperty("BasicUser")
+	@JsonProperty("User")
 	public void setUser(String User){
 		this.User = User;
 	}

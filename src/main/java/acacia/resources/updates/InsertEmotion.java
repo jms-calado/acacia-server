@@ -60,8 +60,7 @@ public class InsertEmotion extends Resource {
 			
 		if(constraintViolations.size() == 0){
 
-			String update = ConstantURIs.prefixes 
-				+ "INSERT DATA {"
+			String update = "INSERT DATA {"
 				+ "acacia:Emotion_" + emotion.getObservationID() + " rdf:type acacia:Emotion . "
 				+ "acacia:Emotion_" + emotion.getObservationID() + " acacia:Belongs_to_Observation acacia:Digital_Observation_" + 	emotion.getObservationID() + " . ";
 			if(!emotion.getAnger().isEmpty()){
@@ -102,7 +101,7 @@ public class InsertEmotion extends Resource {
 			}
 			update = update + "}";
 			System.out.println(update);
-			executeUpdate(update);
+			executeUpdate(ConstantURIs.prefixes + update);
 		}else{
 			for (ConstraintViolation<EmotionObject> cv : constraintViolations) {
 				msg = cv.getMessage();

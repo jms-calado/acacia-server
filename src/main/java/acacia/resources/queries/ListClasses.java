@@ -42,8 +42,7 @@ public class ListClasses extends Resource {
 		case "Teacher" :
 		case "Admin" :
 		case "Annalist" :
-			query = ConstantURIs.prefixes + 
-			" SELECT ?Name ?" + class_type + " "
+			query = " SELECT ?Name ?" + class_type + " "
 			+ "WHERE { "
 			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
 			+ "?" + class_type + " acacia:Name ?Name . "
@@ -52,23 +51,21 @@ public class ListClasses extends Resource {
 		case "Observation" :
 		case "Sensory_Component" :
 		case "Issue" :
-			query = ConstantURIs.prefixes + 
-			" SELECT ?" + class_type + " "
+			query = " SELECT ?" + class_type + " "
 			+ "WHERE { "
 			+ "?y rdfs:subClassOf* acacia:" + class_type + " . "
 			+ "?" + class_type + " rdf:type ?y "
 			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		default :
-			query = ConstantURIs.prefixes + 
-			" SELECT ?" + class_type + " "
+			query = " SELECT ?" + class_type + " "
 			+ "WHERE { "
 			+ "?" + class_type + " rdf:type acacia:" + class_type + " . "
 			+ "} ORDER BY ASC(?" + class_type + ")";
             break;
 		}
 		System.out.println(query);
-		ResultSet rs = executeQuery(query);	
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);	
 		return buildResult(rs);
 	}
 

@@ -43,8 +43,7 @@ public class PlotIssue extends Resource {
 			@Size(min = 1, max = 1)@NotEmpty List<String> issue) 
 			throws JsonParseException, JsonMappingException, IOException, FileNotFoundException {
 
-		String query = ConstantURIs.prefixes 
-				+ "SELECT ?student_id ?class_type ?session_id ?value "
+		String query = "SELECT ?student_id ?class_type ?session_id ?value "
 				+ "WHERE { "
 				+ "?class_type rdfs:subClassOf acacia:Observation . "
 				+ "?b rdf:type ?class_type . "
@@ -58,8 +57,9 @@ public class PlotIssue extends Resource {
 				+ "} "
 				+ "group by ?student_id ?class_type ?session_id ?value "
 				+ "order by ?student_id ?class_type ?session_id ";
-		
-		ResultSet rs = executeQuery(query);
+
+		System.out.println(query);
+		ResultSet rs = executeQuery(ConstantURIs.prefixes + query);
 		List<Map<String, String>> list = buildResult(rs);
 		
 		if (list.isEmpty()) {

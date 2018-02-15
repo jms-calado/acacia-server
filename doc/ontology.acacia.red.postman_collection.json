@@ -1,13 +1,13 @@
 {
 	"info": {
 		"name": "ontology.acacia.red",
-		"_postman_id": "76d9e211-b9b2-73a7-72bd-8504f8a41f57",
-		"description": "",
+		"_postman_id": "58515d01-56e6-753b-3c55-9e0b0cfdd3bd",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Inserts",
+			"name": "Updates",
 			"item": [
 				{
 					"name": "Teacher",
@@ -36,7 +36,7 @@
 					},
 					"response": [
 						{
-							"id": "70115416-3700-4720-9ddc-595d40d5d2b1",
+							"id": "782cb777-3ae2-40da-8234-79b088941bde",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -114,7 +114,85 @@
 					},
 					"response": [
 						{
-							"id": "60f379c4-ceb0-47f4-af0e-5b9b7fb5c3bf",
+							"id": "464a0cf4-19a7-49af-80d0-6b8f22bb53d9",
+							"name": "insert Teacher example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Gender\":\"Male\",\n\t\"Name\":\"Hulk\",\n\t\"Age\":\"45\",\n\t\"ID\":\"555\",\n\t\"Education_Degree\":\"PhD\",\n\t\"Area_of_Degree\":\"Physics\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5904/insert/Teacher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"insert",
+										"Teacher"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2017 11:08:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 109,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "vlo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Math Video\",\n  \"Description\": \"Introduction to the basics of Mathematics\",\n  \"URL\": \"http://youtube.com/\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/insert/vlo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert",
+								"vlo"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2623d626-f5a4-40bd-8f34-8b2f263875ff",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -193,7 +271,7 @@
 					},
 					"response": [
 						{
-							"id": "84db79c5-850b-499e-a567-7b2a593572d5",
+							"id": "9a1b81f2-6d1c-4643-8eae-6caaeee0290a",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -272,7 +350,7 @@
 					},
 					"response": [
 						{
-							"id": "ba01f106-7cf2-4746-8c1f-be855994f71e",
+							"id": "ad1b755b-c8c7-4e80-9927-2f3a0faf41c1",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -351,7 +429,7 @@
 					},
 					"response": [
 						{
-							"id": "99de4019-639e-46f2-9c33-bdcb53a8db4f",
+							"id": "ad38e7c4-8241-461c-b1bb-9e7491c46357",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -430,7 +508,7 @@
 					},
 					"response": [
 						{
-							"id": "2e638d9b-4e5e-47bb-ac10-8d512ecbf9d3",
+							"id": "65109122-540e-42bd-ad2b-e6055c4722da",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -508,7 +586,7 @@
 					},
 					"response": [
 						{
-							"id": "156e06e3-dfa3-44b7-bf52-37157da775c2",
+							"id": "d98b207d-86ce-4518-897c-da3275ad06e8",
 							"name": "insert Admin example",
 							"originalRequest": {
 								"method": "POST",
@@ -586,7 +664,7 @@
 					},
 					"response": [
 						{
-							"id": "d6bfc719-8128-44dd-96d3-0e7b4e1e62b7",
+							"id": "76dece0e-bea9-4b95-838e-86809243eabb",
 							"name": "insert Annalist example",
 							"originalRequest": {
 								"method": "POST",
@@ -662,58 +740,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"id": "d0dec877-cd80-446c-9170-54f43e30a979",
-							"name": "insert Session example",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"Date_Time\":\"2017-07-06T14:00:00\",\n\t\"Duration\":\"01:00:00\",\n\t\"Observation_Sample_Rate\":\"10.0\",\n\t\"Scenario\":\"Affective_States_Automatic_Detection_\",\n\t\"Student\": [\"Student_123\", \"Student_321\"],\n\t\"Teacher\":[\"Teacher_007\"],\n\t\"Sensory_Component\":[\"Eye_Tracker_1\", \"Facial_Expression_Recognition_1\"]\n}"
-								},
-								"url": {
-									"raw": "http://localhost:5904/insert/session",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"insert",
-										"session"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "plain",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "0",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 24 Jul 2017 11:09:43 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								}
-							],
-							"cookie": [],
-							"responseTime": 89,
-							"body": ""
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Student",
@@ -742,7 +769,7 @@
 					},
 					"response": [
 						{
-							"id": "e4bbc37d-8db3-4f2a-983c-d87643f76739",
+							"id": "426937e3-89af-4190-b713-a8ac67b4e3bb",
 							"name": "insert Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -821,7 +848,7 @@
 					},
 					"response": [
 						{
-							"id": "293471f4-1e98-4bac-9742-c7080e156676",
+							"id": "3b3067c6-9f28-4a17-a900-346c3dc92735",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -900,7 +927,7 @@
 					},
 					"response": [
 						{
-							"id": "51150dbe-a427-4870-9a06-109da066a9cf",
+							"id": "79e1de88-8790-4b46-a67e-b27d311f57c4",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -980,7 +1007,7 @@
 					},
 					"response": [
 						{
-							"id": "1ec965f7-0b4e-4088-a332-afdbc121f1b1",
+							"id": "1dcdd58d-7c18-4098-aa70-63a5f3b28655",
 							"name": "insert Digital_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -1065,7 +1092,7 @@
 					},
 					"response": [
 						{
-							"id": "2a1b5aff-ff94-43f5-bab2-3a96cb78dfe3",
+							"id": "845f0d0c-23fa-44f5-8ddf-8252d2235bc8",
 							"name": "insert Emotion example",
 							"originalRequest": {
 								"method": "POST",
@@ -1143,7 +1170,7 @@
 					},
 					"response": [
 						{
-							"id": "8b21362a-2f02-4308-b6f1-883ffe57e2aa",
+							"id": "e7d95371-ddfa-40f4-aac2-13ff4a1db875",
 							"name": "insert Behaviour example",
 							"originalRequest": {
 								"method": "POST",
@@ -1221,7 +1248,7 @@
 					},
 					"response": [
 						{
-							"id": "11c06732-5a1a-4cbe-8e1c-338d7391edd7",
+							"id": "2ff593c8-3d37-4b8f-b8fa-5c8bbeab67af",
 							"name": "insert Affect  example",
 							"originalRequest": {
 								"method": "POST",
@@ -1336,7 +1363,7 @@
 					},
 					"response": [
 						{
-							"id": "51abc683-3a6c-447d-949b-0b6139e46d26",
+							"id": "e3ebcd37-0cff-4bca-9bb9-e22ea3b3862f",
 							"name": "list Student example",
 							"originalRequest": {
 								"method": "GET",
@@ -1426,7 +1453,97 @@
 					},
 					"response": [
 						{
-							"id": "b967e690-608d-4f86-ba64-ca934fa98201",
+							"id": "9b6523d7-2f8e-4154-aca8-7302d4956e27",
+							"name": "list Student example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "90",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 326,
+							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Virtual_Learning_Object",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Virtual_Learning_Object",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Virtual_Learning_Object"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "20516ee6-48c8-4b81-a0d5-2015d338ea5d",
 							"name": "list Student example",
 							"originalRequest": {
 								"method": "GET",
@@ -1516,7 +1633,7 @@
 					},
 					"response": [
 						{
-							"id": "1740bb74-d372-4a2d-9806-403a5e30da92",
+							"id": "a1482bc3-d822-4aba-9664-b1aec4e54cb8",
 							"name": "list Teacher example",
 							"originalRequest": {
 								"method": "GET",
@@ -1606,7 +1723,7 @@
 					},
 					"response": [
 						{
-							"id": "3760eecf-0c24-4ceb-b5bc-9a5bd7fe3bce",
+							"id": "8129cdac-17f8-4a04-a475-6bdb426c879f",
 							"name": "list Affect example",
 							"originalRequest": {
 								"method": "GET",
@@ -1696,7 +1813,7 @@
 					},
 					"response": [
 						{
-							"id": "ee8a4434-5f0c-4e71-bace-a002cce0aa93",
+							"id": "be19e36b-b57b-45df-801c-f21318be29c0",
 							"name": "list Behaviour example",
 							"originalRequest": {
 								"method": "GET",
@@ -1786,7 +1903,7 @@
 					},
 					"response": [
 						{
-							"id": "bff2f4d1-fd94-4eb3-8801-ee2b74f8e157",
+							"id": "1c26a052-d872-4c5d-9a73-12ead13c8c37",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -1876,7 +1993,7 @@
 					},
 					"response": [
 						{
-							"id": "52b69dc5-3eb0-4da7-a4d5-d169b3cb25cc",
+							"id": "91e1a933-e062-462b-9cf7-5e537df35142",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -1966,7 +2083,7 @@
 					},
 					"response": [
 						{
-							"id": "5c386b45-566a-46cb-9571-a6347a43b7cc",
+							"id": "06f4689b-4405-40f5-a296-b6930d27737d",
 							"name": "list Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -2051,7 +2168,7 @@
 					},
 					"response": [
 						{
-							"id": "f88c6f9e-ddaf-4ba5-9e43-c45cbd407a96",
+							"id": "1b1d623d-d28c-475b-8694-f6d7b91ff644",
 							"name": "list Session example",
 							"originalRequest": {
 								"method": "GET",
@@ -2131,7 +2248,7 @@
 					},
 					"response": [
 						{
-							"id": "0554a8d1-e0db-4943-8706-4561f3587c32",
+							"id": "acd55c92-1093-4eb0-8399-c0afb1bb54ef",
 							"name": "list Admin example",
 							"originalRequest": {
 								"method": "GET",
@@ -2211,7 +2328,7 @@
 					},
 					"response": [
 						{
-							"id": "ca373fe3-a865-44f5-8912-be649261c2b9",
+							"id": "9eccef86-bea6-4f23-a1ad-0b7ba28a037a",
 							"name": "list Annalist example",
 							"originalRequest": {
 								"method": "GET",
@@ -2291,7 +2408,7 @@
 					},
 					"response": [
 						{
-							"id": "870821bb-f226-4755-86a1-b5badc6cbdab",
+							"id": "5fb11dc9-ce93-4bb3-acb6-6cc02994c72c",
 							"name": "list Human_Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -2371,7 +2488,7 @@
 					},
 					"response": [
 						{
-							"id": "01b885fa-b21f-4dd7-b19f-914777dc365e",
+							"id": "56dccdba-1456-4ddf-aab8-501dd500f587",
 							"name": "list Digital_Observation example",
 							"originalRequest": {
 								"method": "GET",
@@ -2451,7 +2568,7 @@
 					},
 					"response": [
 						{
-							"id": "4c73d44b-5dbd-4a7a-8512-a3f30728300d",
+							"id": "9147e698-5375-409b-99ae-10577986c8cc",
 							"name": "list Sensory_Component example",
 							"originalRequest": {
 								"method": "GET",
@@ -2536,7 +2653,7 @@
 					},
 					"response": [
 						{
-							"id": "597b7277-fd40-4cc3-9db8-383285272bdb",
+							"id": "d08c61d7-230f-4ae9-87fd-24972b48b33e",
 							"name": "list individual_properties example",
 							"originalRequest": {
 								"method": "POST",
@@ -2620,7 +2737,7 @@
 					},
 					"response": [
 						{
-							"id": "c7beedbd-129a-4c72-952d-39c2f2c02eb7",
+							"id": "f79ce49a-e422-4969-b36a-a837449379b3",
 							"name": "list observations_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2704,7 +2821,7 @@
 					},
 					"response": [
 						{
-							"id": "a079dc45-bd8f-40ca-9bb8-fe6257b275c1",
+							"id": "98a81482-bc91-4140-b8be-f583f545efb1",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2788,7 +2905,7 @@
 					},
 					"response": [
 						{
-							"id": "d8752503-3549-48cf-a5c1-e76637692d88",
+							"id": "60545804-ab36-49aa-8827-8a13852c3ec9",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2873,7 +2990,7 @@
 					},
 					"response": [
 						{
-							"id": "96995fff-3410-4acb-a0a6-0ef2490c3f1a",
+							"id": "85c6f974-c2ae-4860-a3a8-47f0554617fc",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2957,7 +3074,7 @@
 					},
 					"response": [
 						{
-							"id": "886fa5cd-de0a-453a-b509-2ce68f373884",
+							"id": "4026f833-64ad-420e-9db5-bdf307477edc",
 							"name": "Plot/issue_student",
 							"originalRequest": {
 								"method": "POST",
@@ -3039,7 +3156,7 @@
 					},
 					"response": [
 						{
-							"id": "ed8204f7-6a87-4166-8e3b-ee8f6649163a",
+							"id": "6662df6f-bc90-4c69-b567-76d614f81862",
 							"name": "Plot/issue",
 							"originalRequest": {
 								"method": "POST",
@@ -3122,7 +3239,7 @@
 					},
 					"response": [
 						{
-							"id": "39f5ba18-5289-42f8-b983-decda841fd6f",
+							"id": "5c67d6c3-9e94-4c44-8f82-4641fa8a2d8e",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -3207,7 +3324,7 @@
 					},
 					"response": [
 						{
-							"id": "c9690b66-107c-4716-a544-35f25a33244b",
+							"id": "558e40b4-8839-4c93-b298-23d9254b3bc5",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -3291,7 +3408,7 @@
 					},
 					"response": [
 						{
-							"id": "d85dfc01-6f2d-4f82-8251-345eb00382e3",
+							"id": "9e52c375-df68-4b48-966c-4e6ec9cfe2ca",
 							"name": "list student_of_observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -3376,7 +3493,7 @@
 					},
 					"response": [
 						{
-							"id": "f2d81f06-0314-4098-b1d0-5a33a5d59ddf",
+							"id": "2eef1d53-1791-4c5b-9f6a-44635faa6242",
 							"name": "find Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -3461,7 +3578,7 @@
 					},
 					"response": [
 						{
-							"id": "77f5621e-b035-4fa4-8031-94408e7068dc",
+							"id": "7d6047a4-78a0-4e8a-ac20-33ab368c62e4",
 							"name": "find Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -3517,6 +3634,33 @@
 							"body": "[{\"Teacher\":\"Teacher_007\"}]"
 						}
 					]
+				},
+				{
+					"name": "sessions_class",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date_Time\":\"2018-07-07T14:00:00\",\n\t\"Duration\":\"01:00:00\",\n\t\"Observation_Sample_Rate\":\"30000.0\",\n\t\"Scenario\":\"Affective_States_Automatic_Detection_\",\n\t\"Student\": [\"Student_123\", \"Student_321\"],\n\t\"Teacher\":[\"Teacher_007\"],\n\t\"Sensory_Component\":[\"Eye_Tracker_\", \"Facial_Expression_Recognition_\"]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/list/sessions_class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"sessions_class"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"auth": {
@@ -3554,7 +3698,6 @@
 		},
 		{
 			"name": "Login",
-			"description": "",
 			"item": [
 				{
 					"name": "{{host}}/login",
@@ -3577,19 +3720,22 @@
 							"basic": [
 								{
 									"key": "password",
-									"value": "XNmM78fBSS}t}MOIV0]6{b5LC]lZaG3fWoSOuV8iF>Zxz9ycOdxG[kUQd5(dn[UW",
+									"value": "{{password}}",
 									"type": "string"
 								},
 								{
 									"key": "username",
-									"value": "su",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{host}}/login",
 							"host": [
@@ -3598,17 +3744,19 @@
 							"path": [
 								"login"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": [
 						{
-							"id": "cc66eee7-373f-4705-888d-cd4500d86d95",
+							"id": "586c3bdb-9b3f-489c-9dda-004f675eeba1",
 							"name": "{{host}}/login",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{host}}/login",
 									"host": [
@@ -3675,7 +3823,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{host}}/person/1",
 							"host": [
@@ -3685,8 +3836,43 @@
 								"person",
 								"1"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/authtest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin token}}",
+									"type": "string"
+								}
+							]
 						},
-						"description": ""
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/authtest",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authtest"
+							]
+						}
 					},
 					"response": []
 				}

@@ -18,7 +18,7 @@ search: true
 
 ---
 
-### api.arca.acacia.red API Documentation (version 3.1.0)
+### api.arca.acacia.red API Documentation (version 4.1.0)
 
 ---
 
@@ -30,118 +30,48 @@ search: true
 
 ---
 
-# 1.1. /insert
+# 1.1. /login
 
-## /insert/Class
+## /login
 
-### **POST**:
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/login"
+```
 
 ##### Headers
 
 | Name | Type | Description | Required | Examples |
 |:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
+| Authorization | string |  | true | ``` Basic Base64Encoded(Username:Password) ```  |
 
-### ClassRequest (application/json) 
+### Response code: 200
+Success
 
-```curl
-curl -X POST "https://api.arca.acacia.red/insert/Class" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
+> response_body: 
 
 ```json
 {
-  "Subject": "Math_101",
-  "Description": "Introduction to the basics of Mathematics",
-  "Student": [
-    "Student_123",
-    "Student_321"
-  ],
-  "Teacher": [
-    "Teacher_007"
-  ],
+    "token": "J.W.T"
 }
 ```
 
-#### *ClassRequest*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Subject |  string |  | true |  |
-| Description |  string |  | false |  |
-| Student |  string array |  | true |  |
-| Teacher |  string array |  | true |  |
-
-### Response code: 201
-Success
-
 #### Response (application/json) 
 
-##### *Response*:
+##### List of *loginResponse*:
+
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+| token |  string | the JSON Web Token | true | Header.Payload.Signature |
 
+<br><br>
+<br><br>
 <br><br>
 
 ---
 
-## /insert/Teacher
-
-### **POST**:
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-### TeacherRequest (application/json) 
-
-```curl
-curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
-
-```json
-{
-  "Gender": "Male",
-  "Name": "Hulk",
-  "Age": "45",
-  "Race_Ethnicity": "White"
-}
-```
-
-#### *TeacherRequest*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Gender |  string |  | true | Male/Female |
-| Name |  string |  | true |  |
-| Age |  string |  | true |  |
-| Race_Ethnicity |  string |  | true |  |
-
-### Response code: 201
-Success
-
-#### Response (application/json) 
-
-> response_body:
-
-```json
-  ["Teacher_9"]
-```
-
-##### *Response*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
-<br><br>
-
----
+# 1.2. /insert
 
 ## /insert/Admin
 
@@ -255,134 +185,6 @@ Success
 
 ---
 
-## /insert/session
-
-### **POST**:
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-### sessionRequest (application/json) 
-
-```curl
-curl -X POST "https://api.arca.acacia.red/insert/session" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
-
-```json
-{
-  "Date_Time": "2017-07-06T14:00:00",
-  "Duration": "01:00:00",
-  "Observation_Sample_Rate": "30000",
-  "Scenario": "Affective_States_Automatic_Detection_",
-  "Student": [
-    "Student_123",
-    "Student_321"
-  ],
-  "Teacher": [
-    "Teacher_007"
-  ],
-  "Sensory_Component": [
-    "Eye_Tracker_1",
-    "Facial_Expression_Recognition_1"
-  ]
-}
-```
-
-#### *sessionRequest*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
-| Duration |  string |  | true | HH:mm:ss |
-| Observation_Sample_Rate |  string |  | true |  |
-| Scenario |  string |  | true |  |
-| Student | items array |  | true |  |
-| Teacher | items array |  | true |  |
-| Sensory_Component | items array |  | true |  |
-
-### Response code: 201
-Success
-
-#### Response (application/json) 
-
-> response_body:
-
-```json
-  ["Session_2017-07-06_14-00-00"]
-```
-
-##### *Response*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
-<br><br>
-<br><br>
-
----
-
-## /insert/student_issue
-
-### **POST**:
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-### sessionRequest (application/json) 
-
-```curl
-curl -X POST "https://api.arca.acacia.red/insert/student_issue" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
-
-```json
-{
-  "Date_Time": "2017-07-06T14:00:00",
-  "Duration": "01:00:00",
-  "Session": ["Session_2017-07-06_14-00-00", "Session_2017-07-13_14-00-00"],
-  "Scenario": "Affective_States_Automatic_Detection_",
-  "Student": "Student_123",
-  "Teacher": "Teacher_007",
-  "Issue": {
-					"Low_Attention_" : "0.5",
-					"Agression_" : "0.3"
-	}
-}
-```
-
-#### *sessionRequest*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
-| Duration |  string |  | true | HH:mm:ss |
-| Session |  string array |  | true |  |
-| Scenario |  string |  | true |  |
-| Student | string |  | true |  |
-| Teacher | string |  | true |  |
-| Issue | json object |  | true | "{"Issue_name" : "Value"}" |
-
-### Response code: 201
-Success
-
-#### Response (application/json) 
-
-##### *Response*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
----
-
 ## /insert/Student
 
 ### **POST**:
@@ -434,6 +236,377 @@ Success
 ##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/Teacher
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### TeacherRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/Teacher" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Gender": "Male",
+  "Name": "Hulk",
+  "Age": "45",
+  "Race_Ethnicity": "White"
+}
+```
+
+#### *TeacherRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Gender |  string |  | true | Male/Female |
+| Name |  string |  | true |  |
+| Age |  string |  | true |  |
+| Race_Ethnicity |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+> response_body:
+
+```json
+  ["Teacher_9"]
+```
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/Class
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### ClassRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/Class" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Subject": "Math_101",
+  "Description": "Introduction to the basics of Mathematics",
+  "Student": [
+    "Student_123",
+    "Student_321"
+  ],
+  "Teacher": [
+    "Teacher_007"
+  ],
+}
+```
+
+#### *ClassRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Subject |  string |  | true |  |
+| Description |  string |  | false |  |
+| Student |  string array |  | true |  |
+| Teacher |  string array |  | true |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/vlo
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### ClassRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/vlo" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Name": "Math Video",
+  "Description": "Introductory course to the basics of Mathematics",
+  "URL": "http://domain.com/"
+}
+```
+
+#### *vloRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Name |  string |  | true |  |
+| Description |  string |  | false |  |
+| URL |  string |  | false |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+> response_body:
+
+```json
+  {
+    "VLO_ID": "VLO_Math%20Video"
+  }
+```
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| VLO_ID | string | vlo identifier | true | VLO_Name |
+
+<br><br>
+
+---
+
+## /insert/session
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### sessionRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/session" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Date_Time": "2017-07-06T14:00:00",
+  "Duration": "01:00:00",
+  "Observation_Sample_Rate": "30000",
+  "Scenario": "Affective_States_Automatic_Detection_",
+  "Student": [
+    "Student_123",
+    "Student_321"
+  ],
+  "Teacher": [
+    "Teacher_007"
+  ],
+  "Sensory_Component": [
+    "Eye_Tracker_1",
+    "Facial_Expression_Recognition_1"
+  ],
+  "VLO": [
+	"VLO_Math%20Video"
+  ],
+  "Class": "Class_Test01"
+}
+```
+
+#### *sessionRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
+| Duration |  string |  | true | HH:mm:ss |
+| Observation_Sample_Rate |  string |  | true |  |
+| Scenario |  string |  | true |  |
+| Student | items array |  | true |  |
+| Teacher | items array |  | true |  |
+| Sensory_Component | items array |  | true |  |
+| VLO | items array |  | false |  |
+| Class |  string |  | false |  |
+
+### Response code: 201
+Success
+
+#### Response (application/json) 
+
+> response_body:
+
+```json
+  ["Session_2017-07-06_14-00-00"]
+```
+
+##### *Response*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+<br><br>
+
+---
+
+## /insert/observation/Human
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### Human_ObservationRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/observation/Human" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Date_Time": "2017-07-06T14:00:00",
+  "Duration": "00:10:00",
+  "Scenario": "Analysis_of_Music_in_E-Learning_1",
+  "Session": ["Session_2017-07-04_14-00-00"],
+  "Student": "Student_123",
+  "Teacher": "Teacher_007"
+}
+```
+
+#### *Human_ObservationRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
+| Duration |  string |  | true | HH:mm:ss |
+| Scenario |  string |  | true |  |
+| Session |  string |  | true |  |
+| Student |  string |  | true |  |
+| Teacher |  string |  | true |  |
+
+### Response code: 201
+Success
+
+
+#### Human_ObservationResponse (application/json) 
+
+> response_body:
+
+```json
+{
+  "Observation_ID": "8"
+}
+```
+
+##### *Human_ObservationResponse*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+---
+
+## /insert/observation/Digital
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### Digital_ObservationRequest (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/insert/observation/Digital" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+{
+  "Date_Time": "2017-07-06T14:00:00",
+  "Duration": "00:10:00",
+  "Scenario": "Analysis_of_Music_in_E-Learning_1",
+  "Session": ["Session_2017-07-04_14-00-00"],
+  "Student": "Student_123",
+  "Sensory_Component": "Facial_Expression_Recognition_1"
+}
+```
+
+#### *Digital_ObservationRequest*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
+| Duration |  string |  | true | HH:mm:ss |
+| Scenario |  string |  | true |  |
+| Session |  string |  | true |  |
+| Student |  string |  | true |  |
+| Sensory_Component |  string |  | true |  |
+
+### Response code: 201
+Success
+
+#### Digital_ObservationResponse (application/json) 
+
+> response_body:
+
+```json
+{
+  "Observation_ID": "9"
+}
+```
+
+##### *Digital_ObservationResponse*:
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Observation_ID |  string |  | true |  |
 
 <br><br>
 
@@ -621,7 +794,7 @@ Success
 
 ---
 
-## /insert/observation/Human
+## /insert/student_issue
 
 ### **POST**:
 
@@ -631,10 +804,10 @@ Success
 |:-----|:----:|:------------|:--------:|---------:|
 | Content-Type | string |  | true | ``` application/json ```  |
 
-### Human_ObservationRequest (application/json) 
+### sessionRequest (application/json) 
 
 ```curl
-curl -X POST "https://api.arca.acacia.red/insert/observation/Human" \
+curl -X POST "https://api.arca.acacia.red/insert/student_issue" \
 	-H "Content-Type: application/json" \
 	-d @request_body
 ```
@@ -644,106 +817,37 @@ curl -X POST "https://api.arca.acacia.red/insert/observation/Human" \
 ```json
 {
   "Date_Time": "2017-07-06T14:00:00",
-  "Duration": "00:10:00",
-  "Scenario": "Analysis_of_Music_in_E-Learning_1",
-  "Session": ["Session_2017-07-04_14-00-00"],
+  "Duration": "01:00:00",
+  "Session": ["Session_2017-07-06_14-00-00", "Session_2017-07-13_14-00-00"],
+  "Scenario": "Affective_States_Automatic_Detection_",
   "Student": "Student_123",
-  "Teacher": "Teacher_007"
+  "Teacher": "Teacher_007",
+  "Issue": {
+					"Low_Attention_" : "0.5",
+					"Agression_" : "0.3"
+	}
 }
 ```
 
-#### *Human_ObservationRequest*:
+#### *sessionRequest*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
 | Duration |  string |  | true | HH:mm:ss |
+| Session |  string array |  | true |  |
 | Scenario |  string |  | true |  |
-| Session |  string |  | true |  |
-| Student |  string |  | true |  |
-| Teacher |  string |  | true |  |
+| Student | string |  | true |  |
+| Teacher | string |  | true |  |
+| Issue | json object |  | true | "{"Issue_name" : "Value"}" |
 
 ### Response code: 201
 Success
 
+#### Response (application/json) 
 
-#### Human_ObservationResponse (application/json) 
-
-> response_body:
-
-```json
-{
-  "Observation_ID": "8"
-}
-```
-
-##### *Human_ObservationResponse*:
+##### *Response*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-
-<br><br>
-
----
-
-## /insert/observation/Digital
-
-### **POST**:
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-### Digital_ObservationRequest (application/json) 
-
-```curl
-curl -X POST "https://api.arca.acacia.red/insert/observation/Digital" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
-
-```json
-{
-  "Date_Time": "2017-07-06T14:00:00",
-  "Duration": "00:10:00",
-  "Scenario": "Analysis_of_Music_in_E-Learning_1",
-  "Session": ["Session_2017-07-04_14-00-00"],
-  "Student": "Student_123",
-  "Sensory_Component": "Facial_Expression_Recognition_1"
-}
-```
-
-#### *Digital_ObservationRequest*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Date_Time |  string |  | true | YYYY-MM-ddTHH:mm:ss |
-| Duration |  string |  | true | HH:mm:ss |
-| Scenario |  string |  | true |  |
-| Session |  string |  | true |  |
-| Student |  string |  | true |  |
-| Sensory_Component |  string |  | true |  |
-
-### Response code: 201
-Success
-
-#### Digital_ObservationResponse (application/json) 
-
-> response_body:
-
-```json
-{
-  "Observation_ID": "9"
-}
-```
-
-##### *Digital_ObservationResponse*:
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Observation_ID |  string |  | true |  |
-
-<br><br>
 
 ---
 
@@ -947,7 +1051,113 @@ Success
 
 ---
 
-# 1.2. /list
+# 1.3. /list
+
+## /list/individual_properties
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+#### Body (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/list/individual_properties" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+[
+  "Session_2017-07-06_14-00-00"
+]
+```
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+<br><br>
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Value": "Student_123",
+    "Property": "Has_Student"
+  },
+  {
+    "Value": "Student_321",
+    "Property": "Has_Student"
+  },
+  {
+    "Value": "Eye_Tracker_1",
+    "Property": "Has_Sensory_Component"
+  },
+  {
+    "Value": "Facial_Expression_Recognition_1",
+    "Property": "Has_Sensory_Component"
+  },
+  {
+    "Value": "-T01:00:00",
+    "Property": "Duration"
+  },
+  {
+    "Value": "2017-07-06T14:00:00",
+    "Property": "Date_Time"
+  },
+  {
+    "Value": "Affective_States_Automatic_Detection_",
+    "Property": "Belongs_to_Scenario"
+  },
+  {
+    "Value": "30000",
+    "Property": "Observation_Sample_Rate"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *individual_propertiesResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Value |  string |  | true |  |
+| Property |  string |  | true |  |
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+---
 
 ## /list/Class
 
@@ -988,6 +1198,47 @@ Success
 | Class |  string |  | true |  |
 
 <br><br>
+
+---
+
+## /list/Admin
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Admin"
+```
+
+### Response code: 200
+Success
+
+#### Response (application/json) 
+
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+---
+
+## /list/Annalist
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Annalist"
+```
+
+### Response code: 200
+Success
+
+#### Response (application/json) 
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
 
 ---
 
@@ -1072,6 +1323,249 @@ Success
 |:-----|:----:|:------------|:--------:|--------:|
 | Teacher |  string |  | true |  |
 | Name |  string |  | true |  |
+
+---
+
+## /list/Session
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Session"
+```
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Session": "Session_2017-07-04_14-00-00"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *SessionResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Session |  string |  | true |  |
+
+<br><br>
+
+---
+
+## /list/Observation
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Observation"
+```
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Observation": "Digital_Observation_1"
+  },
+  {
+    "Observation": "Digital_Observation_2"
+  },
+  {
+    "Observation": "Digital_Observation_3"
+  },
+  {
+    "Observation": "Human_Observation_4"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *ObservationResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Observation |  string |  | true |  |
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+---
+
+## /list/Human_Observation
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Human_Observation"
+```
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Human_Observation": "Human_Observation_4"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *Human_ObservationResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Human_Observation |  string |  | true |  |
+
+<br><br>
+
+---
+
+## /list/Digital_Observation
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Digital_Observation"
+```
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Digital_Observation": "Digital_Observation_1"
+  },
+  {
+    "Digital_Observation": "Digital_Observation_2"
+  },
+  {
+    "Digital_Observation": "Digital_Observation_3"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *Digital_ObservationResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Digital_Observation |  string |  | true |  |
+
+<br><br>
+
+<br><br>
+
+---
+
+## /list/Sensory_Component
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Sensory_Component"
+```
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+  {
+    "Sensory_Component": "Eye_Tracker_1"
+  },
+  {
+    "Sensory_Component": "Facial_Expression_Recognition_1"
+  }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *Sensory_ComponentResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Sensory_Component |  string |  | true |  |
+
+<br><br>
+<br>
+
+---
+
+## /list/Virtual_Learning_Object
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/Virtual_Learning_Object"
+```
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+    {
+        "Virtual_Learning_Object": "Virtual_Learning_Object_1"
+    },
+    {
+        "Virtual_Learning_Object": "Virtual_Learning_Object_2"
+    }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *Virtual_Learning_ObjectResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Virtual_Learning_Object |  string |  | true |  |
+
+<br><br>
+<br>
 
 ---
 
@@ -1196,6 +1690,7 @@ Success
 <br><br>
 
 ---
+
 ## /list/Issue
 
 ### **GET**:
@@ -1231,7 +1726,7 @@ Success
 
 #### Response (application/json) 
 
-##### List of *ObservationResponse*:
+##### List of *IssueResponse*:
 
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
@@ -1239,357 +1734,6 @@ Success
 
 <br><br>
 <br><br>
-<br><br>
-
----
-
-## /list/Observation
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Observation"
-```
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Observation": "Digital_Observation_1"
-  },
-  {
-    "Observation": "Digital_Observation_2"
-  },
-  {
-    "Observation": "Digital_Observation_3"
-  },
-  {
-    "Observation": "Human_Observation_4"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *ObservationResponse*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Observation |  string |  | true |  |
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
----
-
-## /list/Session
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Session"
-```
-
-<br><br>
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Session": "Session_2017-07-04_14-00-00"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *SessionResponse*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Session |  string |  | true |  |
-
-<br><br>
-
----
-
-## /list/Admin
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Admin"
-```
-
-### Response code: 200
-Success
-
-#### Response (application/json) 
-
-
-##### List of *items*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
----
-
-## /list/Annalist
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Annalist"
-```
-
-### Response code: 200
-Success
-
-#### Response (application/json) 
-
-##### List of *items*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
----
-
-## /list/Human_Observation
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Human_Observation"
-```
-
-<br><br>
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Human_Observation": "Human_Observation_4"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *Human_ObservationResponse*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Human_Observation |  string |  | true |  |
-
-<br><br>
-
----
-
-## /list/Digital_Observation
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Digital_Observation"
-```
-
-<br><br>
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Digital_Observation": "Digital_Observation_1"
-  },
-  {
-    "Digital_Observation": "Digital_Observation_2"
-  },
-  {
-    "Digital_Observation": "Digital_Observation_3"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *Digital_ObservationResponse19*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Digital_Observation |  string |  | true |  |
-
-<br><br>
-
-<br><br>
-
----
-
-## /list/Sensory_Component
-
-### **GET**:
-
-```curl
-curl -X GET "https://api.arca.acacia.red/list/Sensory_Component"
-```
-
-<br><br>
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Sensory_Component": "Eye_Tracker_1"
-  },
-  {
-    "Sensory_Component": "Facial_Expression_Recognition_1"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *Sensory_ComponentResponse*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Sensory_Component |  string |  | true |  |
-
-<br><br>
-<br>
-
----
-
-## /list/individual_properties
-
-### **POST**:
-
-##### Headers
-
-| Name | Type | Description | Required | Examples |
-|:-----|:----:|:------------|:--------:|---------:|
-| Content-Type | string |  | true | ``` application/json ```  |
-
-#### Body (application/json) 
-
-```curl
-curl -X POST "https://api.arca.acacia.red/list/individual_properties" \
-	-H "Content-Type: application/json" \
-	-d @request_body
-```
-
->request_body:
-
-```json
-[
-  "Session_2017-07-06_14-00-00"
-]
-```
-
-##### List of *items*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-
-<br><br>
-<br><br>
-<br><br>
-
-### Response code: 200
-Success
-
-> response_body: 
-
-```json
-[
-  {
-    "Value": "Student_123",
-    "Property": "Has_Student"
-  },
-  {
-    "Value": "Student_321",
-    "Property": "Has_Student"
-  },
-  {
-    "Value": "Eye_Tracker_1",
-    "Property": "Has_Sensory_Component"
-  },
-  {
-    "Value": "Facial_Expression_Recognition_1",
-    "Property": "Has_Sensory_Component"
-  },
-  {
-    "Value": "-T01:00:00",
-    "Property": "Duration"
-  },
-  {
-    "Value": "2017-07-06T14:00:00",
-    "Property": "Date_Time"
-  },
-  {
-    "Value": "Affective_States_Automatic_Detection_",
-    "Property": "Belongs_to_Scenario"
-  },
-  {
-    "Value": "30000",
-    "Property": "Observation_Sample_Rate"
-  }
-]
-```
-
-#### Response (application/json) 
-
-##### List of *individual_propertiesResponse*:
-
-| Name | Type | Description | Required | Pattern |
-|:-----|:----:|:------------|:--------:|--------:|
-| Value |  string |  | true |  |
-| Property |  string |  | true |  |
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
 <br><br>
 
 ---
@@ -1935,7 +2079,58 @@ Success
 
 ---
 
-# 1.3. /find
+## /list/sessions_class
+
+### **GET**:
+
+```curl
+curl -X GET "https://api.arca.acacia.red/list/sessions_class"
+```
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+    {
+        "Class": "Class_Test01",
+        "Session": "Session_1_2017-07-06_14-00-00"
+    },
+    {
+        "Class": "Class_Test01",
+        "Session": "Session_2_2017-07-13_14-00-00"
+    },
+    {
+        "Class": "Class_Test01",
+        "Session": "Session_3_2017-07-20_14-00-00"
+    }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *sessions_classResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Class |  string |  | true |  |
+| Session |  string |  | true |  |
+
+<br><br>
+<br><br>
+<br><br>
+
+---
+
+# 1.4. /find
 
 ## /find/Student/
 
@@ -2061,7 +2256,7 @@ Success
 
 ---
 
-# 1.4. /plot
+# 1.5. /plot
 
 ## /plot/session/Emotion
 
@@ -2298,6 +2493,171 @@ or
 |:-----|:----:|:------------|:--------:|--------:|
 | Digital_Observation_X |  string |  | false |  |
 
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+---
+
+## /plot/issue
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+#### Body (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/plot/issue" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+["Low_Attention_"]
+```
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+{
+    "Student_123": {
+        "Digital_Observation": {
+            "Session_3_2017-07-20_14-00-00": "0.234",
+            "Session_4_2017-07-27_14-00-00": "0.758"
+        },
+        "Human_Observation": {
+            "Session_1_2017-07-06_14-00-00": "0.187",
+            "Session_2_2017-07-13_14-00-00": "0.187",
+            "Session_3_2017-07-20_14-00-00": "0.159"
+        }
+    },
+    "Student_321": {
+        "Digital_Observation": {
+            "Session_5_2017-08-03_14-00-00": "0.958"
+        },
+        "Human_Observation": {
+            "Session_4_2017-07-27_14-00-00": "0.658"
+        }
+    }
+}
+or
+{
+    "Error": "No Data Found"
+}
+```
+
+#### Response (application/json) 
+
+##### List of *plot/issueResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Student_X |  string |  | false |  |
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+---
+
+## /plot/issue_student
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+#### Body (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/plot/issue_student" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+["Student_123"]
+```
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+{
+    "Lack_of_Performance_": {
+        "Digital_Observation": {
+            "Session_3_2017-07-20_14-00-00": "0.434"
+        },
+        "Human_Observation": {
+            "Session_1_2017-07-06_14-00-00": "0.112"
+        }
+    },
+    "Low_Attention_": {
+        "Digital_Observation": {
+            "Session_3_2017-07-20_14-00-00": "0.234",
+            "Session_4_2017-07-27_14-00-00": "0.758"
+        },
+        "Human_Observation": {
+            "Session_1_2017-07-06_14-00-00": "0.187",
+            "Session_2_2017-07-13_14-00-00": "0.187"
+        }
+    }
+}
+or
+{
+    "Error": "No Data Found"
+}
+```
+
+#### Response (application/json) 
+
+##### List of *plot/issue_studentResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Issue_name |  string |  | false |  |
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
 <br><br>
 <br><br>
 <br><br>

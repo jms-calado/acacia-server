@@ -59,6 +59,7 @@ import acacia.resources.updates.InsertObservation;
 import acacia.resources.updates.InsertSession;
 import acacia.resources.updates.InsertStudentIssue;
 import acacia.resources.updates.InsertUser;
+import acacia.resources.updates.InsertVLO;
 import acacia.services.SparqlExecutor;
 import acacia.websocket.DeviceWebSocketServer;
 import be.tomcools.dropwizard.websocket.WebsocketBundle;
@@ -227,6 +228,7 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new InsertDiversityProfile(qe));
 		environment.jersey().register(new InsertMusicalProfile(qe));
 		environment.jersey().register(new InsertClass(qe));
+		environment.jersey().register(new InsertVLO(qe));
 		environment.healthChecks().register("search", new SearchHealthCheck());
 		environment.healthChecks().register("insert", new SearchHealthCheck());
 		

@@ -91,8 +91,8 @@ public class InsertClass extends Resource {
 			
 			System.out.println(update);
 			executeUpdate(ConstantURIs.prefixes + update);
-			//return Response.ok("[\"Class_" + class1.getSubject() + "\"]", MediaType.APPLICATION_JSON).status(201).build();
-			return Response.ok().status(201).build();
+			return Response.ok("[\"Class_" + classId + "\"]", MediaType.APPLICATION_JSON).status(201).build();
+			//return Response.ok().status(201).build();
 
 		}else{
 			for (ConstraintViolation<ClassObject> cv : constraintViolations) {

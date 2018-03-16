@@ -13,46 +13,39 @@ import javax.persistence.Table;
 @Table(name="users_table")
 @NamedQueries({ @NamedQuery(name="acacia.core.Person.findAll",
 							query="select e from Person e"),
-				@NamedQuery(name="acacia.core.Person.findByUsername",
+				@NamedQuery(name="acacia.core.Person.findByEmail",
 							query="select e from Person e "
-								+ "where e.username like :username "),
+								+ "where e.email like :email "),
 				@NamedQuery(name="acacia.core.Person.findByName",
 							query="select e from Person e "
-								+ "where e.full_name like :name "),
-				@NamedQuery(name="acacia.core.Person.getPass",
-							query="select password from Person e "
-								+ "where e.username = :username ")
+								+ "where e.name like :name ")
 })
 public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "username", nullable = false)
-	private String username;
 	@Column(name = "password", nullable = false)
 	private String password;
-	private String full_name;
+	private String name;
 	@Column(name = "email", nullable = false)
 	private String email;
 	@Column(name = "role", nullable = false)
 	private String role;
 	
 	public Person() {}
-	public Person(String username, String password) {
-		this.username = username;
+	public Person(String name, String password) {
+		this.name = name;
 		this.password = password;		
 	}
-	public Person(String username, String full_name, String email, String password, String role) {
-		this.username=username;
-		this.full_name=full_name;
+	public Person(String name, String email, String password, String role) {
+		this.name=name;
 		this.email=email;
 		this.password=password;
 		this.role=role;		
 	}
-	public Person(long id, String username, String full_name, String email, String password, String role) {
+	public Person(long id, String name, String email, String password, String role) {
 		this.id=id;
-		this.username=username;
-		this.full_name=full_name;
+		this.name=name;
 		this.email=email;
 		this.password=password;
 		this.role=role;		
@@ -63,23 +56,17 @@ public class Person {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFull_name() {
-		return full_name;
+	public String getname() {
+		return name;
 	}
-	public void setFull_name(String full_name) {
-		this.full_name = full_name;
+	public void setname(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -98,11 +85,10 @@ public class Person {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((full_name == null) ? 0 : full_name.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 	@Override
@@ -119,10 +105,10 @@ public class Person {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (full_name == null) {
-			if (other.full_name != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!full_name.equals(other.full_name))
+		} else if (!name.equals(other.name))
 			return false;
 		if (id != other.id)
 			return false;
@@ -135,11 +121,6 @@ public class Person {
 			if (other.role != null)
 				return false;
 		} else if (!role.equals(other.role))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}

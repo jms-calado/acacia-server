@@ -36,4 +36,4 @@ ACACIA ontology code licensed under [GNU AGPL v3](/LICENSE.md) or later. Copyrig
 - [David Ludovino](https://github.com/dllud) (REST microservice from aquasmart-training),
 - [aquasmart-training](http://git-gris.uninova.pt/Sudeep/aquasmart-training) (used as ground work for initial code).
 
-*{M.m.p} = {Major.minor.patch}, replace with the correct versioning.
+*{M.m.p} = {Major.minor.patch}, replace with the correct version. (follows [semantic versioning](https://semver.org/)).

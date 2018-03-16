@@ -37,6 +37,7 @@ import acacia.resources.queries.FindUser;
 import acacia.resources.queries.ListClasses;
 import acacia.resources.queries.ListIndividualProperties;
 import acacia.resources.queries.ListObservationsOfSession;
+import acacia.resources.queries.ListProfilesOfStudent;
 import acacia.resources.queries.ListSessionsClass;
 import acacia.resources.queries.ListSessionsOfStudent;
 import acacia.resources.queries.ListStudentsOfClass;
@@ -60,6 +61,7 @@ import acacia.resources.updates.InsertSession;
 import acacia.resources.updates.InsertStudentIssue;
 import acacia.resources.updates.InsertUser;
 import acacia.resources.updates.InsertVLO;
+import acacia.resources.updates.SuperSession;
 import acacia.services.SparqlExecutor;
 import acacia.websocket.DeviceWebSocketServer;
 import be.tomcools.dropwizard.websocket.WebsocketBundle;
@@ -212,10 +214,12 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new ListStudentsOfObservation(qe));
 		environment.jersey().register(new ListStudentsOfClass(qe));
 		environment.jersey().register(new ListObservationsOfSession(qe));
+		environment.jersey().register(new ListProfilesOfStudent(qe));
 		environment.jersey().register(new ListIndividualProperties(qe));
 		environment.jersey().register(new ListClasses(qe));
 		environment.jersey().register(new FindUser(qe));
-		
+
+		environment.jersey().register(new SuperSession(qe));
 		environment.jersey().register(new InsertStudentIssue(qe));
 		environment.jersey().register(new InsertUser(qe));
 		environment.jersey().register(new InsertSession(qe));

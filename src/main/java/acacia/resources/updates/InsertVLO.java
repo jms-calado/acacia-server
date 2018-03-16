@@ -91,7 +91,7 @@ public class InsertVLO extends Resource {
 			System.out.println(update);
 			executeUpdate(ConstantURIs.prefixes + update);
 
-			return Response.ok("{\"VLO_ID\":\"VLO_" + vloID + "\"}", MediaType.APPLICATION_JSON).status(201).build();
+			return Response.ok("[\"VLO_" + vloID + "\"]", MediaType.APPLICATION_JSON).status(201).build();
 			
 		}else{
 			for (ConstraintViolation<VloObject> cv : constraintViolations) {

@@ -34,7 +34,7 @@ public class ListClasses extends Resource {
 	public List<Map<String, String>> search(
 			//@Auth JwtUser jwtUser,
 			@PathParam("class_type") 
-			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue|Class|Virtual_Learning_Object") 
+			@Pattern(regexp = "Student|Teacher|Admin|Annalist|Session|Observation|Human_Observation|Digital_Observation|Emotion|Behaviour|Affect|Sensory_Component|Issue|Recommendation|Instruction|Class|Support_Object|Virtual_Learning_Object|Profile|Academic|Diversity|Learning|Musical") 
 			@NotEmpty String class_type) throws FileNotFoundException {
 		String query=null;
 		switch (class_type){
@@ -51,6 +51,8 @@ public class ListClasses extends Resource {
 		case "Observation" :
 		case "Sensory_Component" :
 		case "Issue" :
+		case "Profile":
+		case "Support_Object":
 			query = " SELECT ?" + class_type + " "
 			+ "WHERE { "
 			+ "?y rdfs:subClassOf* acacia:" + class_type + " . "

@@ -36,7 +36,7 @@
 					},
 					"response": [
 						{
-							"id": "782cb777-3ae2-40da-8234-79b088941bde",
+							"id": "945b3df9-0939-4642-9f5c-f186566cfe3b",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -114,7 +114,7 @@
 					},
 					"response": [
 						{
-							"id": "464a0cf4-19a7-49af-80d0-6b8f22bb53d9",
+							"id": "356c3b61-4613-4ef1-b506-50bec1c38559",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -192,7 +192,7 @@
 					},
 					"response": [
 						{
-							"id": "2623d626-f5a4-40bd-8f34-8b2f263875ff",
+							"id": "de52e6e2-da2b-46b7-81f4-ce2054e16d4a",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -271,7 +271,7 @@
 					},
 					"response": [
 						{
-							"id": "9a1b81f2-6d1c-4643-8eae-6caaeee0290a",
+							"id": "95a8d0e6-d75a-47f2-9f85-1db5c4ae1075",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -350,7 +350,7 @@
 					},
 					"response": [
 						{
-							"id": "ad1b755b-c8c7-4e80-9927-2f3a0faf41c1",
+							"id": "93bcdae6-761b-4c8c-9b2f-8364a9125471",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -429,7 +429,7 @@
 					},
 					"response": [
 						{
-							"id": "ad38e7c4-8241-461c-b1bb-9e7491c46357",
+							"id": "dda4c4e1-7486-4c9e-96db-f07c66d52d81",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -508,7 +508,7 @@
 					},
 					"response": [
 						{
-							"id": "65109122-540e-42bd-ad2b-e6055c4722da",
+							"id": "d429db83-d495-4169-98c6-e6e480d522b9",
 							"name": "insert Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -586,7 +586,7 @@
 					},
 					"response": [
 						{
-							"id": "d98b207d-86ce-4518-897c-da3275ad06e8",
+							"id": "67347b3d-7bf9-4ba8-98d7-ac8885c48117",
 							"name": "insert Admin example",
 							"originalRequest": {
 								"method": "POST",
@@ -664,7 +664,7 @@
 					},
 					"response": [
 						{
-							"id": "76dece0e-bea9-4b95-838e-86809243eabb",
+							"id": "67035fd7-acd9-4bf5-85cc-82cf60385c82",
 							"name": "insert Annalist example",
 							"originalRequest": {
 								"method": "POST",
@@ -769,7 +769,7 @@
 					},
 					"response": [
 						{
-							"id": "426937e3-89af-4190-b713-a8ac67b4e3bb",
+							"id": "18be3c00-0e80-4617-b075-e58e55b8905d",
 							"name": "insert Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -848,7 +848,7 @@
 					},
 					"response": [
 						{
-							"id": "3b3067c6-9f28-4a17-a900-346c3dc92735",
+							"id": "f3444dff-c83f-4d14-b26f-446e9014de6a",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -927,7 +927,7 @@
 					},
 					"response": [
 						{
-							"id": "79e1de88-8790-4b46-a67e-b27d311f57c4",
+							"id": "9afa5493-ea52-4751-a6ce-44bb4df0bba6",
 							"name": "insert Human_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -1007,7 +1007,7 @@
 					},
 					"response": [
 						{
-							"id": "1dcdd58d-7c18-4098-aa70-63a5f3b28655",
+							"id": "1a194bd7-48f6-4e52-998d-44d286af061b",
 							"name": "insert Digital_Observation example",
 							"originalRequest": {
 								"method": "POST",
@@ -1092,7 +1092,7 @@
 					},
 					"response": [
 						{
-							"id": "845f0d0c-23fa-44f5-8ddf-8252d2235bc8",
+							"id": "963b945a-ed16-4914-8120-7821d1ff54b5",
 							"name": "insert Emotion example",
 							"originalRequest": {
 								"method": "POST",
@@ -1170,7 +1170,7 @@
 					},
 					"response": [
 						{
-							"id": "e7d95371-ddfa-40f4-aac2-13ff4a1db875",
+							"id": "309b9270-a3f4-477c-8e93-00951dea5866",
 							"name": "insert Behaviour example",
 							"originalRequest": {
 								"method": "POST",
@@ -1248,7 +1248,7 @@
 					},
 					"response": [
 						{
-							"id": "2ff593c8-3d37-4b8f-b8fa-5c8bbeab67af",
+							"id": "3417eeb7-0fd8-41fb-8762-73ba961bc840",
 							"name": "insert Affect  example",
 							"originalRequest": {
 								"method": "POST",
@@ -1337,6 +1337,166 @@
 			"name": "Queries",
 			"item": [
 				{
+					"name": "Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "edb39629-56bc-4c78-9471-414a8bf9e392",
+							"name": "list Admin example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "2",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:35:13 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 19,
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Annalist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Annalist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Annalist"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "d5796a7e-896b-47d8-9e37-ddad4f81859d",
+							"name": "list Annalist example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Annalist",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Annalist"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "2",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:35:36 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 23,
+							"body": "[]"
+						}
+					]
+				},
+				{
 					"name": "Student",
 					"request": {
 						"method": "GET",
@@ -1363,187 +1523,7 @@
 					},
 					"response": [
 						{
-							"id": "e3ebcd37-0cff-4bca-9bb9-e22ea3b3862f",
-							"name": "list Student example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Student",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Student"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "90",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 326,
-							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
-						}
-					]
-				},
-				{
-					"name": "Class",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-						},
-						"url": {
-							"raw": "{{host}}/list/Class",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Class"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "9b6523d7-2f8e-4154-aca8-7302d4956e27",
-							"name": "list Student example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Student",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Student"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "90",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 326,
-							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
-						}
-					]
-				},
-				{
-					"name": "Virtual_Learning_Object",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-						},
-						"url": {
-							"raw": "{{host}}/list/Virtual_Learning_Object",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Virtual_Learning_Object"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "20516ee6-48c8-4b81-a0d5-2015d338ea5d",
+							"id": "0bf428bb-76ac-4123-ad4d-75911e4ed34e",
 							"name": "list Student example",
 							"originalRequest": {
 								"method": "GET",
@@ -1633,7 +1613,7 @@
 					},
 					"response": [
 						{
-							"id": "a1482bc3-d822-4aba-9664-b1aec4e54cb8",
+							"id": "6dc02810-7df8-453f-8962-4e0f57699e85",
 							"name": "list Teacher example",
 							"originalRequest": {
 								"method": "GET",
@@ -1697,6 +1677,650 @@
 					]
 				},
 				{
+					"name": "Class",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Class"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "98443b3a-8985-4d6f-9b71-87ee3eea9ed1",
+							"name": "list Student example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "90",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 326,
+							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Profile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Virtual_Learning_Object",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Virtual_Learning_Object",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Virtual_Learning_Object"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "65335990-7383-4b9b-91fc-e9d0d38fb8ea",
+							"name": "list Student example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "90",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:27:58 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 326,
+							"body": "[{\"Student\":\"Student_123\",\"Name\":\"John Doe\"},{\"Student\":\"Student_321\",\"Name\":\"Mary Jane\"}]"
+						}
+					]
+				},
+				{
+					"name": "Sensory_Component",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Sensory_Component",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Sensory_Component"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5823eb27-2cb4-4a88-9634-0818f99c5121",
+							"name": "list Sensory_Component example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Sensory_Component",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Sensory_Component"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "95",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:37:00 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 33,
+							"body": "[{\"Sensory_Component\":\"Eye_Tracker_1\"},{\"Sensory_Component\":\"Facial_Expression_Recognition_1\"}]"
+						}
+					]
+				},
+				{
+					"name": "Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Session",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Session"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5e30cbf6-7ebd-41c4-893b-9f126dfed044",
+							"name": "list Session example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Session",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "42",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:34:52 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 22,
+							"body": "[{\"Session\":\"Session_2017-7-04_14-00-00\"}]"
+						}
+					]
+				},
+				{
+					"name": "sessions_class",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date_Time\":\"2018-07-07T14:00:00\",\n\t\"Duration\":\"01:00:00\",\n\t\"Observation_Sample_Rate\":\"30000.0\",\n\t\"Scenario\":\"Affective_States_Automatic_Detection_\",\n\t\"Student\": [\"Student_123\", \"Student_321\"],\n\t\"Teacher\":[\"Teacher_007\"],\n\t\"Sensory_Component\":[\"Eye_Tracker_\", \"Facial_Expression_Recognition_\"]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/list/sessions_class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"sessions_class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Observation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/Observation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Observation"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "7c9fbb95-eb3b-47ad-8691-755c1a8567fe",
+							"name": "list Observation example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Observation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Observation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "159",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:34:34 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 39,
+							"body": "[{\"Observation\":\"Digital_Observation_1\"},{\"Observation\":\"Digital_Observation_2\"},{\"Observation\":\"Digital_Observation_3\"},{\"Observation\":\"Human_Observation_4\"}]"
+						}
+					]
+				},
+				{
+					"name": "Human_Observation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Human_Observation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Human_Observation"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "606e3e3a-7299-4f6b-9c51-e801a90f7a52",
+							"name": "list Human_Observation example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Human_Observation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Human_Observation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "45",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:36:15 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 31,
+							"body": "[{\"Human_Observation\":\"Human_Observation_4\"}]"
+						}
+					]
+				},
+				{
+					"name": "Digital_Observation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/list/Digital_Observation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"Digital_Observation"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "42e85420-78cf-4c14-9dbc-def19d719037",
+							"name": "list Digital_Observation example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/Digital_Observation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"Digital_Observation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "145",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:36:31 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [],
+							"responseTime": 14,
+							"body": "[{\"Digital_Observation\":\"Digital_Observation_1\"},{\"Digital_Observation\":\"Digital_Observation_2\"},{\"Digital_Observation\":\"Digital_Observation_3\"}]"
+						}
+					]
+				},
+				{
 					"name": "Affect",
 					"request": {
 						"method": "GET",
@@ -1723,7 +2347,7 @@
 					},
 					"response": [
 						{
-							"id": "8129cdac-17f8-4a04-a475-6bdb426c879f",
+							"id": "cd472085-96d3-4e65-bdd7-997719602f7e",
 							"name": "list Affect example",
 							"originalRequest": {
 								"method": "GET",
@@ -1813,7 +2437,7 @@
 					},
 					"response": [
 						{
-							"id": "be19e36b-b57b-45df-801c-f21318be29c0",
+							"id": "988eae5b-d6c5-4552-914a-3271864e5442",
 							"name": "list Behaviour example",
 							"originalRequest": {
 								"method": "GET",
@@ -1903,7 +2527,7 @@
 					},
 					"response": [
 						{
-							"id": "1c26a052-d872-4c5d-9a73-12ead13c8c37",
+							"id": "d40c3df7-3bee-4d99-92ee-804a958548bc",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -1993,7 +2617,7 @@
 					},
 					"response": [
 						{
-							"id": "91e1a933-e062-462b-9cf7-5e537df35142",
+							"id": "31a039ba-bc9e-4714-bfe9-825b333389da",
 							"name": "list Emotion example",
 							"originalRequest": {
 								"method": "GET",
@@ -2057,576 +2681,6 @@
 					]
 				},
 				{
-					"name": "Observation",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-						},
-						"url": {
-							"raw": "{{host}}/list/Observation",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Observation"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "06f4689b-4405-40f5-a296-b6930d27737d",
-							"name": "list Observation example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"New Name\", \"22\", \"Female\", \"PhD\", \"1235\"]"
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Observation",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Observation"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "159",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:34:34 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 39,
-							"body": "[{\"Observation\":\"Digital_Observation_1\"},{\"Observation\":\"Digital_Observation_2\"},{\"Observation\":\"Digital_Observation_3\"},{\"Observation\":\"Human_Observation_4\"}]"
-						}
-					]
-				},
-				{
-					"name": "Session",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Session",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Session"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "1b1d623d-d28c-475b-8694-f6d7b91ff644",
-							"name": "list Session example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Session",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Session"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "42",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:34:52 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 22,
-							"body": "[{\"Session\":\"Session_2017-7-04_14-00-00\"}]"
-						}
-					]
-				},
-				{
-					"name": "Admin",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Admin",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Admin"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "acd55c92-1093-4eb0-8399-c0afb1bb54ef",
-							"name": "list Admin example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Admin",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Admin"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "2",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:35:13 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 19,
-							"body": "[]"
-						}
-					]
-				},
-				{
-					"name": "Annalist",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Annalist",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Annalist"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "9eccef86-bea6-4f23-a1ad-0b7ba28a037a",
-							"name": "list Annalist example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Annalist",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Annalist"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "2",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:35:36 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 23,
-							"body": "[]"
-						}
-					]
-				},
-				{
-					"name": "Human_Observation",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Human_Observation",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Human_Observation"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "5fb11dc9-ce93-4bb3-acb6-6cc02994c72c",
-							"name": "list Human_Observation example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Human_Observation",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Human_Observation"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "45",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:36:15 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 31,
-							"body": "[{\"Human_Observation\":\"Human_Observation_4\"}]"
-						}
-					]
-				},
-				{
-					"name": "Digital_Observation",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Digital_Observation",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Digital_Observation"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "56dccdba-1456-4ddf-aab8-501dd500f587",
-							"name": "list Digital_Observation example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Digital_Observation",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Digital_Observation"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "145",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:36:31 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 14,
-							"body": "[{\"Digital_Observation\":\"Digital_Observation_1\"},{\"Digital_Observation\":\"Digital_Observation_2\"},{\"Digital_Observation\":\"Digital_Observation_3\"}]"
-						}
-					]
-				},
-				{
-					"name": "Sensory_Component",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/list/Sensory_Component",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"Sensory_Component"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "9147e698-5375-409b-99ae-10577986c8cc",
-							"name": "list Sensory_Component example",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/Sensory_Component",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"Sensory_Component"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "95",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:37:00 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding",
-									"name": "Vary",
-									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-								}
-							],
-							"cookie": [],
-							"responseTime": 33,
-							"body": "[{\"Sensory_Component\":\"Eye_Tracker_1\"},{\"Sensory_Component\":\"Facial_Expression_Recognition_1\"}]"
-						}
-					]
-				},
-				{
 					"name": "individual_properties",
 					"request": {
 						"method": "POST",
@@ -2653,7 +2707,7 @@
 					},
 					"response": [
 						{
-							"id": "d08c61d7-230f-4ae9-87fd-24972b48b33e",
+							"id": "2b0a0dbf-8be1-408b-8f52-3046cffb4fe6",
 							"name": "list individual_properties example",
 							"originalRequest": {
 								"method": "POST",
@@ -2737,7 +2791,7 @@
 					},
 					"response": [
 						{
-							"id": "f79ce49a-e422-4969-b36a-a837449379b3",
+							"id": "49323aa3-30c4-48b2-97e8-91385397c643",
 							"name": "list observations_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2795,7 +2849,7 @@
 					]
 				},
 				{
-					"name": "students_of_session",
+					"name": "profiles_of_student",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2806,22 +2860,187 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\"Session_2017-07-04_14-00-00\"]"
+							"raw": "[\"Student_123\"]"
 						},
 						"url": {
-							"raw": "{{host}}/list/students_of_session",
+							"raw": "{{host}}/list/profiles_of_student",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"list",
-								"students_of_session"
+								"profiles_of_student"
 							]
 						}
 					},
 					"response": [
 						{
-							"id": "98a81482-bc91-4140-b8be-f583f545efb1",
+							"id": "ef7eee0a-a468-4f58-a146-8517e31e18f1",
+							"name": "profiles_of_student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Student_123\"]"
+								},
+								"url": {
+									"raw": "{{host}}/list/profiles_of_student",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"list",
+										"profiles_of_student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "199",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Feb 2018 16:36:50 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 201,
+							"body": "[{\"Individual\":\"Learning_3\",\"Profile\":\"Learning\"},{\"Individual\":\"Musical_4\",\"Profile\":\"Musical\"},{\"Individual\":\"Diversity_2\",\"Profile\":\"Diversity\"},{\"Individual\":\"Academic_123\",\"Profile\":\"Academic\"}]"
+						}
+					]
+				},
+				{
+					"name": "sessions_of_student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"Student_123\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/sessions_of_student",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"sessions_of_student"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0cd8908c-caca-4fe7-9b15-794f5955d689",
+							"name": "sessions_of_student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"student_123\"]"
+								},
+								"url": {
+									"raw": "{{host}}/list/sessions_of_student",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"list",
+										"sessions_of_student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "221",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Feb 2018 16:11:25 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 97,
+							"body": "[{\"Session\":\"Session_5_2017-08-03_14-00-00\"},{\"Session\":\"Session_2_2017-07-13_14-00-00\"},{\"Session\":\"Session_4_2017-07-27_14-00-00\"},{\"Session\":\"Session_3_2017-07-20_14-00-00\"},{\"Session\":\"Session_1_2017-07-06_14-00-00\"}]"
+						}
+					]
+				},
+				{
+					"name": "students_of_class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"Class_1\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/students_of_class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"students_of_class"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "98d2b082-9f21-41d2-aa62-42db948c1430",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2879,7 +3098,7 @@
 					]
 				},
 				{
-					"name": "students_of_class",
+					"name": "student_of_observation",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2890,22 +3109,106 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\"Class_1\"]"
+							"raw": "[\"Digital_Observation_1\"]"
 						},
 						"url": {
-							"raw": "{{host}}/list/students_of_class",
+							"raw": "{{host}}/list/students_of_observation",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"list",
-								"students_of_class"
+								"students_of_observation"
 							]
 						}
 					},
 					"response": [
 						{
-							"id": "60545804-ab36-49aa-8827-8a13852c3ec9",
+							"id": "bfcc1bc4-5afa-415f-8255-ba919df83382",
+							"name": "list student_of_observation example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"Digital_Observation_1\"]"
+								},
+								"url": {
+									"raw": "http://localhost:5904/list/students_of_observation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5904",
+									"path": [
+										"list",
+										"students_of_observation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "48",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jul 2017 15:39:33 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								}
+							],
+							"cookie": [],
+							"responseTime": 27,
+							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"}]"
+						}
+					]
+				},
+				{
+					"name": "students_of_session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"Session_2017-07-04_14-00-00\"]"
+						},
+						"url": {
+							"raw": "{{host}}/list/students_of_session",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"students_of_session"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b0c7530f-e949-4881-a94f-c35154fca6a8",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -2990,7 +3293,7 @@
 					},
 					"response": [
 						{
-							"id": "85c6f974-c2ae-4860-a3a8-47f0554617fc",
+							"id": "bb0cbf90-b887-4343-998c-2711ae7de6a8",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -3074,7 +3377,7 @@
 					},
 					"response": [
 						{
-							"id": "4026f833-64ad-420e-9db5-bdf307477edc",
+							"id": "91322ca7-42eb-4e67-991f-ed7cbaf1fe8b",
 							"name": "Plot/issue_student",
 							"originalRequest": {
 								"method": "POST",
@@ -3156,7 +3459,7 @@
 					},
 					"response": [
 						{
-							"id": "6662df6f-bc90-4c69-b567-76d614f81862",
+							"id": "3ed3a00a-362c-4634-a0f4-5d1cd443913c",
 							"name": "Plot/issue",
 							"originalRequest": {
 								"method": "POST",
@@ -3239,7 +3542,7 @@
 					},
 					"response": [
 						{
-							"id": "5c67d6c3-9e94-4c44-8f82-4641fa8a2d8e",
+							"id": "10cfe2b8-9b59-4944-8433-58e8c5d7d8b8",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -3324,7 +3627,7 @@
 					},
 					"response": [
 						{
-							"id": "558e40b4-8839-4c93-b298-23d9254b3bc5",
+							"id": "dce43326-e7f8-4de7-837f-0e414937077e",
 							"name": "list students_of_session example",
 							"originalRequest": {
 								"method": "POST",
@@ -3382,90 +3685,6 @@
 					]
 				},
 				{
-					"name": "student_of_observation",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\"Digital_Observation_1\"]"
-						},
-						"url": {
-							"raw": "{{host}}/list/students_of_observation",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"students_of_observation"
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "9e52c375-df68-4b48-966c-4e6ec9cfe2ca",
-							"name": "list student_of_observation example",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\"Digital_Observation_1\"]"
-								},
-								"url": {
-									"raw": "http://localhost:5904/list/students_of_observation",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5904",
-									"path": [
-										"list",
-										"students_of_observation"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "text",
-							"header": [
-								{
-									"key": "Content-Length",
-									"value": "48",
-									"name": "Content-Length",
-									"description": "The length of the response body in octets (8-bit bytes)"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 21 Jul 2017 15:39:33 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								}
-							],
-							"cookie": [],
-							"responseTime": 27,
-							"body": "[{\"Individual\":\"Student_123\",\"Name\":\"John Doe\"}]"
-						}
-					]
-				},
-				{
 					"name": "find/Student",
 					"request": {
 						"method": "POST",
@@ -3493,7 +3712,7 @@
 					},
 					"response": [
 						{
-							"id": "2eef1d53-1791-4c5b-9f6a-44635faa6242",
+							"id": "91e21116-d9a9-45e2-bcbf-7ceadf1ea2c8",
 							"name": "find Student example",
 							"originalRequest": {
 								"method": "POST",
@@ -3578,7 +3797,7 @@
 					},
 					"response": [
 						{
-							"id": "7d6047a4-78a0-4e8a-ac20-33ab368c62e4",
+							"id": "bfdd411f-29eb-4e8d-aa67-a92a304220c6",
 							"name": "find Teacher example",
 							"originalRequest": {
 								"method": "POST",
@@ -3634,33 +3853,6 @@
 							"body": "[{\"Teacher\":\"Teacher_007\"}]"
 						}
 					]
-				},
-				{
-					"name": "sessions_class",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"Date_Time\":\"2018-07-07T14:00:00\",\n\t\"Duration\":\"01:00:00\",\n\t\"Observation_Sample_Rate\":\"30000.0\",\n\t\"Scenario\":\"Affective_States_Automatic_Detection_\",\n\t\"Student\": [\"Student_123\", \"Student_321\"],\n\t\"Teacher\":[\"Teacher_007\"],\n\t\"Sensory_Component\":[\"Eye_Tracker_\", \"Facial_Expression_Recognition_\"]\n}"
-						},
-						"url": {
-							"raw": "{{host}}/list/sessions_class",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"list",
-								"sessions_class"
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"auth": {
@@ -3748,7 +3940,7 @@
 					},
 					"response": [
 						{
-							"id": "586c3bdb-9b3f-489c-9dda-004f675eeba1",
+							"id": "4b9b68fc-534d-4ecc-9fbd-16aaa8c31928",
 							"name": "{{host}}/login",
 							"originalRequest": {
 								"method": "GET",

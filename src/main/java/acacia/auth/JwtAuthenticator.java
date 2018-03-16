@@ -31,11 +31,11 @@ public class JwtAuthenticator implements Authenticator<JwtContext, JwtUser>{
 			String username = (String) jwtClaims.getClaimValue("username");
 			String role = (String) jwtClaims.getClaimValue("role");
 			
-			List<Person> personOptional = this.personDAO.findByUsername(username);
+			List<Person> personOptional = this.personDAO.findByEmail(username);
 			Person person = (Person) personOptional.get(0);
 			
 			if(person!=null) { 
-				if(	person.getUsername().equalsIgnoreCase(username) && 
+				if(	person.getEmail().equalsIgnoreCase(username) && 
 					person.getRole().equals(role)
 				) {
 					return Optional.of(new JwtUser(username, role));

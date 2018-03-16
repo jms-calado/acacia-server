@@ -17,13 +17,21 @@ public class PersonDAO extends AbstractDAO<Person>{
     public List<Person> findAll() {
         return list(namedQuery("acacia.core.Person.findAll"));
     }
-    //*
-    public List<Person> findByUsername(String username) {
+    public List<Person> findByEmail(String email) {
         StringBuilder builder = new StringBuilder("%");
-        builder.append(username).append("%");
+        builder.append(email).append("%");
         return list(
-                namedQuery("acacia.core.Person.findByUsername")
-                .setParameter("username", builder.toString())
+                namedQuery("acacia.core.Person.findByEmail")
+                .setParameter("email", builder.toString())
+        );
+    }
+    //*
+    public List<Person> findByName(String name) {
+        StringBuilder builder = new StringBuilder("%");
+        builder.append(name).append("%");
+        return list(
+                namedQuery("acacia.core.Person.findByName")
+                .setParameter("name", builder.toString())
         );
     }
     /*/

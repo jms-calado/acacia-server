@@ -2014,6 +2014,85 @@ Success
 
 ---
 
+## /list/profiles_of_student
+
+### **POST**:
+
+##### Headers
+
+| Name | Type | Description | Required | Examples |
+|:-----|:----:|:------------|:--------:|---------:|
+| Content-Type | string |  | true | ``` application/json ```  |
+
+#### Body (application/json) 
+
+```curl
+curl -X POST "https://api.arca.acacia.red/list/profiles_of_student" \
+	-H "Content-Type: application/json" \
+	-d @request_body
+```
+
+>request_body:
+
+```json
+[
+  "Student_123"
+]
+```
+
+##### List of *items*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+### Response code: 200
+Success
+
+> response_body: 
+
+```json
+[
+    {
+        "Individual": "Learning_3",
+        "Profile": "Learning"
+    },
+    {
+        "Individual": "Musical_4",
+        "Profile": "Musical"
+    },
+    {
+        "Individual": "Diversity_2",
+        "Profile": "Diversity"
+    },
+    {
+        "Individual": "Academic_123",
+        "Profile": "Academic"
+    }
+]
+```
+
+#### Response (application/json) 
+
+##### List of *profiles_of_studentResponse*:
+
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+| Individual |  string |  | true |  |
+| Profile |  string |  | true |  |
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+---
+
 ## /list/sessions_of_student
 
 ### **POST**:

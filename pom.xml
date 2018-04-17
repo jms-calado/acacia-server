@@ -153,14 +153,14 @@
 					<files>
 						<file>
 							<source>resources/ontology.owl</source>
-							<target>/usr/share/acacia/ontology.owl</target>
+							<target>/home/arca/ontology.owl</target>
 						</file>
 					</files>
 					<configTemplate>${basedir}/prod.yml</configTemplate>
 					<dropwizard>
 						<httpPort>5904</httpPort>
 						<httpAdminPort>5905</httpAdminPort>
-						<ontologyFile>/usr/share/acacia/ontology.owl</ontologyFile>
+						<ontologyFile>/home/arca/ontology.owl</ontologyFile>
 					</dropwizard>
 				</configuration>
 				<executions>

@@ -64,6 +64,7 @@ public class InsertObservation extends Resource {
 		String msg = null;
 		ObjectMapper mapper = new ObjectMapper();
 		ObservationObject observation = new ObservationObject();
+		System.out.println(jsonbody);
 		try {
 			observation = mapper.readValue(jsonbody, ObservationObject.class);
 		} catch (Exception e) {

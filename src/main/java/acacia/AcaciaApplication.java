@@ -16,6 +16,7 @@ import org.jose4j.jwt.consumer.JwtConsumer;
 import org.jose4j.jwt.consumer.JwtConsumerBuilder;
 import org.jose4j.jwt.consumer.JwtContext;
 import org.jose4j.keys.HmacKey;
+import org.skife.jdbi.v2.DBI;
 
 import com.github.toastshaman.dropwizard.auth.jwt.JwtAuthFilter;
 import com.google.common.collect.ImmutableMap;
@@ -28,11 +29,13 @@ import acacia.core.Person;
 import acacia.core.BasicUser;
 import acacia.core.JwtUser;
 import acacia.dao.PersonDAO;
+import acacia.dao.StudentsResultsDAO;
 import acacia.dataobjects.GlobalVar;
 import acacia.health.SearchHealthCheck;
 import acacia.resources.AuthTest;
 import acacia.resources.Login;
 import acacia.resources.PersonResource;
+import acacia.resources.StudentsResultsResource;
 import acacia.resources.queries.FindUser;
 import acacia.resources.queries.ListClasses;
 import acacia.resources.queries.ListIndividualProperties;
@@ -76,6 +79,7 @@ import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.hibernate.UnitOfWorkAwareProxyFactory;
+import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -200,6 +204,12 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new AuthTest());
         
         //-----------------------------------------------------------------
+		
+		final DBIFactory dbiFactory = new DBIFactory();
+		final DBI jdbi = dbiFactory.build(environment, configuration.getDataSourceFactory(), "psql");
+		final StudentsResultsDAO studentsResultsDAO = jdbi.onDemand(StudentsResultsDAO.class);
+		environment.jersey().register(new StudentsResultsResource(studentsResultsDAO));
+        //-----------------------------------------------------------------
         
 		SparqlExecutor qe = configuration.getQueryExecutorFactory().buildQE();
 
@@ -233,6 +243,8 @@ public class AcaciaApplication extends Application<AcaciaConfiguration> {
 		environment.jersey().register(new InsertMusicalProfile(qe));
 		environment.jersey().register(new InsertClass(qe));
 		environment.jersey().register(new InsertVLO(qe));
+		
+		
 		environment.healthChecks().register("search", new SearchHealthCheck());
 		environment.healthChecks().register("insert", new SearchHealthCheck());
 		

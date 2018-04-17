@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users_table")
+@Table(name="users")
 @NamedQueries({ @NamedQuery(name="acacia.core.Person.findAll",
 							query="select e from Person e"),
 				@NamedQuery(name="acacia.core.Person.findByEmail",

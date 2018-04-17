@@ -40,7 +40,7 @@ database:
   driverClass: org.postgresql.Driver
 
   # the username
-  user: acacia-ontology
+  user: effective
 
   # the password
   password: 5WqhdbssbgyTxYvBqq6P

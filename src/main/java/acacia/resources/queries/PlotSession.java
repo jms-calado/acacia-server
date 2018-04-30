@@ -53,9 +53,10 @@ public class PlotSession extends Resource {
 				"?" + class_type + " acacia:Belongs_to_Observation ?Observation . " +
 				"?y rdfs:subClassOf* acacia:" + class_type + " . " +
 				"?" + class_type + " rdf:type ?y . " +
-				"?Observation acacia:Has_Student ?Student . " +
+				"?Observation acacia:Has_Student ?student_id . " +
 				"?" + class_type + " ?Property ?Value . " +
 				"?Property a owl:DatatypeProperty . " +
+				"?student_id acacia:Name ?Student . " +
 				"} " +
 				"GROUP BY ?Student ?Property " +
 				"ORDER BY ASC(?Student) ";

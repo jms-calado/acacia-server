@@ -12,6 +12,16 @@
   <owl:Ontology rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl"/>
   <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#time"/>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Instruction"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -21,16 +31,6 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Instruction"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student">
     <rdfs:subClassOf>
@@ -43,30 +43,30 @@
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Class">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Subject"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
-        </owl:onProperty>
         <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
-        </owl:onProperty>
         <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Subject"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -80,25 +80,25 @@
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
     </owl:disjointWith>
     <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
       <owl:Restriction>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Affect"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Excited"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Meditation"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustrated"/>
+        </owl:onProperty>
       </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
@@ -112,7 +112,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Satisfaction"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Bored"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
@@ -120,11 +120,23 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustrated"/>
-        </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Satisfaction"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Behaviour"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Meditation"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -139,19 +151,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Excited"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Behaviour"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Bored"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Affect"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
@@ -189,32 +189,13 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
-        </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_ID"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Date_Time"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -231,19 +212,62 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Date_Time"/>
         </owl:onProperty>
       </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Academic">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_ID"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Academic">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#University"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_Status"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Income_Class"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Average_Course_Grade"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
@@ -263,36 +287,12 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Average_Course_Grade"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Income_Class"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_Status"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#University"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-      </owl:Restriction>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Facial_Expression_Recognition">
@@ -301,15 +301,7 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Session"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -319,29 +311,26 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Session"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <owl:disjointWith>
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Human_Observation"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Conditions"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Recommendation"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
+        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -355,16 +344,26 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Recommendation"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Recommendation"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Conditions"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Domain_Lexicon"/>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -374,6 +373,7 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Learning_Objects_Catalogue">
     <rdfs:subClassOf>
@@ -381,14 +381,13 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensory_Component">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#URL"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -403,12 +402,13 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#URL"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
         </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#AutoCAD">
     <rdfs:subClassOf>
@@ -421,6 +421,16 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Human_Observation">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -430,19 +440,8 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Teacher"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Diversity">
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -452,6 +451,7 @@
         >1</owl:minCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Aggression">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
@@ -460,25 +460,6 @@
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Scenario">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Machine_Learning_Rate"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -488,16 +469,61 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Machine_Learning_Rate"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Description"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Musics">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#User">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Gender"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Education_Degree"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Age"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
@@ -517,37 +543,11 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Age"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Gender"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Name"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Education_Degree"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Area_of_Degree"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Software_Sensor">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensory_Component"/>
@@ -555,10 +555,10 @@
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Low_Attention">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Issue"/>
     <owl:disjointWith>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Apathetic"/>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustration"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Frustration"/>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Apathetic"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Context">
@@ -571,6 +571,7 @@
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensory_Component"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Musical">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -580,7 +581,6 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Alternativa">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
@@ -589,7 +589,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Value"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Issue"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
@@ -600,34 +600,15 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Value"/>
+        </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Issue"/>
-        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Instruction">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Priority"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Support_Object"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
@@ -637,21 +618,40 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Support_Object"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Priority"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Guidelines">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Support_Object"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Features">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Observation"/>
         </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Physiological">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Features"/>
@@ -662,19 +662,10 @@
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_Sample_Rate"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -689,20 +680,11 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:maxCardinality>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Class"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
         </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Sensory_Component"/>
-        </owl:onProperty>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:minCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -710,7 +692,25 @@
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Duration"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Observation_Sample_Rate"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Sensory_Component"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Class"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -723,16 +723,16 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Belongs_to_Scenario"/>
+          <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Has_Student"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Analysis_of_Music_in_E-Learning">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Scenario"/>
@@ -750,9 +750,6 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
-    </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
@@ -765,6 +762,30 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Engaged"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#On_Task"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Attention"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -773,70 +794,58 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Engaged"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Off_Task"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#On_Task"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Active_Participation"/>
         </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Off_Task"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion">
     <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Contempt"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sadness"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological"/>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Surprise"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Emotion"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disgust"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Joy"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
@@ -846,18 +855,18 @@
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Anger"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Contempt"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:onProperty>
@@ -867,11 +876,11 @@
             >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
             </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
           </owl:Restriction>
           <owl:Restriction>
             <owl:onProperty>
@@ -902,21 +911,30 @@
             </owl:onProperty>
           </owl:Restriction>
           <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minCardinality>
             <owl:onProperty>
               <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Surprise"/>
             </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:minCardinality>
           </owl:Restriction>
         </owl:unionOf>
       </owl:Class>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Neutral_Emotion"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Joy"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Anger"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -931,35 +949,17 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Anger"/>
-        </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Disgust"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Fear"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Contempt"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sadness"/>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Surprise"/>
         </owl:onProperty>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:maxCardinality>
@@ -967,6 +967,34 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Learning">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Active_Reflective"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sequential_Global"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensing_Intuitive"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -976,34 +1004,6 @@
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sensing_Intuitive"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Sequential_Global"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Active_Reflective"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Profile"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Psychological">
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Features"/>
@@ -1284,17 +1284,17 @@
     <rdfs:range>
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
-          <rdf:rest rdf:parseType="Resource">
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Medium</rdf:first>
-            <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >Low</rdf:first>
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:rest>
-          </rdf:rest>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >High</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Low</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Medium</rdf:first>
+          </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
@@ -1321,68 +1321,70 @@
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
           <rdf:rest rdf:parseType="Resource">
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >2a</rdf:first>
             <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >3a</rdf:first>
               <rdf:rest rdf:parseType="Resource">
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >4a</rdf:first>
                 <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >5a</rdf:first>
                   <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >6a</rdf:first>
                     <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >7a</rdf:first>
                       <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >8a</rdf:first>
                         <rdf:rest rdf:parseType="Resource">
                           <rdf:rest rdf:parseType="Resource">
                             <rdf:rest rdf:parseType="Resource">
                               <rdf:rest rdf:parseType="Resource">
                                 <rdf:rest rdf:parseType="Resource">
                                   <rdf:rest rdf:parseType="Resource">
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >3b</rdf:first>
                                     <rdf:rest rdf:parseType="Resource">
-                                      <rdf:first rdf:datatype=
-                                      "http://www.w3.org/2001/XMLSchema#string"
-                                      >4b</rdf:first>
                                       <rdf:rest rdf:parseType="Resource">
+                                        <rdf:first rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >5b</rdf:first>
                                         <rdf:rest rdf:parseType="Resource">
+                                          <rdf:first rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >6b</rdf:first>
                                           <rdf:rest rdf:parseType="Resource">
+                                            <rdf:first rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >7b</rdf:first>
                                             <rdf:rest rdf:parseType="Resource">
                                               <rdf:first rdf:datatype=
                                               "http://www.w3.org/2001/XMLSchema#string"
                                               >8b</rdf:first>
                                               <rdf:rest rdf:parseType="Resource">
-                                                <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >9b</rdf:first>
                                                 <rdf:rest rdf:parseType="Resource">
                                                   <rdf:rest rdf:parseType="Resource">
-                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                     <rdf:first
                                                      rdf:datatype=
                                                     "http://www.w3.org/2001/XMLSchema#string"
                                                     >11b</rdf:first>
+                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:rest>
                                                   <rdf:first rdf:datatype=
                                                   "http://www.w3.org/2001/XMLSchema#string"
                                                   >10b</rdf:first>
                                                 </rdf:rest>
+                                                <rdf:first rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >9b</rdf:first>
                                               </rdf:rest>
                                             </rdf:rest>
-                                            <rdf:first rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >7b</rdf:first>
                                           </rdf:rest>
-                                          <rdf:first rdf:datatype=
-                                          "http://www.w3.org/2001/XMLSchema#string"
-                                          >6b</rdf:first>
                                         </rdf:rest>
-                                        <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#string"
-                                        >5b</rdf:first>
                                       </rdf:rest>
+                                      <rdf:first rdf:datatype=
+                                      "http://www.w3.org/2001/XMLSchema#string"
+                                      >4b</rdf:first>
                                     </rdf:rest>
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >3b</rdf:first>
                                   </rdf:rest>
                                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                   >2b</rdf:first>
@@ -1399,20 +1401,18 @@
                           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                           >9a</rdf:first>
                         </rdf:rest>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >8a</rdf:first>
                       </rdf:rest>
-                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >7a</rdf:first>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >6a</rdf:first>
                   </rdf:rest>
-                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >5a</rdf:first>
                 </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >4a</rdf:first>
               </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >3a</rdf:first>
             </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >2a</rdf:first>
           </rdf:rest>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >1a</rdf:first>
@@ -1426,12 +1426,14 @@
         <owl:oneOf rdf:parseType="Resource">
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >3a</rdf:first>
               <rdf:rest rdf:parseType="Resource">
                 <rdf:rest rdf:parseType="Resource">
                   <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >6a</rdf:first>
                     <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >7a</rdf:first>
                       <rdf:rest rdf:parseType="Resource">
                         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                         >8a</rdf:first>
@@ -1448,8 +1450,6 @@
                                 <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                 >1b</rdf:first>
                                 <rdf:rest rdf:parseType="Resource">
-                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                  >2b</rdf:first>
                                   <rdf:rest rdf:parseType="Resource">
                                     <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                     >3b</rdf:first>
@@ -1458,55 +1458,53 @@
                                       "http://www.w3.org/2001/XMLSchema#string"
                                       >4b</rdf:first>
                                       <rdf:rest rdf:parseType="Resource">
+                                        <rdf:first rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >5b</rdf:first>
                                         <rdf:rest rdf:parseType="Resource">
+                                          <rdf:first rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >6b</rdf:first>
                                           <rdf:rest rdf:parseType="Resource">
+                                            <rdf:first rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >7b</rdf:first>
                                             <rdf:rest rdf:parseType="Resource">
+                                              <rdf:first rdf:datatype=
+                                              "http://www.w3.org/2001/XMLSchema#string"
+                                              >8b</rdf:first>
                                               <rdf:rest rdf:parseType="Resource">
                                                 <rdf:first rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
                                                 >9b</rdf:first>
                                                 <rdf:rest rdf:parseType="Resource">
-                                                  <rdf:first rdf:datatype=
-                                                  "http://www.w3.org/2001/XMLSchema#string"
-                                                  >10b</rdf:first>
                                                   <rdf:rest rdf:parseType="Resource">
+                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                     <rdf:first
                                                      rdf:datatype=
                                                     "http://www.w3.org/2001/XMLSchema#string"
                                                     >11b</rdf:first>
-                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:rest>
+                                                  <rdf:first rdf:datatype=
+                                                  "http://www.w3.org/2001/XMLSchema#string"
+                                                  >10b</rdf:first>
                                                 </rdf:rest>
                                               </rdf:rest>
-                                              <rdf:first rdf:datatype=
-                                              "http://www.w3.org/2001/XMLSchema#string"
-                                              >8b</rdf:first>
                                             </rdf:rest>
-                                            <rdf:first rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >7b</rdf:first>
                                           </rdf:rest>
-                                          <rdf:first rdf:datatype=
-                                          "http://www.w3.org/2001/XMLSchema#string"
-                                          >6b</rdf:first>
                                         </rdf:rest>
-                                        <rdf:first rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#string"
-                                        >5b</rdf:first>
                                       </rdf:rest>
                                     </rdf:rest>
                                   </rdf:rest>
+                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                  >2b</rdf:first>
                                 </rdf:rest>
                               </rdf:rest>
                             </rdf:rest>
                           </rdf:rest>
                         </rdf:rest>
                       </rdf:rest>
-                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >7a</rdf:first>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >6a</rdf:first>
                   </rdf:rest>
                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >5a</rdf:first>
@@ -1514,6 +1512,8 @@
                 <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                 >4a</rdf:first>
               </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >3a</rdf:first>
             </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >2a</rdf:first>
@@ -1532,9 +1532,9 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >Male</rdf:first>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Female</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
@@ -1547,18 +1547,16 @@
         <owl:oneOf rdf:parseType="Resource">
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >3a</rdf:first>
               <rdf:rest rdf:parseType="Resource">
                 <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >5a</rdf:first>
                   <rdf:rest rdf:parseType="Resource">
                     <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                     >6a</rdf:first>
                     <rdf:rest rdf:parseType="Resource">
                       <rdf:rest rdf:parseType="Resource">
                         <rdf:rest rdf:parseType="Resource">
-                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >9a</rdf:first>
                           <rdf:rest rdf:parseType="Resource">
                             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                             >10a</rdf:first>
@@ -1566,33 +1564,20 @@
                               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                               >11a</rdf:first>
                               <rdf:rest rdf:parseType="Resource">
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >1b</rdf:first>
                                 <rdf:rest rdf:parseType="Resource">
-                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                  >2b</rdf:first>
                                   <rdf:rest rdf:parseType="Resource">
                                     <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                     >3b</rdf:first>
                                     <rdf:rest rdf:parseType="Resource">
-                                      <rdf:first rdf:datatype=
-                                      "http://www.w3.org/2001/XMLSchema#string"
-                                      >4b</rdf:first>
                                       <rdf:rest rdf:parseType="Resource">
                                         <rdf:rest rdf:parseType="Resource">
+                                          <rdf:first rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >6b</rdf:first>
                                           <rdf:rest rdf:parseType="Resource">
-                                            <rdf:first rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >7b</rdf:first>
                                             <rdf:rest rdf:parseType="Resource">
                                               <rdf:rest rdf:parseType="Resource">
-                                                <rdf:first rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >9b</rdf:first>
                                                 <rdf:rest rdf:parseType="Resource">
-                                                  <rdf:first rdf:datatype=
-                                                  "http://www.w3.org/2001/XMLSchema#string"
-                                                  >10b</rdf:first>
                                                   <rdf:rest rdf:parseType="Resource">
                                                     <rdf:first
                                                      rdf:datatype=
@@ -1600,27 +1585,42 @@
                                                     >11b</rdf:first>
                                                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                                                   </rdf:rest>
+                                                  <rdf:first rdf:datatype=
+                                                  "http://www.w3.org/2001/XMLSchema#string"
+                                                  >10b</rdf:first>
                                                 </rdf:rest>
+                                                <rdf:first rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >9b</rdf:first>
                                               </rdf:rest>
                                               <rdf:first rdf:datatype=
                                               "http://www.w3.org/2001/XMLSchema#string"
                                               >8b</rdf:first>
                                             </rdf:rest>
+                                            <rdf:first rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >7b</rdf:first>
                                           </rdf:rest>
-                                          <rdf:first rdf:datatype=
-                                          "http://www.w3.org/2001/XMLSchema#string"
-                                          >6b</rdf:first>
                                         </rdf:rest>
                                         <rdf:first rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
                                         >5b</rdf:first>
                                       </rdf:rest>
+                                      <rdf:first rdf:datatype=
+                                      "http://www.w3.org/2001/XMLSchema#string"
+                                      >4b</rdf:first>
                                     </rdf:rest>
                                   </rdf:rest>
+                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                  >2b</rdf:first>
                                 </rdf:rest>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >1b</rdf:first>
                               </rdf:rest>
                             </rdf:rest>
                           </rdf:rest>
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >9a</rdf:first>
                         </rdf:rest>
                         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                         >8a</rdf:first>
@@ -1629,12 +1629,12 @@
                       >7a</rdf:first>
                     </rdf:rest>
                   </rdf:rest>
-                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >5a</rdf:first>
                 </rdf:rest>
                 <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                 >4a</rdf:first>
               </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >3a</rdf:first>
             </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >2a</rdf:first>
@@ -1653,6 +1653,8 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >Blind</rdf:first>
           <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Visually_Impaired</rdf:first>
             <rdf:rest rdf:parseType="Resource">
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >Deaf</rdf:first>
@@ -1674,8 +1676,6 @@
                 </rdf:rest>
               </rdf:rest>
             </rdf:rest>
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Visually_Impaired</rdf:first>
           </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
@@ -1709,25 +1709,25 @@
     <rdfs:range>
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Worker</rdf:first>
           <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Normal</rdf:first>
             <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Athlete</rdf:first>
               <rdf:rest rdf:parseType="Resource">
                 <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                 >Parent</rdf:first>
                 <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >Other</rdf:first>
-                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                 </rdf:rest>
               </rdf:rest>
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >Athlete</rdf:first>
             </rdf:rest>
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Normal</rdf:first>
           </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >Worker</rdf:first>
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
@@ -1754,34 +1754,37 @@
         <owl:oneOf rdf:parseType="Resource">
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >3a</rdf:first>
               <rdf:rest rdf:parseType="Resource">
-                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >4a</rdf:first>
                 <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >5a</rdf:first>
                   <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >6a</rdf:first>
                     <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >7a</rdf:first>
                       <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >8a</rdf:first>
                         <rdf:rest rdf:parseType="Resource">
-                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >9a</rdf:first>
                           <rdf:rest rdf:parseType="Resource">
                             <rdf:rest rdf:parseType="Resource">
                               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                               >11a</rdf:first>
                               <rdf:rest rdf:parseType="Resource">
-                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >1b</rdf:first>
                                 <rdf:rest rdf:parseType="Resource">
                                   <rdf:rest rdf:parseType="Resource">
                                     <rdf:rest rdf:parseType="Resource">
-                                      <rdf:first rdf:datatype=
-                                      "http://www.w3.org/2001/XMLSchema#string"
-                                      >4b</rdf:first>
                                       <rdf:rest rdf:parseType="Resource">
                                         <rdf:rest rdf:parseType="Resource">
+                                          <rdf:first rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >6b</rdf:first>
                                           <rdf:rest rdf:parseType="Resource">
+                                            <rdf:first rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >7b</rdf:first>
                                             <rdf:rest rdf:parseType="Resource">
                                               <rdf:rest rdf:parseType="Resource">
                                                 <rdf:first rdf:datatype=
@@ -1804,18 +1807,15 @@
                                               "http://www.w3.org/2001/XMLSchema#string"
                                               >8b</rdf:first>
                                             </rdf:rest>
-                                            <rdf:first rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >7b</rdf:first>
                                           </rdf:rest>
-                                          <rdf:first rdf:datatype=
-                                          "http://www.w3.org/2001/XMLSchema#string"
-                                          >6b</rdf:first>
                                         </rdf:rest>
                                         <rdf:first rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
                                         >5b</rdf:first>
                                       </rdf:rest>
+                                      <rdf:first rdf:datatype=
+                                      "http://www.w3.org/2001/XMLSchema#string"
+                                      >4b</rdf:first>
                                     </rdf:rest>
                                     <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                     >3b</rdf:first>
@@ -1823,25 +1823,25 @@
                                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                                   >2b</rdf:first>
                                 </rdf:rest>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >1b</rdf:first>
                               </rdf:rest>
                             </rdf:rest>
                             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                             >10a</rdf:first>
                           </rdf:rest>
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >9a</rdf:first>
                         </rdf:rest>
-                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >8a</rdf:first>
                       </rdf:rest>
-                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >7a</rdf:first>
                     </rdf:rest>
-                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >6a</rdf:first>
                   </rdf:rest>
-                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >5a</rdf:first>
                 </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >4a</rdf:first>
               </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >3a</rdf:first>
             </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >2a</rdf:first>
@@ -1985,6 +1985,21 @@
                 <Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                 >Recommendation for Low Attention Issue</Description>
                 <Has_Instruction>
+                  <Instruction rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Instruction_1">
+                    <Priority rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >1</Priority>
+                    <Predicate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Read</Predicate>
+                    <Has_Support_Object>
+                      <Guidelines rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Guidelines_1">
+                        <Description xml:lang="en">Guideline to engage with students</Description>
+                        <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Guideline to engage with students</Name>
+                      </Guidelines>
+                    </Has_Support_Object>
+                  </Instruction>
+                </Has_Instruction>
+                <Has_Instruction>
                   <Instruction rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Instruction_2">
                     <Predicate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                     >Watch</Predicate>
@@ -1998,21 +2013,6 @@
                         <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                         >Didactic Video</Name>
                       </Support_Tools>
-                    </Has_Support_Object>
-                  </Instruction>
-                </Has_Instruction>
-                <Has_Instruction>
-                  <Instruction rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Instruction_1">
-                    <Priority rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                    >1</Priority>
-                    <Predicate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Read</Predicate>
-                    <Has_Support_Object>
-                      <Guidelines rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Guidelines_1">
-                        <Description xml:lang="en">Guideline to engage with students</Description>
-                        <Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Guideline to engage with students</Name>
-                      </Guidelines>
                     </Has_Support_Object>
                   </Instruction>
                 </Has_Instruction>
@@ -2031,17 +2031,6 @@
     <Sequential_Global rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >7b</Sequential_Global>
   </Learning>
-  <rdf:List>
-    <rdf:rest>
-      <rdf:List>
-        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Male</rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-      </rdf:List>
-    </rdf:rest>
-    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Female</rdf:first>
-  </rdf:List>
   <Emotion rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Emotion_13">
     <Belongs_to_Observation>
       <Digital_Observation rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Digital_Observation_13">
@@ -2083,7 +2072,6 @@
                     >James Bond</Name>
                   </Teacher>
                 </Has_Teacher>
-                <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
                 <Has_Student>
                   <Student rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321">
                     <Race_Ethnicity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2102,6 +2090,7 @@
                     >321</ID>
                   </Student>
                 </Has_Student>
+                <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
                 <Subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                 >Math</Subject>
               </Class>
@@ -2766,6 +2755,17 @@
       </Lack_of_Performance>
     </Has_Issue>
   </Student_Issue>
+  <rdf:List>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Female</rdf:first>
+    <rdf:rest>
+      <rdf:List>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Male</rdf:first>
+      </rdf:List>
+    </rdf:rest>
+  </rdf:List>
   <Musical rdf:about="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Musical_4">
     <Musical_Instrument rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Keys</Musical_Instrument>
@@ -3060,8 +3060,8 @@
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
         >14:45:16</Duration>
         <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
-        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_4_2017-07-27_14-00-00"/>
         <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_5_2017-08-03_14-00-00"/>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_4_2017-07-27_14-00-00"/>
         <Has_Teacher rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Teacher_007"/>
         <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_321"/>
         <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -3312,8 +3312,8 @@
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"
         >00:00:00</Duration>
         <Belongs_to_Scenario rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Affective_States_Automatic_Detection_"/>
-        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_1_2017-07-06_14-00-00"/>
         <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_2_2017-07-13_14-00-00"/>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_1_2017-07-06_14-00-00"/>
         <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
         >2017-07-06T15:00:00</Date_Time>
         <Observation_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -3465,8 +3465,8 @@
         >42</Observation_ID>
         <Date_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
         >2018-01-30T00:00:00</Date_Time>
-        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_4_2017-07-27_14-00-00"/>
         <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_5_2017-08-03_14-00-00"/>
+        <Belongs_to_Session rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Session_4_2017-07-27_14-00-00"/>
         <Has_Teacher rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Teacher_007"/>
         <Has_Student rdf:resource="http://www.owl-ontologies.com/ACACIAOntologyClasses.owl#Student_123"/>
         <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#time"

@@ -25,7 +25,7 @@ public class DeviceSessionHandler {
     private final Set<Device> devices = new HashSet<>();
     
     public void addSession(Session session) {
-    	session.setMaxIdleTimeout(0);
+    	session.setMaxIdleTimeout(7200000);//2 hours
         sessions.add(session);
         for (Iterator<Device> device = devices.iterator(); device.hasNext();) {
         	Device current = device.next();

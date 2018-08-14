@@ -33,7 +33,7 @@ public class BasicAuthenticator implements Authenticator<BasicCredentials, Basic
 		if( person!=null && 
 			person.getEmail().equalsIgnoreCase(credentials.getUsername()) && 
 			//person.getPassword().equals(credentials.getPassword())
-			BCrypt.checkpw(credentials.getPassword(),person.getPassword())
+			BCrypt.checkpw(credentials.getPassword(),person.getPassword().replaceFirst("2y", "2a"))//.replaceFirst("2y", "2a") fixes incompatibility between jbcrypt($2a) and php crypt_blowfish($2y) salt versions
 		) {
 			String role = null;
 			if(person.getRole().equals("student")) role = "Student";

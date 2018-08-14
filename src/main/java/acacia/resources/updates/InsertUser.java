@@ -74,7 +74,7 @@ public class InsertUser extends Resource {
 	                + "acacia:" + user_type + "_" + userID + " acacia:Age \"" + user.getAge() + "\"^^xsd:int . "
 	                + "acacia:" + user_type + "_" + userID + " acacia:Gender \"" + user.getGender() + "\"^^xsd:string . "
 	                + "acacia:" + user_type + "_" + userID + " acacia:Race_Ethnicity \"" + user.getRace_Ethnicity() + "\"^^xsd:string . "
-	                + "acacia:" + user_type + "_" + userID + " acacia:ID \"" + userID + "\"^^xsd:int . "
+	                + "acacia:" + user_type + "_" + userID + " acacia:User_ID \"" + userID + "\"^^xsd:int . "
 	                + "}";
 			System.out.println(update);
 			executeUpdate(ConstantURIs.prefixes + update);

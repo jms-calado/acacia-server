@@ -117,10 +117,12 @@ public class SuperSession extends Resource {
 				return Response.status(422).build();
 			}else {
 				GlobalVar.GlobalSessionID++;
-				String session_id = GlobalVar.GlobalSessionID + "_" + date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+				int id = GlobalVar.GlobalSessionID;
+				String session_id = id + "_" + date_time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 				
 				String update = "INSERT DATA {"
 						+ "acacia:Session_" + session_id + " rdf:type acacia:Session . "
+						+ "acacia:Session_" + session_id + " acacia:Session_ID \"" + id + "\"^^xsd:int . " 
 						+ "acacia:Session_" + session_id + " acacia:Date_Time \"" + session.getDate_Time() + "\"^^xsd:dateTime . "
 		                + "acacia:Session_" + session_id + " acacia:Duration \"" + session.getDuration() + "\"^^xsd:time . "
 		                + "acacia:Session_" + session_id + " acacia:Observation_Sample_Rate \"600000\"^^xsd:float . "

@@ -55,7 +55,7 @@ public class SparqlExecutor {
 		String query2 = ConstantURIs.prefixes
 				+ "SELECT ?id "
                 + "WHERE {"
-                + "?x acacia:ID ?id . "
+                + "?x acacia:User_ID ?id . "
                 + "}"
                 + "ORDER BY DESC(?id) LIMIT 1";
 
@@ -71,20 +71,19 @@ public class SparqlExecutor {
 
 		//Set Highest Session ID:
 		String query3 = ConstantURIs.prefixes
-				+ "SELECT ?session "
+				+ "SELECT ?session_id "
                 + "WHERE {"
-                + "?session rdf:type acacia:Session . "
+                + "?session acacia:Session_ID ?session_id . "
                 + "}"
-                + "ORDER BY DESC(?session) LIMIT 1";
+                + "ORDER BY DESC(?session_id) LIMIT 1";
 
 		ResultSet rs3 = executeQuery(query3);
 		
 		QuerySolution qs3 = rs3.next();
 		List<String> sl3 = rs3.getResultVars();
 		for (String str3: sl3) {
-			Object obj3 = qs3.get(str3).asResource().getLocalName();
-			String[] results = String.valueOf(obj3).split("[_]", 3);
-			GlobalVar.GlobalSessionID = Integer.parseInt(results[1]);
+			Object obj3 = qs3.get(str3).asLiteral().getValue();
+			GlobalVar.GlobalSessionID = Integer.parseInt(String.valueOf(obj3));
 			System.out.println("Global Session ID: " + String.valueOf(GlobalVar.GlobalSessionID));	
 		}
 	}
